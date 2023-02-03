@@ -1,0 +1,8 @@
+// @import "../utils/variables";
+
+input[type='radio'], input[type="checkbox"]{
+    accent-color: $formComponentColor;
+    width: 20px;
+    height: 24px;
+    margin-right: 8px;
+}

@@ -1,0 +1,46 @@
+@import "../utils/mixin";
+@import "../utils/variables";
+footer{
+    .footer-top{
+        margin-bottom: 16px;
+        p{
+            width: 130px;
+            margin: 0 auto;
+            @include flex(row,center,center);
+            @include setFont(normal,500,14px,18px,'Quicksand');
+            color: $formComponentColor;
+            .line{
+                @include verticalLine(18px,8px,$verticalLineColor);
+            }
+        }
+    }
+    .footer-bottom{
+        min-height: 40px;
+        height: auto;
+        width: 100%;
+        background: $footerBackgroundColor;
+        @include flex(row,center,center);
+
+        .footer-logo{
+            margin-left: 32px;
+        }
+        .line{
+            @include verticalLine(24px,16px,$verticalLineColor);
+        }
+        .footer-br{
+            display: flex;
+            flex-wrap: wrap;
+            color: $footerTextColor;
+            .footer-data{
+                margin-right: 10px;
+                font-size: 12px;
+
+                
+
+                &:nth-child(2){
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}

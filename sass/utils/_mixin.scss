@@ -1,0 +1,38 @@
+@mixin flex($direction,$main,$cross){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $main;
+    align-items: $cross;
+}
+
+@mixin setFont($style,$weight,$size,$line,$family){
+    font-style:$style;
+    font-weight:$weight;
+    font-size:$size;
+    line-height:$line;
+    font-family:$family; 
+}
+
+@mixin verticalLine($height,$margin,$bg){
+    display: inline-block;
+    width: 1px;
+    height: $height;
+    margin: 0 $margin;
+    background-color: $bg;
+}
+
+@mixin forPhoneXs{
+    @media (max-width:350px){@content;}
+}
+@mixin forPhone{
+    @media (max-width:450px){@content;}
+}
+@mixin forPhoneXl{
+    @media (max-width:580px){@content;}
+}
+@mixin forTablet{
+    @media (max-width:900px){@content;}
+}
+@mixin forLaptop{
+    @media (min-width:1000px){@content;}
+}

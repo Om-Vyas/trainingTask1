@@ -1,0 +1,12 @@
+@import "../utils/mixin";
+@import "../utils/variables";
+select{
+    outline: none;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    width: 100%;
+    // @include setFont(normal,500,16px,20px,'Quicksand');
+    color: $selectTextColor;
+    padding-bottom: 5px;
+}
+

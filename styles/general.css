@@ -1,0 +1,23 @@
+
+
+/* ==============Typography================ */
+
+
+/* ==============utility================== */
+
+
+
+
+/* ==========footer bottom=========== */
+
+
+
+
+
+
+/* media queries for <=720px */
+@media(max-width:720px){
+    .footer-data{
+        margin-right: 0px;
+    }
+}

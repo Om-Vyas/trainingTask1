@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teacher's dashboard</title>
+
+    <link rel="stylesheet" href="./sass/main.css" />
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav class="navbar small-margin">
+      <img class="demo-bg" src="../assets/header_svg.svg" alt="" />
+      <img
+        src="./assets/icons/logo used in header.svg"
+        alt=""
+        class="main-logo"
+      />
+
+      <ul class="navbar-nav">
+        <li class="nav-item" id="active-white">
+          <a tabindex="0">DASHBOARD</a>
+        </li>
+        <li class="nav-item">
+          <a tabindex="0">CONTENT</a>
+        </li>
+        <li class="nav-item">
+          <a tabindex="0">USERS</a>
+        </li>
+        <li class="nav-item">
+          <a tabindex="0">REPORTS</a>
+        </li>
+        <li class="nav-item">
+          <a tabindex="0">ADMIN</a>
+        </li>
+      </ul>
+
+      <div class="nav-icons">
+        <div class="nav-icon">
+          <span class="icon-number">5</span>
+          <img src="./assets/icons/alerts.svg" alt="" />
+        </div>
+        <div class="nav-icon">
+          <span class="icon-number announcement-number">5</span>
+          <img src="./assets/icons/announcements.svg" alt="" />
+        </div>
+        <div class="avatar">
+          <span class="avatar-number">T</span>
+          <img src="./assets/icons/account_circle.svg" alt="" />
+        </div>
+        <div class="nav-icon ham-icon">
+          <img src="./assets/icons/hamburger-menu.svg" alt="" />
+        </div>
+      </div>
+    </nav>
+
+    <!-- Topbar -->
+    <div class="topbar">
+      <button class="icon-card" id="active-black">
+        <img src="./assets/icons/courses.svg" alt="" class="icon" />
+        <span class="icon-number">5</span>
+        <span class="icon-text">Courses</span>
+      </button>
+      <button class="icon-card">
+        <img src="./assets/icons/classes.svg" alt="" class="icon" />
+        <span class="icon-number">4</span>
+        <span class="icon-text">Classes</span>
+      </button>
+    </div>
+
+    <!-- sorting menu -->
+    <div class="sortmenu">
+      <p>Showing 4 of 4 courses</p>
+      <div>
+        <div class="sortby">
+          <p>Sort By:</p>
+          <select name="" id="">
+            <option value="">Course Name</option>
+          </select>
+        </div>
+        <img src="./assets/icons/sort.svg" alt="" class="up-icon" />
+      </div>
+    </div>
+
+    <!-- corses grid -->
+    <main class="course-container">
+      <div class="course-card">
+        <div class="star">
+          <img src="./assets/icons/favourite.svg" alt="" />
+        </div>
+        <div class="course-card-top">
+          <img src="./assets/images/imageMask.png" alt="" class="course-img" />
+          <div class="course-info">
+            <h3 class="course-title">Acceleration</h3>
+            <div class="course-sg">
+              <span class="course-subject">Physics</span>
+              <span class="line"></span>
+              <span class="course-grade"
+                >Grade 7 <span class="text-green">+2</span></span
+              >
+            </div>
+            <div class="course-unit-info">
+              4
+              <span class="course-unit">Units</span>
+              18
+              <span class="course-lesson">Lessons</span>
+              24
+              <span class="course-topic">Topics</span>
+            </div>
+            <div class="course-classes">
+              <select name="" id="" class="full-width">
+                <option value="">Mr. Frank's Class B</option>
+              </select>
+            </div>
+            <div class="course-student">
+              <span class="course-students">50 Students</span>
+              <span class="line"></span>
+              <span class="course-date">21-Jan-2020 - 21-Aug-2020</span>
+            </div>
+          </div>
+        </div>
+        <div class="hl"></div>
+        <div class="course-card-bottom">
+          <img src="./assets/icons/preview.svg" alt="" />
+          <img src="./assets/icons/manage course.svg" alt="" />
+          <img src="./assets/icons/grade submissions.svg" alt="" />
+          <img src="./assets/icons/reports.svg" alt="" />
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="star">
+          <img src="./assets/icons/favourite.svg" alt="" />
+        </div>
+        <div class="course-card-top">
+          <img
+            src="./assets/images/imageMask-1.png"
+            alt=""
+            class="course-img"
+          />
+          <div class="course-info">
+            <h3 class="course-title">Displacement, Velocity and Speed</h3>
+            <div class="course-sg">
+              <span class="course-subject">Physics</span>
+              <span class="line"></span>
+              <span class="course-grade"
+                >Grade 6 <span class="text-green">+3</span></span
+              >
+            </div>
+            <div class="course-unit-info">
+              2
+              <span class="course-unit">Units</span>
+              15
+              <span class="course-lesson">Lessons</span>
+              20
+              <span class="course-topic">Topics</span>
+            </div>
+            <div class="course-classes">
+              <select name="" id="" class="full-width hidden">
+                <option value="" disabled selected>No Classes</option>
+              </select>
+            </div>
+            <!--
+            <div class="course-student">
+              <span class="course-students">50 Students</span>
+              <span class="line"></span>
+              <span class="course-date">21-Jan-2020 - 21-Aug-2020</span>
+            </div>
+        -->
+          </div>
+        </div>
+        <div class="hl"></div>
+        <div class="course-card-bottom">
+          <img src="./assets/icons/preview.svg" alt="" />
+          <img src="./assets/icons/manage course.svg" alt="" />
+          <img src="./assets/icons/grade submissions.svg" alt="" />
+          <img src="./assets/icons/reports.svg" alt="" />
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="star">
+          <img src="./assets/icons/favourite.svg" alt="" />
+        </div>
+        <div class="course-card-top">
+          <img
+            src="./assets/images/imageMask-3.png"
+            alt=""
+            class="course-img"
+          />
+          <div class="course-info">
+            <h3 class="course-title">
+              Introduction to Biology: Micro organisms and how they affect the
+              other Life Systems in En...
+            </h3>
+            <div class="course-sg">
+              <span class="course-subject">Biology</span>
+              <span class="line"></span>
+              <span class="course-grade"
+                >Grade 4 <span class="text-green">+1</span></span
+              >
+            </div>
+            <div class="course-unit-info">
+              5
+              <span class="course-unit">Units</span>
+              16
+              <span class="course-lesson">Lessons</span>
+              22
+              <span class="course-topic">Topics</span>
+            </div>
+            <div class="course-classes">
+              <select name="" id="" class="full-width">
+                <option value="">All Classes</option>
+              </select>
+            </div>
+            <div class="course-student">
+              <span class="course-students">300 Students</span>
+              <!--
+              <span class="line"></span>
+              <span class="course-date">21-Jan-2020 - 21-Aug-2020</span>
+              -->
+            </div>
+          </div>
+        </div>
+        <div class="hl"></div>
+        <div class="course-card-bottom">
+          <img src="./assets/icons/preview.svg" alt="" />
+          <img src="./assets/icons/manage course.svg" alt="" />
+          <img src="./assets/icons/grade submissions.svg" alt="" />
+          <img src="./assets/icons/reports.svg" alt="" />
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="expired">EXPIRED</div>
+        <div class="course-card-top">
+          <img
+            src="./assets/images/imageMask-2.png"
+            alt=""
+            class="course-img"
+          />
+          <div class="course-info">
+            <h3 class="course-title">
+              Introduction to Biology: Micro organisms and how they affect the
+              other Life Systems in En...
+            </h3>
+            <div class="course-sg">
+              <span class="course-subject">Mathematics</span>
+              <span class="line"></span>
+              <span class="course-grade"
+                >Grade 8 <span class="text-green">+3</span></span
+              >
+            </div>
+            <!--
+            <div class="course-unit-info">
+              4
+              <span class="course-unit">Units</span>
+              18
+              <span class="course-lesson">Lessons</span>
+              24
+              <span class="course-topic">Topics</span>
+            </div>
+        -->
+            <div class="course-classes">
+              <select name="" id="" class="full-width">
+                <option value="">Mr. Frank's Class B</option>
+              </select>
+            </div>
+            <div class="course-student">
+              <span class="course-students">44 Students</span>
+              <span class="line"></span>
+              <span class="course-date">14-Oct-2019 - 20-Oct-2020</span>
+            </div>
+          </div>
+        </div>
+        <div class="hl"></div>
+        <div class="course-card-bottom">
+          <img src="./assets/icons/preview.svg" alt="" />
+          <img src="./assets/icons/manage course.svg" alt="" />
+          <img src="./assets/icons/grade submissions.svg" alt="" />
+          <img src="./assets/icons/reports.svg" alt="" />
+        </div>
+      </div>
+    </main>
+
+    <!-- footer -->
+    <footer>
+      <div class="footer-top">
+        <p>
+          <span>About</span><span class="line"></span><span>Contact Us</span>
+        </p>
+      </div>
+      <div class="footer-bottom">
+        <img
+          src="./assets/icons/logo used in footer.svg"
+          alt=""
+          class="footer-logo"
+        />
+        <span class="line"></span>
+        <div class="footer-br">
+          <span class="footer-data">Copyright © 2020-2021</span>
+          <span class="footer-data">Zeus Systems Pvt. Ltd.</span>
+          <span class="footer-data">All rights reserved.</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

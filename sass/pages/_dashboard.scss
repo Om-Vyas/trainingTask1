@@ -1,0 +1,243 @@
+@import "../components/select";
+@import "../utils/_mixin.scss";
+@import "../utils/variables";
+
+.topbar{
+    height: 64px;
+    max-width: 100%;
+    @include flex(row,space-evenly,center);
+    margin: 24px 24px;
+
+    .icon-card{
+        width: 50%;
+        height: 64px;
+        background: $topbarBackground;
+        border:none;
+        @include flex(row,center,center);
+        font-size: 16px;
+
+        .icon{
+            width: 21px;
+            height: 32px;
+            object-fit: cover;
+            margin-right: 8px;
+        }
+
+        .icon-number{
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+    }
+}
+
+.sortmenu{
+    max-width: 100%;
+    height: 45px;
+    @include flex(row,space-between,center);
+    margin: 24px 24px;
+    border-bottom: 1px solid rgba(0,0,0,0.12);
+
+    p{
+        font-size: 12px;
+        color: $sortMenuParagraph;
+        @include forPhoneXs{
+            margin-left: 4px;
+            font-size: 10px;
+        }
+    }
+
+    div{
+        align-self: flex-start;
+        display: flex;
+
+        .sortby{
+            @include flex(row,center,center);
+
+            select{
+                @extend select;
+                background-color: $dashboardSelectBackground;
+                width: 165px;
+                color: $dashboardSelectText;
+                padding: 0px;
+                @include setFont(normal,500,16px,20px,Quicksand);
+                margin: 0px 24px 0px 0px;
+                
+                @include forPhoneXs{
+                    @include setFont(normal,500,12px,20px,Quicksand);
+                }
+            }
+        }
+    }
+}
+
+.course-container{
+    display: grid;
+    grid-auto-rows: 246px;
+    grid-row-gap: 24px;
+    grid-template-columns: 24px 1fr 24px 1fr 24px;
+
+    @include forTablet{
+        grid-template-columns: auto 570px auto;
+    }
+    @include forPhoneXl{
+        grid-template-columns: auto 375px auto;
+    }
+    @include forPhone{
+        grid-template-columns: auto 350px auto;
+    }
+    @include forPhoneXs{
+        grid-template-columns: auto 280px auto;
+        grid-auto-rows: 220px;
+    }
+    
+
+    .course-card{
+        background-color: $courseCardBack;
+        border-radius: 2px;
+        padding: 24px 24px 0 24px;
+        position: relative;
+
+        &:nth-child(1n){
+            grid-column: 2 / span 1;
+            @include forPhoneXl{
+                padding: 10px 10px 0px 10px ;
+            }
+            @include forPhoneXs{
+                padding: 5px 5px 0px 5px ;
+            }
+        }
+    
+
+        &:nth-child(2n){
+            grid-column: 4 / span 1;
+            @include forTablet{
+                grid-column: 2/ span 1;
+            } 
+        }
+
+        .expired{
+            width: 52px;
+            height: 18px;
+            font-size: 10px;
+            line-height: 16px;
+            color: $expireText;
+            background: $expireBack;
+            border-radius: 2px;
+            position: absolute;
+            top:0px;
+            left:0px;
+            text-align: center;
+        }
+
+        .star{
+            position: absolute;
+            top:24px;
+            right: 24px;
+            @include forPhoneXl{
+                top:10px;
+                right:10px;
+            }
+        }
+
+        .course-card-top{
+            display: flex;
+
+            .course-img{
+                width: 132px;
+                height: 157px;
+                margin-right: 16px;
+                @include forPhoneXl{
+                    margin-left: 0px;
+                }
+                @include forPhoneXs{
+                    width: 80px;
+                    height: 100px;
+                }
+            }
+
+            .course-info{
+                width: 100%;
+
+                .course-title{
+                    width: 90%;
+                    color: $courseTitle;
+                    margin-bottom: 8px;
+                    @include setFont(normal,500,16px,20px,Quicksand);
+                    max-height: 40px;
+                    overflow: hidden;
+                }
+
+                .course-sg,.course-unit-info,.course-student{
+                    @include setFont(normal,500,12px,16px,Quicksand);
+                    @include flex(row,start,center);
+                    margin: 8px 0;
+                }
+
+                .course-sg{
+                    color: $courseSubjectGrade;
+                    .line{
+                        @include verticalLine(12px,9px,$verticalLineColor);
+                    }
+                }
+                .course-unit-info{
+                    font-weight: 700;
+                    .course-unit,.course-lesson,.course-topic{
+                        color: $courseSubjectGrade;
+                        display: inline-block;
+                        margin: 0 8px 0 3px;
+
+                        @include forPhoneXs{
+                            margin: 0px 2px  0 2px;
+                        }
+                    }
+                }
+                .course-student{
+                    color: $courseSubjectGrade;
+                    margin-bottom: 0px;
+                    .line{
+                        @include verticalLine(12px,9px,$verticalLineColor);
+                    }
+                }
+                .course-classes{
+                    select{
+                        @include setFont(normal,500,16px,20px,Quicksand);
+                    }
+                }
+            }
+        }
+
+        .hl{
+            height: 1px;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.12);
+            margin: 16px 0px;
+        }
+
+        .course-card-bottom{
+            width: 100%;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+        }
+    }
+}
+
+footer{
+    margin-top: 32px;
+}
+
+// @media(max-width:846px){
+//     .small-margin{
+//         margin-bottom: 8px;
+//     }
+    
+     
+// }
+
+
+
+
+
