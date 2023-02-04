@@ -1,7 +1,8 @@
 .navbar{
     width: 100%;
     height: 56px;
-    background-color: #25313F;
+    background-color: $navbarBackground;
+    position: relative;
     display: flex;
     @include flex(row,start,center);
 
@@ -25,20 +26,51 @@
 
     .navbar-nav{
         @include flex(row,center,center);
+        transition: all 1s ease;
 
         @include forTablet{
+            @include flex(column,center,center);
+            .navbar-bg{
+                width: 300px;
+                height: 300px;
+                background:transparent url("../../assets/header_image.png");
+                opacity: 0.8;
+                mix-blend-mode: overlay;
+                position: absolute;
+            }
+            transition: all 1s ease;
             display: none;
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            z-index: 999;
+            background-color: $navbarBackground;
         }
 
         .nav-item{
             margin-left: 32px;
+            z-index: 999;
+            cursor: pointer;
             height: 56px;
             line-height: 56px;
             color: $navbarColor;
             a{
+                display: inline-block;
+                height: 56px;
                 color: $navbarColor;
             }
         }
+        .active-white{
+            border-bottom: 4px solid white;
+            a{
+                color: white ;
+            }
+        }
+    }
+    .collapse{
+        display: block;
+        top: 30px;
+        right:30px;
     }
     .nav-icons{
         @include flex(row,center,center);
@@ -49,6 +81,7 @@
 
         .nav-icon{
             margin-left: 32px;
+            cursor: pointer;
             position: relative;
             @include forPhone{
                 margin-left: 10px;
@@ -56,6 +89,7 @@
             .icon-number{
                 width: 17px;
                 height: 17px;
+                line-height: 17px;
                 background-color: $badgeBackground;
                 color: $badgeColor;
                 border-radius: 50%;
@@ -71,6 +105,7 @@
         }
         .avatar{
             position: relative;
+            cursor: pointer;
             margin-left: 32px;
             @include forPhone{
                 margin-left: 10px;
@@ -86,7 +121,7 @@
                 border-radius: 50%;
                 text-align: center;
                 position: absolute;
-                top: -6px;
+                top: -4px;
                 right: -5px;
                 background-color: $badgeColor;
                 color: $selectTextColor;
@@ -96,6 +131,13 @@
         }
         .ham-icon{
             display: none;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            &:hover, &:focus{
+                outline: none;
+                border-bottom: 2px solid white;
+            }
             @include forTablet{
                 display: block;
             }

@@ -5,12 +5,20 @@
 .topbar{
     height: 64px;
     max-width: 100%;
-    @include flex(row,space-evenly,center);
+    @include flex(row,space-evenly,start);
+    background: $topbarBackground;
     margin: 24px 24px;
 
     .icon-card{
+        cursor: pointer;
         width: 50%;
-        height: 64px;
+        //when I click the buttons content was shifting up and down
+        //as display is flex and i am adding and removing border
+        //so reduced height to 60px and content-box. so now when 4px 
+        //border is added it will added below content so no changes to
+        //content height.
+        height: 60px;
+        box-sizing: content-box;
         background: $topbarBackground;
         border:none;
         @include flex(row,center,center);
@@ -27,7 +35,11 @@
             font-size: 24px;
             font-weight: bold;
             margin-right: 8px;
-        }
+        }  
+    }
+    .active-black{
+        border: none;
+        border-bottom: 4px solid black;
     }
 }
 
@@ -52,8 +64,7 @@
     }
 
     div{
-        align-self: flex-start;
-        display: flex;
+        @include flex(row,end,start);
         width: 253px;
         height: 27px;
         @include forPhone{
@@ -62,25 +73,34 @@
 
         .sortby{
             @include flex(row,center,center);
+            margin: 0px 24px 0px 0px;
+            @include forPhone{
+                margin: 0px 10px 0px 0px;
+            }
+            // width: 165px;
             p{
-                width: fit-content;
+                width: 45px;
+                margin-right: 5px;
             }
 
             .sort-select{
                 @extend select;
                 background-color: $dashboardSelectBackground;
-                max-width: 165px;
+                width: 165px;
                 color: $dashboardSelectText;
                 padding: 0px;
                 @include setFont(normal,500,16px,20px,Quicksand);
-                margin: 0px 24px 0px 0px;
                 
-                @include forPhoneXs{
+                cursor: pointer;
+                @include forPhone{
                     @include setFont(normal,500,12px,20px,Quicksand);
-                    width: 60%;
-                    margin-right: 0px;
                 }
             }
+        }
+        .up-icon{
+            width: 12px;
+            height: 24px;
+            object-fit: contain;
         }
     }
 }

@@ -19,19 +19,20 @@
       />
 
       <ul class="navbar-nav">
-        <li class="nav-item" id="active-white">
+        <div class="navbar-bg"></div>
+        <li onclick="changeNavbar(this)" class="nav-item active-white">
           <a href="#" tabindex="0">DASHBOARD</a>
         </li>
-        <li class="nav-item">
+        <li onclick="changeNavbar(this)" class="nav-item">
           <a tabindex="0">CONTENT</a>
         </li>
-        <li class="nav-item">
+        <li onclick="changeNavbar(this)" class="nav-item">
           <a tabindex="0">USERS</a>
         </li>
-        <li class="nav-item">
+        <li onclick="changeNavbar(this)" class="nav-item">
           <a tabindex="0">REPORTS</a>
         </li>
-        <li class="nav-item">
+        <li onclick="changeNavbar(this)" class="nav-item">
           <a tabindex="0">ADMIN</a>
         </li>
       </ul>
@@ -49,23 +50,23 @@
           <span class="avatar-number">T</span>
           <img src="./assets/icons/account_circle.svg" alt="" />
         </div>
-        <div class="nav-icon ham-icon">
+        <button class="nav-icon ham-icon">
           <img src="./assets/icons/hamburger-menu.svg" alt="" />
-        </div>
+        </button>
       </div>
     </nav>
 
     <!-- Topbar -->
     <div class="topbar">
-      <button class="icon-card" id="active-black">
+      <button class="icon-card active-black" onclick="changeTopbar(this)" id="">
         <img src="./assets/icons/courses.svg" alt="" class="icon" />
         <span class="icon-number">5</span>
         <span class="icon-text">Courses</span>
       </button>
-      <button class="icon-card">
+      <button class="icon-card" onclick="changeTopbar(this)">
         <img src="./assets/icons/classes.svg" alt="" class="icon" />
         <span class="icon-number">4</span>
-        <span class="icon-text">Classes</span>
+        <p class="icon-text">Classes</p>
       </button>
     </div>
 
@@ -317,5 +318,6 @@
         </div>
       </div>
     </footer>
+    <script src="./index.js"></script>
   </body>
 </html>
