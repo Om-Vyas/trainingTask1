@@ -54,14 +54,22 @@
     div{
         align-self: flex-start;
         display: flex;
+        width: 253px;
+        height: 27px;
+        @include forPhone{
+            width: fit-content;
+        }
 
         .sortby{
             @include flex(row,center,center);
+            p{
+                width: fit-content;
+            }
 
-            select{
+            .sort-select{
                 @extend select;
                 background-color: $dashboardSelectBackground;
-                width: 165px;
+                max-width: 165px;
                 color: $dashboardSelectText;
                 padding: 0px;
                 @include setFont(normal,500,16px,20px,Quicksand);
@@ -69,6 +77,8 @@
                 
                 @include forPhoneXs{
                     @include setFont(normal,500,12px,20px,Quicksand);
+                    width: 60%;
+                    margin-right: 0px;
                 }
             }
         }
@@ -266,7 +276,7 @@
 //}
 
 footer{
-    margin-top: 8px;
+    margin-top: 32px;
 }
 
 // @media(max-width:846px){

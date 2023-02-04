@@ -85,7 +85,7 @@
   font-size: 12px;
   line-height: 16px;
 }
-.container .address-select select, .container .address-select .sortmenu div .sortby select, .sortmenu div .sortby .container .address-select select {
+.container .address-select select, .container .address-select .sortmenu div .sortby .sort-select, .sortmenu div .sortby .container .address-select .sort-select {
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -129,11 +129,10 @@
     margin-right: 0px;
   }
 }
-select, .sortmenu div .sortby select {
+select, .sortmenu div .sortby .sort-select {
   outline: none;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-  width: 100%;
   color: #222222;
   padding-bottom: 5px;
 }
@@ -199,6 +198,15 @@ select, .sortmenu div .sortby select {
 .sortmenu div {
   align-self: flex-start;
   display: flex;
+  width: 253px;
+  height: 27px;
+}
+@media (max-width: 450px) {
+  .sortmenu div {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
 }
 .sortmenu div .sortby {
   display: flex;
@@ -206,9 +214,14 @@ select, .sortmenu div .sortby select {
   justify-content: center;
   align-items: center;
 }
-.sortmenu div .sortby select {
+.sortmenu div .sortby p {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.sortmenu div .sortby .sort-select {
   background-color: #EEEEEE;
-  width: 165px;
+  max-width: 165px;
   color: #333333;
   padding: 0px;
   font-style: normal;
@@ -219,12 +232,14 @@ select, .sortmenu div .sortby select {
   margin: 0px 24px 0px 0px;
 }
 @media (max-width: 350px) {
-  .sortmenu div .sortby select {
+  .sortmenu div .sortby .sort-select {
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
     line-height: 20px;
     font-family: Quicksand;
+    width: 60%;
+    margin-right: 0px;
   }
 }
 
@@ -400,7 +415,7 @@ select, .sortmenu div .sortby select {
 }
 
 footer {
-  margin-top: 8px;
+  margin-top: 32px;
 }
 
 input[type=radio], input[type=checkbox] {
@@ -410,11 +425,10 @@ input[type=radio], input[type=checkbox] {
   margin-right: 8px;
 }
 
-select, .sortmenu div .sortby select {
+select, .sortmenu div .sortby .sort-select {
   outline: none;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-  width: 100%;
   color: #222222;
   padding-bottom: 5px;
 }
