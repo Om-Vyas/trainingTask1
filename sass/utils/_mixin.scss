@@ -31,8 +31,14 @@
     @media (max-width:580px){@content;}
 }
 @mixin forTablet{
-    @media (max-width:900px){@content;}
+    @media (max-width:980px){@content;}
 }
 @mixin forLaptop{
-    @media (min-width:1000px){@content;}
+    @media (max-width:1030px){@content;}
+}
+@mixin forLaptopL{
+    @media (max-width:1450px){@content;}
+}
+@mixin for4k{
+    @media (min-width:1450px){@content;}
 }

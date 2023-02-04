@@ -35,8 +35,12 @@
     max-width: 100%;
     height: 45px;
     @include flex(row,space-between,center);
-    margin: 24px 24px;
+    margin: 24px 24px 16px;
     border-bottom: 1px solid rgba(0,0,0,0.12);
+
+    @include forTablet{
+        margin: 24px; 
+    }
 
     p{
         font-size: 12px;
@@ -71,162 +75,198 @@
     }
 }
 
-.course-container{
-    display: grid;
-    grid-auto-rows: 246px;
-    grid-row-gap: 24px;
-    grid-template-columns: 24px 1fr 24px 1fr 24px;
+//.course-container{
+    // display: grid;
+    // grid-template-columns: 24px 1fr 24px;
 
-    @include forTablet{
-        grid-template-columns: auto 570px auto;
-    }
-    @include forPhoneXl{
-        grid-template-columns: auto 375px auto;
-    }
-    @include forPhone{
-        grid-template-columns: auto 350px auto;
-    }
-    @include forPhoneXs{
-        grid-template-columns: auto 280px auto;
-        grid-auto-rows: 220px;
-    }
-    
+    .course-main-col{
+        // grid-column: 2 / span 1;
+        display: flex;
+        gap:24px;
+        padding: 0px 24px;
+        justify-content: center;
+        flex-wrap: wrap;
 
-    .course-card{
-        background-color: $courseCardBack;
-        border-radius: 2px;
-        padding: 24px 24px 0 24px;
-        position: relative;
-
-        &:nth-child(1n){
-            grid-column: 2 / span 1;
-            @include forPhoneXl{
-                padding: 10px 10px 0px 10px ;
-            }
-            @include forPhoneXs{
-                padding: 5px 5px 0px 5px ;
-            }
-        }
-    
-
-        &:nth-child(2n){
-            grid-column: 4 / span 1;
-            @include forTablet{
-                grid-column: 2/ span 1;
-            } 
-        }
-
-        .expired{
-            width: 52px;
-            height: 18px;
-            font-size: 10px;
-            line-height: 16px;
-            color: $expireText;
-            background: $expireBack;
+        .course-card{
+            max-width: 571px;
+            width: 476px;
+            height: 246px;
+            flex-grow: 1;
+            flex-shrink: 1;
+            flex-basis: 445px;
+            background-color: $courseCardBack;
             border-radius: 2px;
-            position: absolute;
-            top:0px;
-            left:0px;
-            text-align: center;
-        }
+            padding: 24px 24px 0 24px;
+            position: relative;
+            // margin-bottom: 24px;
+            // margin-right: 24px;
 
-        .star{
-            position: absolute;
-            top:24px;
-            right: 24px;
+            // @include for4k{
+            //     &:nth-child(5n){
+            //         margin-right: 0px;
+            //     }
+            // }
+
+            // @include forLaptopL{
+            //     &:nth-child(3n){
+            //         margin-right: 0px;
+            //     }
+            // }
+
+            // @include forLaptop{
+            //     &:nth-child(2n){
+            //         margin-right: 0px;
+            //     }
+            //     &:nth-child(3n){
+            //         margin-right: 24px;
+            //     }
+            // }
+
+            // @include forTablet{
+            //     &:nth-child(1n){
+            //         margin-right: 0px;
+            //     }
+            // }
+
             @include forPhoneXl{
-                top:10px;
-                right:10px;
+                width: 377px;
+                
+                padding: 5px 5px 0px;
             }
-        }
 
-        .course-card-top{
-            display: flex;
+            @include forPhone{
+                width: 327px;
+                height: 230px;
+            }
 
-            .course-img{
-                width: 132px;
-                height: 157px;
-                margin-right: 16px;
+            @include forPhoneXs{
+                width: 272px;
+                padding: 3px 3px 3px;
+                height: 220px;
+            }
+
+            &:last-child{
+                margin-right: 0px;
+            }
+            
+        
+            .expired{
+                width: 52px;
+                height: 18px;
+                font-size: 10px;
+                line-height: 16px;
+                color: $expireText;
+                background: $expireBack;
+                border-radius: 2px;
+                position: absolute;
+                top:0px;
+                left:0px;
+                text-align: center;
+            }
+    
+            .star{
+                position: absolute;
+                top:24px;
+                right: 24px;
                 @include forPhoneXl{
-                    margin-left: 0px;
-                }
-                @include forPhoneXs{
-                    width: 80px;
-                    height: 100px;
+                    top:10px;
+                    right:10px;
                 }
             }
-
-            .course-info{
-                width: 100%;
-
-                .course-title{
-                    width: 90%;
-                    color: $courseTitle;
-                    margin-bottom: 8px;
-                    @include setFont(normal,500,16px,20px,Quicksand);
-                    max-height: 40px;
-                    overflow: hidden;
-                }
-
-                .course-sg,.course-unit-info,.course-student{
-                    @include setFont(normal,500,12px,16px,Quicksand);
-                    @include flex(row,start,center);
-                    margin: 8px 0;
-                }
-
-                .course-sg{
-                    color: $courseSubjectGrade;
-                    .line{
-                        @include verticalLine(12px,9px,$verticalLineColor);
+    
+            .course-card-top{
+                display: flex;
+    
+                .course-img{
+                    width: 132px;
+                    height: 157px;
+                    margin-right: 16px;
+                    @include forPhoneXl{
+                        margin-right: 5px;
+                    }
+                    @include forPhoneXs{
+                        width: 80px;
+                        height: 100px;
                     }
                 }
-                .course-unit-info{
-                    font-weight: 700;
-                    .course-unit,.course-lesson,.course-topic{
+    
+                .course-info{
+                    width: 100%;
+    
+                    .course-title{
+                        width: 90%;
+                        color: $courseTitle;
+                        margin-bottom: 8px;
+                        @include setFont(normal,500,16px,20px,Quicksand);
+                        max-height: 40px;
+                        overflow: hidden;
+                    }
+    
+                    .course-sg,.course-unit-info,.course-student{
+                        @include setFont(normal,500,12px,16px,Quicksand);
+                        @include flex(row,start,center);
+                        margin: 8px 0;
+                    }
+    
+                    .course-sg{
                         color: $courseSubjectGrade;
-                        display: inline-block;
-                        margin: 0 8px 0 3px;
-
-                        @include forPhoneXs{
-                            margin: 0px 2px  0 2px;
+                        .line{
+                            @include verticalLine(12px,9px,$verticalLineColor);
+                        }
+                    }
+                    .course-unit-info{
+                        font-weight: 700;
+                        .course-unit,.course-lesson,.course-topic{
+                            color: $courseSubjectGrade;
+                            display: inline-block;
+                            margin: 0 8px 0 3px;
+    
+                            @include forPhoneXs{
+                                margin: 0px 2px  0 2px;
+                            }
+                        }
+                    }
+                    .course-student{
+                        color: $courseSubjectGrade;
+                        margin-bottom: 0px;
+                        .line{
+                            @include verticalLine(12px,9px,$verticalLineColor);
+                        }
+                    }
+                    .course-classes{
+                        width: 100%;
+                        .full-width{
+                            @include setFont(normal,500,16px,20px,Quicksand);
+                            width: 100%;
                         }
                     }
                 }
-                .course-student{
-                    color: $courseSubjectGrade;
-                    margin-bottom: 0px;
-                    .line{
-                        @include verticalLine(12px,9px,$verticalLineColor);
-                    }
-                }
-                .course-classes{
-                    select{
-                        @include setFont(normal,500,16px,20px,Quicksand);
-                    }
-                }
+            }
+    
+            .hl{
+                height: 1px;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.12);
+                margin: 16px 0px;
+            }
+    
+            .course-card-bottom{
+                width: 100%;
+                height: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 24px;
             }
         }
-
-        .hl{
-            height: 1px;
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.12);
-            margin: 16px 0px;
-        }
-
-        .course-card-bottom{
-            width: 100%;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 24px;
-        }
     }
-}
+    
+
+    
+//}
 
 footer{
-    margin-top: 32px;
+    margin-top: 8px;
 }
 
 // @media(max-width:846px){
