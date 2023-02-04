@@ -244,6 +244,7 @@ select, .sortmenu div .sortby .sort-select {
     font-size: 12px;
     line-height: 20px;
     font-family: Quicksand;
+    width: 150px;
   }
 }
 .sortmenu div .up-icon {
@@ -288,7 +289,7 @@ select, .sortmenu div .sortby .sort-select {
   .course-main-col .course-card {
     width: 272px;
     padding: 3px 3px 3px;
-    height: 220px;
+    height: 170px;
   }
 }
 .course-main-col .course-card:last-child {
@@ -314,8 +315,8 @@ select, .sortmenu div .sortby .sort-select {
 }
 @media (max-width: 580px) {
   .course-main-col .course-card .star {
-    top: 10px;
-    right: 10px;
+    top: 5px;
+    right: 5px;
   }
 }
 .course-main-col .course-card .course-card-top {
@@ -352,6 +353,11 @@ select, .sortmenu div .sortby .sort-select {
   max-height: 40px;
   overflow: hidden;
 }
+@media (max-width: 350px) {
+  .course-main-col .course-card .course-card-top .course-info .course-title {
+    margin: 0px;
+  }
+}
 .course-main-col .course-card .course-card-top .course-info .course-sg, .course-main-col .course-card .course-card-top .course-info .course-unit-info, .course-main-col .course-card .course-card-top .course-info .course-student {
   font-style: normal;
   font-weight: 500;
@@ -363,6 +369,16 @@ select, .sortmenu div .sortby .sort-select {
   justify-content: start;
   align-items: center;
   margin: 8px 0;
+}
+@media (max-width: 350px) {
+  .course-main-col .course-card .course-card-top .course-info .course-sg, .course-main-col .course-card .course-card-top .course-info .course-unit-info, .course-main-col .course-card .course-card-top .course-info .course-student {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 14px;
+    font-family: Quicksand;
+    margin: 2px 0;
+  }
 }
 .course-main-col .course-card .course-card-top .course-info .course-sg {
   color: #666666;
@@ -401,15 +417,36 @@ select, .sortmenu div .sortby .sort-select {
   margin: 0 9px;
   background-color: rgba(0, 0, 0, 0.1215686275);
 }
+@media (max-width: 350px) {
+  .course-main-col .course-card .course-card-top .course-info .course-student {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 12px;
+    font-family: Quicksand;
+  }
+}
 .course-main-col .course-card .course-card-top .course-info .course-classes {
   width: 100%;
 }
-.course-main-col .course-card .course-card-top .course-info .course-classes .full-width {
+.course-main-col .course-card .course-card-top .course-info .course-classes select, .course-main-col .course-card .course-card-top .course-info .course-classes .sortmenu div .sortby .sort-select, .sortmenu div .sortby .course-main-col .course-card .course-card-top .course-info .course-classes .sort-select {
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
   font-family: Quicksand;
+}
+@media (max-width: 350px) {
+  .course-main-col .course-card .course-card-top .course-info .course-classes select, .course-main-col .course-card .course-card-top .course-info .course-classes .sortmenu div .sortby .sort-select, .sortmenu div .sortby .course-main-col .course-card .course-card-top .course-info .course-classes .sort-select {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    font-family: Quicksand;
+    padding: 0px;
+  }
+}
+.course-main-col .course-card .course-card-top .course-info .course-classes .full-width {
   width: 100%;
 }
 .course-main-col .course-card .course-card-top .course-info .course-classes .disabled {
@@ -421,6 +458,11 @@ select, .sortmenu div .sortby .sort-select {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.12);
   margin: 16px 0px;
+}
+@media (max-width: 350px) {
+  .course-main-col .course-card .hl {
+    margin: 12px 0;
+  }
 }
 .course-main-col .course-card .course-card-bottom {
   width: 100%;
