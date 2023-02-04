@@ -27,6 +27,9 @@
             top:10px;
             left:10px;
         }
+        @include forPhone{
+            top:21px;
+        }
         
     }
 
@@ -66,6 +69,7 @@
         }
         select{
             @include setFont(normal,500,16px,20px,'Quicksand');
+            width: 100%;
         }
     }
 
