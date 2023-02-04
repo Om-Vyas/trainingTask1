@@ -223,6 +223,9 @@
                         .line{
                             @include verticalLine(12px,9px,$verticalLineColor);
                         }
+                        .text-green{
+                            color: $formComponentColor;
+                        }
                     }
                     .course-unit-info{
                         font-weight: 700;
@@ -249,6 +252,10 @@
                             @include setFont(normal,500,16px,20px,Quicksand);
                             width: 100%;
                         }
+                        .disabled{
+                            color: #222222;
+                            opacity: 0.4;
+                        }
                     }
                 }
             }
@@ -267,6 +274,12 @@
                 align-items: center;
                 justify-content: space-between;
                 padding: 0 24px;
+                
+
+                .disabled{
+                    opacity: 0.4;
+                    cursor:auto;
+                }
             }
         }
     }

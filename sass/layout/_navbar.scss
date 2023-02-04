@@ -1,7 +1,7 @@
 .navbar{
     width: 100%;
     height: 56px;
-    // background-color: black;
+    background-color: #25313F;
     display: flex;
     @include flex(row,start,center);
 
@@ -11,8 +11,9 @@
         top: 0;
         width: 100%;
         height: 56px;
-        opacity: 1;
-        z-index: -5;
+        background: transparent url('../../assets/header_image.png') 0% 0% no-repeat padding-box;
+        mix-blend-mode: overlay;
+        opacity: 0.8;
       }
 
     .main-logo{
