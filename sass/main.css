@@ -1,3 +1,11 @@
+input {
+  cursor: pointer;
+}
+
+select, .sortmenu div .sortby .sort-select {
+  cursor: pointer;
+}
+
 .container {
   background-color: white;
   max-width: 488px;
@@ -22,6 +30,15 @@
   left: 32px;
   width: 17px;
   height: 26px;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+.container .back-icon img {
+  width: 17px;
+  height: 26px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 @media (max-width: 600px) {
   .container .back-icon {
@@ -84,9 +101,19 @@
   font-family: "Quicksand";
   width: 100%;
 }
+.container .address-select select:focus, .container .address-select .sortmenu div .sortby .sort-select:focus, .sortmenu div .sortby .container .address-select .sort-select:focus {
+  outline: none;
+  border-bottom: 3px solid #1F7A54;
+  box-shadow: 3px 3px 10px #1F7A54;
+}
 .container .name-pswd {
   margin-top: 32px;
   position: relative;
+}
+.container .name-pswd input:focus {
+  outline: none;
+  border-bottom: 3px solid #1F7A54;
+  box-shadow: 3px 3px 10px #1F7A54;
 }
 .container .name-pswd p {
   font-size: 14px;
@@ -720,6 +747,8 @@ footer .footer-top p {
   font-size: 14px;
   line-height: 18px;
   font-family: "Quicksand";
+}
+footer .footer-top p a {
   color: #1F7A54;
 }
 footer .footer-top p .line {
