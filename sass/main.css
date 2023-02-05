@@ -519,6 +519,9 @@ select, .sortmenu div .sortby .sort-select {
 .course-container .course-card .course-card-bottom button:focus {
   border-bottom: 2px solid #1F7A54;
 }
+.course-container .course-card .course-card-bottom button img {
+  cursor: pointer;
+}
 .course-container .course-card .course-card-bottom .disabled {
   opacity: 0.4;
   cursor: auto;
@@ -753,6 +756,11 @@ input[type=text], input[type=password] {
   height: 32px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.blue-bottom {
+  box-sizing: content-box;
+  border-bottom: 2px solid #31B9E4;
 }
 
 footer .footer-top {
