@@ -173,9 +173,7 @@ select, .sortmenu div .sortby .sort-select {
   font-size: 16px;
 }
 .topbar .icon-card:focus {
-  border-left: 4px solid white;
-  border-right: 4px solid white;
-  border-bottom: 4px solid white;
+  outline: auto;
 }
 .topbar .icon-card .icon {
   width: 21px;
