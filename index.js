@@ -58,6 +58,7 @@ const changeTopbar = (val) => {
     } catch (err) {}
   }
   val.classList.add("active-black");
+  val.blur();
 };
 
 //=======================Navbar Active Link white
