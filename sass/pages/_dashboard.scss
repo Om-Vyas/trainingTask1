@@ -106,38 +106,43 @@
     }
 }
 
-//.course-container{
-    // display: grid;
-    // grid-template-columns: 24px 1fr 24px;
+.course-container{
+    display: grid;
+    margin: 0px 24px;
+    grid-template-columns: repeat(auto-fit,minmax(448px,1fr));
+    grid-gap:24px;
 
-    .course-main-col{
-        // grid-column: 2 / span 1;
-        display: flex;
-        gap:24px;
-        padding: 0px 24px;
-        justify-content: center;
-        flex-wrap: wrap;
+    @include forTablet{
+        grid-template-columns: auto 571px auto;
+        grid-gap:0px;
+        justify-items: stretch;
+    }
+
+    @include forPhoneXl{
+        grid-template-columns: 1fr;
+    }
 
         .course-card{
             max-width: 571px;
-            width: 476px;
+            // width: 476px;
             height: 246px;
-            flex-grow: 1;
-            flex-shrink: 1;
-            flex-basis: 445px;
             background-color: $courseCardBack;
             border-radius: 2px;
             padding: 24px 24px 0 24px;
             position: relative;
-            
-            @include forPhoneXl{
-                width: 377px;
+
+            @include forTablet{
+                grid-column: 2 / span 1;
+                margin-bottom: 24px;
+            }
                 
+            @include forPhoneXl{
+                grid-column: 1 / span 1;
                 padding: 5px 5px 0px;
             }
 
             @include forPhone{
-                width: 327px;
+                // width: 327px;
                 height: 230px;
             }
 
@@ -299,24 +304,13 @@
                     cursor:auto;
                 }
             }
-        }
-    }
-    
-
-    
-//}
-
-footer{
-    margin-top: 32px;
+        } 
 }
 
-// @media(max-width:846px){
-//     .small-margin{
-//         margin-bottom: 8px;
-//     }
-    
-     
-// }
+footer{
+    margin-top: 8px;
+}
+
 
 
 
