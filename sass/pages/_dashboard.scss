@@ -24,6 +24,12 @@
         @include flex(row,center,center);
         font-size: 16px;
 
+        &:focus{
+            border-left: 4px solid $formBackgroundColor;
+            border-right: 4px solid $formBackgroundColor;
+            border-bottom: 4px solid $formBackgroundColor;
+        }
+
         .icon{
             width: 21px;
             height: 32px;
@@ -90,8 +96,8 @@
                 color: $dashboardSelectText;
                 padding: 0px;
                 @include setFont(normal,500,16px,20px,Quicksand);
-                
                 cursor: pointer;
+
                 @include forPhone{
                     @include setFont(normal,500,12px,20px,Quicksand);
                     width: 150px;
@@ -297,6 +303,16 @@
                 align-items: center;
                 justify-content: space-between;
                 padding: 0 24px;
+
+                button{
+                    width: 24px;
+                    object-fit: contain;
+                    background-color: $courseCardBack;
+                    border: none;
+                    &:focus{
+                        border-bottom: 2px solid $formComponentColor;
+                    }
+                }
                 
 
                 .disabled{

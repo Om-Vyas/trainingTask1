@@ -26,6 +26,11 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
+    &:focus{
+        outline: none;
+        border-bottom: 3px solid $formComponentColor;
+        box-shadow: 3px 3px 10px $formComponentColor;
+    }
 }
 
 body{

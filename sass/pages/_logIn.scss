@@ -78,11 +78,7 @@
         select{
             @include setFont(normal,500,16px,20px,'Quicksand');
             width: 100%;
-            &:focus{
-                outline: none;
-                border-bottom: 3px solid $formComponentColor;
-                box-shadow: 3px 3px 10px $formComponentColor;
-            }
+            
         }
     }
 
@@ -91,13 +87,7 @@
         position: relative;
 
         //Tab focus
-        input{
-            &:focus{
-                outline: none;
-                border-bottom: 3px solid $formComponentColor;
-                box-shadow: 3px 3px 10px $formComponentColor;
-            }
-        }
+        
 
         p{
             font-size: 14px;
