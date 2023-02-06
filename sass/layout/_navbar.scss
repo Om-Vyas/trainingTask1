@@ -26,25 +26,54 @@
 
     .navbar-nav{
         @include flex(row,center,center);
-        transition: all 1s ease;
 
         @include forTablet{
-            @include flex(column,center,center);
+            display: block;
+            border-radius: 20px;
             .navbar-bg{
                 width: 300px;
-                height: 300px;
+                height: 350px;
                 background:transparent url("../../assets/header_image.png");
                 opacity: 0.8;
                 mix-blend-mode: overlay;
                 position: absolute;
+                z-index: -100;
+                border-radius: 20px;
             }
-            transition: all 1s ease;
             display: none;
             position: absolute;
             width: 300px;
-            height: 300px;
+            height: 0px;
+            overflow: hidden;
+            top:50px;
+            right:10px;
+            transform : scale(0.001);
+            transition: all 0.5s ease;
             z-index: 999;
+            opacity: 0;
             background-color: $navbarBackground;
+        }
+
+        .close-btn{
+            width: 25px;
+            height: 25px;
+            background: transparent;
+            border: 1px solid $outlineColor2;
+            color: white;
+            font-size: 25px;
+            line-height: 25px;
+            margin: 15px 15px 0 0 ;
+            display: none;
+            margin-left: auto;
+
+            @include forTablet{
+                display: block;
+            }
+            &:focus{
+                // color: red;
+                outline: 1px solid red;
+                box-shadow: 2px 2px 10px red;
+            }
         }
 
         .nav-item{
@@ -56,9 +85,9 @@
             color: $navbarColor;
 
             a{
-                width: 100%;
-                display: inline-block;
-                height: 56px;
+                // width: 100%;
+                // display: inline-block;
+                // height: 56px;
                 color: $navbarColor;
 
                 &:focus{
@@ -75,8 +104,11 @@
     }
     .collapse{
         display: block;
-        top: 30px;
-        right:30px;
+        // top: 50px;
+        // right:10px;
+        transform : scale(1);
+        opacity: 1;
+        height: 350px;
     }
     .nav-icons{
         @include flex(row,center,center);
