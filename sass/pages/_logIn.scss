@@ -18,23 +18,20 @@
     }
 
     .back-icon{
-        position: absolute;
-        top:18px;
-        left: 32px;
         width: 17px;
         height: 26px;
-        @media (max-width:600px){
-            top:10px;
-            left:10px;
-        }
-        @include forPhone{
-            top:21px;
-        }
-        
+        background-color: transparent;
+        background-image: url('../../assets/icons/back.svg');
+        background-size: cover;
+        background-position: center;
+        border: none;
     }
 
     .form-header{
+        width: calc(100% - 34px);
+        float: right;
         @include setFont(normal,500,24px,28px,'Quicksand');
+        margin-right: 17px;
         margin-bottom:  32px;
         text-align: center;
     }
@@ -96,17 +93,5 @@
     .remember-me{
         margin-top: 24px;
         @include flex(row,start,center);
-    }
-}
-
-@media(max-width:720px){
-    .container{
-        margin-bottom: 258px;
-    }
-    .option{
-        margin-right: 10px;
-    }
-    .footer-data{
-        margin-right: 0px;
     }
 }

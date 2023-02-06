@@ -25,29 +25,23 @@ select, .sortmenu div .sortby .sort-select {
   }
 }
 .container .back-icon {
-  position: absolute;
-  top: 18px;
-  left: 32px;
   width: 17px;
   height: 26px;
-}
-@media (max-width: 600px) {
-  .container .back-icon {
-    top: 10px;
-    left: 10px;
-  }
-}
-@media (max-width: 450px) {
-  .container .back-icon {
-    top: 21px;
-  }
+  background-color: transparent;
+  background-image: url("../../assets/icons/back.svg");
+  background-size: cover;
+  background-position: center;
+  border: none;
 }
 .container .form-header {
+  width: calc(100% - 34px);
+  float: right;
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
   line-height: 28px;
   font-family: "Quicksand";
+  margin-right: 17px;
   margin-bottom: 32px;
   text-align: center;
 }
@@ -118,17 +112,6 @@ select, .sortmenu div .sortby .sort-select {
   align-items: center;
 }
 
-@media (max-width: 720px) {
-  .container {
-    margin-bottom: 258px;
-  }
-  .option {
-    margin-right: 10px;
-  }
-  .footer-data {
-    margin-right: 0px;
-  }
-}
 select, .sortmenu div .sortby .sort-select {
   outline: none;
   border: none;
