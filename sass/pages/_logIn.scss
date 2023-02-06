@@ -5,7 +5,7 @@
     max-width: 488px;
     width: 60%;
     min-width: 320px;
-    height: 550px;
+    height: fit-content;
     margin: 50px auto 32px auto;
     border-top: 4px solid $borderTop;
     border-top-left-radius: 2px;
@@ -17,6 +17,10 @@
         margin-bottom: 258px;
     }
 
+    @include forPhone{
+        
+    }
+
     .back-icon{
         width: 17px;
         height: 26px;
@@ -25,6 +29,7 @@
         background-size: cover;
         background-position: center;
         border: none;
+        cursor: pointer;
     }
 
     .form-header{
@@ -46,11 +51,14 @@
             @include flex(row,center,center);
             margin-right: 32px;
 
-            @include forTablet{
-                margin-right: 32px;
-            }
             @include forPhone{
-                margin-right: 2px;
+                margin-right: 4px;
+            }
+
+            input[type='radio']{
+                @include forPhone{
+                    margin-right: 4px;
+                }
             }
         }
     }
@@ -71,16 +79,18 @@
     }
 
     .name-pswd{
-        margin-top: 32px;
+
         position: relative;
 
         p{
             font-size: 14px;
             color: $formComponentColor;
             text-align: end;
+            cursor: pointer;
         }
 
         .view-icon{
+            cursor: pointer;
             width: 22px;
             height: 15px;
             object-fit: cover;
@@ -88,6 +98,13 @@
             top:2px;
             right: 10px;
         }
+    }
+
+    .name{
+        margin-top: 56px;
+    }
+    .pswd{
+        margin-top: 33px;
     }
 
     .remember-me{
