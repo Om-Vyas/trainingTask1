@@ -113,9 +113,9 @@
 .course-container{
     display: grid;
     margin: 0px 24px;
-    grid-template-columns: repeat(auto-fit,minmax(448px,1fr));
+    grid-template-columns: repeat(auto-fill,minmax(448px,1fr));
     grid-gap:24px;
-
+    
     @include forTablet{
         grid-template-columns: auto 571px auto;
         grid-gap:0px;
@@ -128,7 +128,6 @@
 
         .course-card{
             max-width: 571px;
-            // width: 476px;
             height: 246px;
             background-color: $courseCardBack;
             border-radius: 2px;
@@ -155,11 +154,6 @@
                 padding: 3px 3px 3px;
                 height: 170px;
             }
-
-            &:last-child{
-                margin-right: 0px;
-            }
-            
         
             .expired{
                 width: 52px;
@@ -327,6 +321,13 @@
 
 footer{
     margin-top: 8px;
+
+    @include for4k{
+        margin-top: 32px;
+    }
+    @include forLaptopL{
+        margin-top: 32px;
+    }
 }
 
 

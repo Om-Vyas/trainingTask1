@@ -280,7 +280,7 @@ select, .sortmenu div .sortby .sort-select {
 .course-container {
   display: grid;
   margin: 0px 24px;
-  grid-template-columns: repeat(auto-fit, minmax(448px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(448px, 1fr));
   grid-gap: 24px;
 }
 @media (max-width: 980px) {
@@ -326,9 +326,6 @@ select, .sortmenu div .sortby .sort-select {
     padding: 3px 3px 3px;
     height: 170px;
   }
-}
-.course-container .course-card:last-child {
-  margin-right: 0px;
 }
 .course-container .course-card .expired {
   width: 52px;
@@ -527,6 +524,16 @@ select, .sortmenu div .sortby .sort-select {
 
 footer {
   margin-top: 8px;
+}
+@media (min-width: 1450px) {
+  footer {
+    margin-top: 32px;
+  }
+}
+@media (max-width: 1450px) {
+  footer {
+    margin-top: 32px;
+  }
 }
 
 input[type=radio], input[type=checkbox] {
