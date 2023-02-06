@@ -8,7 +8,9 @@ footer{
             margin: 0 auto;
             @include flex(row,center,center);
             @include setFont(normal,500,14px,18px,'Quicksand');
-            color: $formComponentColor;
+            a{
+                color: $formComponentColor;
+            }
             .line{
                 @include verticalLine(18px,8px,$verticalLineColor);
             }
@@ -34,9 +36,6 @@ footer{
             .footer-data{
                 margin-right: 10px;
                 font-size: 12px;
-
-                
-
                 &:nth-child(2){
                     font-weight: bold;
                 }

@@ -24,6 +24,10 @@
         @include flex(row,center,center);
         font-size: 16px;
 
+        &:focus{
+            outline: auto;
+        }
+
         .icon{
             width: 21px;
             height: 32px;
@@ -298,6 +302,19 @@
                 justify-content: space-between;
                 padding: 0 24px;
                 
+                button{
+                    width: 24px;
+                    object-fit: contain;
+                    
+                    background-color: $courseCardBack;
+                    border: none;
+                    &:focus{
+                        border-bottom: 2px solid $formComponentColor;
+                    }
+                    img{
+                        cursor: pointer;
+                    }
+                }
 
                 .disabled{
                     opacity: 0.4;
@@ -315,13 +332,7 @@ footer{
     margin-top: 32px;
 }
 
-// @media(max-width:846px){
-//     .small-margin{
-//         margin-bottom: 8px;
-//     }
-    
-     
-// }
+
 
 
 

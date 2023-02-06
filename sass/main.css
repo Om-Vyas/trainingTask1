@@ -1,3 +1,11 @@
+input {
+  cursor: pointer;
+}
+
+select, .sortmenu div .sortby .sort-select {
+  cursor: pointer;
+}
+
 .container {
   background-color: white;
   max-width: 488px;
@@ -151,6 +159,9 @@ select, .sortmenu div .sortby .sort-select {
   justify-content: center;
   align-items: center;
   font-size: 16px;
+}
+.topbar .icon-card:focus {
+  outline: auto;
 }
 .topbar .icon-card .icon {
   width: 21px;
@@ -477,6 +488,19 @@ select, .sortmenu div .sortby .sort-select {
   justify-content: space-between;
   padding: 0 24px;
 }
+.course-main-col .course-card .course-card-bottom button {
+  width: 24px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  background-color: #fff;
+  border: none;
+}
+.course-main-col .course-card .course-card-bottom button:focus {
+  border-bottom: 2px solid #1F7A54;
+}
+.course-main-col .course-card .course-card-bottom button img {
+  cursor: pointer;
+}
 .course-main-col .course-card .course-card-bottom .disabled {
   opacity: 0.4;
   cursor: auto;
@@ -594,9 +618,15 @@ input[type=text], input[type=password] {
   color: #3FD28B;
 }
 .navbar .navbar-nav .nav-item a {
+  width: 100%;
   display: inline-block;
   height: 56px;
   color: #3FD28B;
+}
+.navbar .navbar-nav .nav-item a:focus {
+  border-left: 4px solid white;
+  border-right: 4px solid white;
+  border-bottom: 4px solid white;
 }
 .navbar .navbar-nav .active-white {
   border-bottom: 4px solid white;
@@ -622,9 +652,15 @@ input[type=text], input[type=password] {
   }
 }
 .navbar .nav-icons .nav-icon {
+  background: transparent;
+  border: none;
   margin-left: 32px;
   cursor: pointer;
   position: relative;
+  height: 100%;
+}
+.navbar .nav-icons .nav-icon:focus {
+  border-bottom: 3px solid white;
 }
 @media (max-width: 450px) {
   .navbar .nav-icons .nav-icon {
@@ -651,6 +687,9 @@ input[type=text], input[type=password] {
   position: relative;
   cursor: pointer;
   margin-left: 32px;
+}
+.navbar .nav-icons .avatar:focus {
+  border-bottom: 3px solid white;
 }
 @media (max-width: 450px) {
   .navbar .nav-icons .avatar {
@@ -698,6 +737,11 @@ input[type=text], input[type=password] {
      object-fit: cover;
 }
 
+.blue-bottom {
+  box-sizing: content-box;
+  border-bottom: 2px solid #31B9E4;
+}
+
 footer .footer-top {
   margin-bottom: 16px;
 }
@@ -713,6 +757,8 @@ footer .footer-top p {
   font-size: 14px;
   line-height: 18px;
   font-family: "Quicksand";
+}
+footer .footer-top p a {
   color: #1F7A54;
 }
 footer .footer-top p .line {
@@ -766,6 +812,11 @@ footer .footer-bottom .footer-br .footer-data:nth-child(2) {
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+*:focus {
+  outline: none;
+  border-bottom: 3px solid #1F7A54;
+  box-shadow: 3px 3px 10px #1F7A54;
 }
 
 body {
