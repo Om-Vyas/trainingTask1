@@ -28,8 +28,7 @@
     padding: 0;
     &:focus{
         outline: none;
-        border-bottom: 3px solid $formComponentColor;
-        box-shadow: 3px 3px 10px $formComponentColor;
+        border: 2px solid $formComponentColor;
     }
 }
 
