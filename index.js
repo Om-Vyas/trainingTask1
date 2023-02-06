@@ -11,17 +11,27 @@ const hamburger = () => {
 
 btn.addEventListener("click", hamburger);
 
+//======================Hamburger close button===========
+const closeBtn = document.querySelector(".close-btn");
+
+const closeHamburger = () => {
+  navbar.classList.remove("collapse");
+};
+closeBtn.addEventListener("click", closeHamburger);
+
 //=======================trap focus=======================
 
 const trap = (element) => {
-  const focusEl = element.querySelectorAll("a[href]:not([disabled])");
+  const focusEl = element.querySelectorAll(
+    "a[href]:not([disabled]),button:not([disabled])"
+  );
   const firstEl = focusEl[0];
   const lastEl = focusEl[focusEl.length - 1];
   firstEl.focus();
   element.addEventListener("keydown", function (e) {
     const tabPress = e.key === "Tab";
     if (e.key === "Enter") {
-      navbar.classList.toggle("collapse");
+      navbar.classList.remove("collapse");
       btn.focus();
       e.preventDefault();
     }
@@ -60,13 +70,12 @@ const changeTopbar = (val) => {
 const changeNavbar = (val) => {
   const navItems = document.getElementsByClassName("nav-item");
   for (item of navItems) {
-    console.log(item);
     try {
       item.classList.remove("active-white");
     } catch (err) {}
   }
   val.classList.add("active-white");
-  console.log("clicked");
+  hamburger();
 };
 
 //=======================Render Course cards==================
@@ -235,7 +244,6 @@ cards();
 
 //=====================make disabled unaccessible=========
 const disabled = document.querySelectorAll(".disabled");
-console.log(disabled);
 for (let i = 0; i < disabled.length; i++) {
   disabled[i].setAttribute("tabindex", "-1");
 }
