@@ -88,6 +88,9 @@
             }
 
             .sort-select{
+                &:focus{
+                    outline: 1px solid $outlineColor
+                }
                 @extend select;
                 background-color: $dashboardSelectBackground;
                 width: 165px;
@@ -308,9 +311,6 @@
                     
                     background-color: $courseCardBack;
                     border: none;
-                    &:focus{
-                        border-bottom: 2px solid $formComponentColor;
-                    }
                     img{
                         cursor: pointer;
                     }

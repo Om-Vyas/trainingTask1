@@ -241,6 +241,9 @@ select, .sortmenu div .sortby .sort-select {
   font-family: Quicksand;
   cursor: pointer;
 }
+.sortmenu div .sortby .sort-select:focus {
+  outline: 1px solid #7A1F45;
+}
 @media (max-width: 450px) {
   .sortmenu div .sortby .sort-select {
     font-style: normal;
@@ -488,9 +491,6 @@ select, .sortmenu div .sortby .sort-select {
   background-color: #fff;
   border: none;
 }
-.course-main-col .course-card .course-card-bottom button:focus {
-  border-bottom: 2px solid #1F7A54;
-}
 .course-main-col .course-card .course-card-bottom button img {
   cursor: pointer;
 }
@@ -620,9 +620,7 @@ input[type=text], input[type=password] {
   color: #3FD28B;
 }
 .navbar .navbar-nav .nav-item a:focus {
-  border-left: 4px solid white;
-  border-right: 4px solid white;
-  border-bottom: 4px solid white;
+  outline: 1px solid #DFF0D8;
 }
 .navbar .navbar-nav .active-white {
   border-bottom: 4px solid white;
@@ -656,7 +654,7 @@ input[type=text], input[type=password] {
   height: 100%;
 }
 .navbar .nav-icons .nav-icon:focus {
-  border-bottom: 3px solid white;
+  outline: 1px solid #DFF0D8;
 }
 @media (max-width: 450px) {
   .navbar .nav-icons .nav-icon {
@@ -685,7 +683,7 @@ input[type=text], input[type=password] {
   margin-left: 32px;
 }
 .navbar .nav-icons .avatar:focus {
-  border-bottom: 3px solid white;
+  outline: 1px solid #DFF0D8;
 }
 @media (max-width: 450px) {
   .navbar .nav-icons .avatar {
@@ -717,9 +715,8 @@ input[type=text], input[type=password] {
   border: none;
   cursor: pointer;
 }
-.navbar .nav-icons .ham-icon:hover, .navbar .nav-icons .ham-icon:focus {
-  outline: none;
-  border-bottom: 2px solid white;
+.navbar .nav-icons .ham-icon:focus {
+  outline: 1px solid #DFF0D8;
 }
 @media (max-width: 980px) {
   .navbar .nav-icons .ham-icon {
