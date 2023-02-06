@@ -115,20 +115,25 @@
         display: flex;
         gap:24px;
         padding: 0px 24px;
-        justify-content: start;
+        justify-content: center;
         flex-wrap: wrap;
 
         .course-card{
-            max-width: 571px;
+            max-width: 476px;
             width: 476px;
             height: 246px;
-            flex-grow: 1;
+            // flex-grow: 1;
             flex-shrink: 1;
-            flex-basis: 445px;
+            flex-basis: 476px;
             background-color: $courseCardBack;
             border-radius: 2px;
             padding: 24px 24px 0 24px;
             position: relative;
+
+            @include forTablet{
+                flex-grow: 1;
+                max-width: 571px;
+            }
             
             @include forPhoneXl{
                 width: 377px;
