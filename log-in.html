@@ -9,7 +9,7 @@
   </head>
   <body>
     <!-- navbar -->
-    <nav class="navbar">
+    <nav class="navbar blue-bottom">
       <img class="demo-bg" src="../assets/header_svg.svg" alt="" />
       <img
         src="./assets/icons/logo used in header.svg"
@@ -20,7 +20,9 @@
 
     <!-- main container -->
     <main class="container">
-      <img src="./assets/icons/back.svg" alt="" id="back" class="back-icon" />
+      <button class="back-icon">
+        <img src="./assets/icons/back.svg" alt="" id="back" />
+      </button>
       <h1 class="form-header">Log in with Quantum</h1>
       <form>
         <div class="school-type">
@@ -35,7 +37,7 @@
         </div>
         <div class="address-select">
           <p>State*</p>
-          <select name="" id="">
+          <select>
             <option value="">Alabama</option>
             <option value="">Alabama</option>
             <option value="">Alabama</option>
@@ -44,7 +46,7 @@
         </div>
         <div class="address-select">
           <p>District*</p>
-          <select name="" id="">
+          <select>
             <option value="">Alabama School District</option>
             <option value="">Alabama School District</option>
             <option value="">Alabama School District</option>
@@ -57,7 +59,7 @@
         </div>
 
         <div class="name-pswd">
-          <input type="text" placeholder="Password*" />
+          <input class="password" type="password" placeholder="Password*" />
           <img class="view-icon" src="./assets/icons/preview.svg" alt="" />
           <p>FORGOT PASSWORD?</p>
         </div>
@@ -74,9 +76,9 @@
     <footer>
       <div class="footer-top">
         <p>
-          <span>About</span>
-          <span class="line"></span>
-          <span>Contact Us</span>
+          <a>About</a>
+          <a class="line"></a>
+          <a>Contact Us</a>
         </p>
       </div>
       <div class="footer-bottom">
@@ -93,5 +95,6 @@
         </div>
       </div>
     </footer>
+    <script src="./login.js"></script>
   </body>
 </html>
