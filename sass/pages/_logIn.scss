@@ -5,9 +5,9 @@
     max-width: 488px;
     width: 60%;
     min-width: 320px;
-    height: 550px;
+    height: fit-content;
     margin: 50px auto 32px auto;
-    border-top: 4px solid #3AC7EC;
+    border-top: 4px solid $borderTop;
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
     padding: 20px 32px;
@@ -17,32 +17,26 @@
         margin-bottom: 258px;
     }
 
-    .back-icon{
-        position: absolute;
-        top:18px;
-        left: 32px;
-        width: 17px;
-        height: 26px;
-        border: none;
-        background-color: $formBackgroundColor;
-        cursor: pointer;
-        img{
-            width: 17px;
-            height: 26px;
-            object-fit: cover;
-        }
-        @media (max-width:600px){
-            top:10px;
-            left:10px;
-        }
-        @include forPhone{
-            top:21px;
-        }
+    @include forPhone{
         
     }
 
+    .back-icon{
+        width: 17px;
+        height: 26px;
+        background-color: transparent;
+        background-image: url('../../assets/icons/back.svg');
+        background-size: cover;
+        background-position: center;
+        border: none;
+        cursor: pointer;
+    }
+
     .form-header{
+        width: calc(100% - 34px);
+        float: right;
         @include setFont(normal,500,24px,28px,'Quicksand');
+        margin-right: 17px;
         margin-bottom:  32px;
         text-align: center;
     }
@@ -57,11 +51,14 @@
             @include flex(row,center,center);
             margin-right: 32px;
 
-            @include forTablet{
-                margin-right: 32px;
-            }
             @include forPhone{
-                margin-right: 2px;
+                margin-right: 4px;
+            }
+
+            input[type='radio']{
+                @include forPhone{
+                    margin-right: 4px;
+                }
             }
         }
     }
@@ -78,16 +75,12 @@
         select{
             @include setFont(normal,500,16px,20px,'Quicksand');
             width: 100%;
-            
         }
     }
 
     .name-pswd{
-        margin-top: 32px;
-        position: relative;
 
-        //Tab focus
-        
+        position: relative;
 
         p{
             font-size: 14px;
@@ -97,31 +90,25 @@
         }
 
         .view-icon{
+            cursor: pointer;
             width: 22px;
-            height: 22px;
-            z-index: 5;
+            height: 15px;
             object-fit: cover;
             position: absolute;
             top:2px;
             right: 10px;
-            cursor: pointer;
         }
+    }
+
+    .name{
+        margin-top: 56px;
+    }
+    .pswd{
+        margin-top: 33px;
     }
 
     .remember-me{
         margin-top: 24px;
         @include flex(row,start,center);
-    }
-}
-
-@media(max-width:720px){
-    .container{
-        margin-bottom: 258px;
-    }
-    .option{
-        margin-right: 10px;
-    }
-    .footer-data{
-        margin-right: 0px;
     }
 }
