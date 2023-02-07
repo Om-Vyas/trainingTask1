@@ -601,33 +601,55 @@ input[type=text], input[type=password] {
   }
 }
 .navbar .navbar-nav .nav-item {
-  margin-left: 32px;
+  margin: 0px 12px;
   z-index: 999;
-  cursor: pointer;
   height: 56px;
   line-height: 56px;
   color: #3FD28B;
 }
 @media (max-width: 980px) {
   .navbar .navbar-nav .nav-item {
-    margin-left: 16px;
-    height: 46px;
-    line-height: 46px;
+    min-height: 48px;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    line-height: 48px;
+    width: calc(100% - 24px);
   }
 }
-.navbar .navbar-nav .nav-item a {
+.navbar .navbar-nav .nav-item div a {
   text-decoration: none;
   color: #3FD28B;
+  padding: 4px 4px;
+  cursor: pointer;
 }
-.navbar .navbar-nav .nav-item a:focus {
+.navbar .navbar-nav .nav-item div a:focus {
   outline: 1px solid #DFF0D8;
 }
 @media (max-width: 980px) {
-  .navbar .navbar-nav .nav-item a {
+  .navbar .navbar-nav .nav-item div a {
     color: #1F7A54;
   }
-  .navbar .navbar-nav .nav-item a:focus {
+  .navbar .navbar-nav .nav-item div a:focus {
     outline: 1px solid #7A1F45;
+  }
+}
+.navbar .navbar-nav .nav-item div .drop-down-icon {
+  display: none;
+}
+@media (max-width: 980px) {
+  .navbar .navbar-nav .nav-item div .drop-down-icon {
+    display: block;
+    width: 12px;
+    height: 24px;
+    float: right;
+    padding: 12px;
+    margin-top: 12px;
+    background-image: url("/assets/icons/arrow-down.svg");
+    background-position: center;
+    background-size: cover;
+    background-color: #ffffff;
+    border: none;
   }
 }
 .navbar .navbar-nav .active-white {
@@ -644,38 +666,64 @@ input[type=text], input[type=password] {
     color: #1F7A54;
   }
 }
-.navbar .collapse {
+.navbar .expand {
   visibility: visible;
+}
+.navbar .subnav {
+  display: none;
+}
+@media (max-width: 980px) {
+  .navbar .subnav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+  }
+}
+.navbar .close {
+  display: none;
+}
+.navbar .subnav-item {
+  height: 48px;
+  line-height: 46px;
+  margin-left: 16px;
+}
+.navbar .subnav-item a {
+  text-decoration: none;
+  color: #1F7A54;
+  padding: 4px 4px;
 }
 .navbar .nav-icons {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
-  margin-right: 24px;
+  align-items: start;
+  margin-right: 8px;
+  height: 56px;
 }
 @media (max-width: 450px) {
   .navbar .nav-icons {
-    margin-right: 2px;
+    margin-right: 0px;
   }
 }
 .navbar .nav-icons .nav-icon {
   background: transparent;
   border: none;
-  margin-left: 32px;
+  margin: 0px 12px;
+  padding: 0 4px;
   cursor: pointer;
   position: relative;
-  height: 100%;
 }
 .navbar .nav-icons .nav-icon:focus {
   outline: 1px solid #DFF0D8;
 }
-@media (max-width: 450px) {
+@media (max-width: 580px) {
   .navbar .nav-icons .nav-icon {
-    margin-left: 10px;
+    margin: 0 5px;
+    padding: 0 2px;
   }
 }
-.navbar .nav-icons .nav-icon .icon-number {
+.navbar .nav-icons .nav-icon .nav-icon-number {
   width: 17px;
   height: 17px;
   line-height: 17px;
@@ -684,25 +732,34 @@ input[type=text], input[type=password] {
   border-radius: 50%;
   text-align: center;
   position: absolute;
-  top: -6px;
-  right: -5px;
 }
-.navbar .nav-icons .nav-icon .announcement-number {
-  top: -10px;
-  right: -5px;
+.navbar .nav-icons .alerts {
+  margin-top: 20px;
+  height: 36px;
+}
+.navbar .nav-icons .alerts img {
+  width: 21px;
+  height: 24px;
+}
+.navbar .nav-icons .alerts .alert-number {
+  top: -7px;
+  right: -2px;
+}
+.navbar .nav-icons .announcements {
+  margin-top: 22px;
+  height: 34px;
+}
+.navbar .nav-icons .announcements img {
+  width: 20px;
+  height: 20px;
+}
+.navbar .nav-icons .announcements .announcement-number {
+  top: -9px;
+  right: -7px;
 }
 .navbar .nav-icons .avatar {
-  position: relative;
-  cursor: pointer;
-  margin-left: 32px;
-}
-.navbar .nav-icons .avatar:focus {
-  outline: 1px solid #DFF0D8;
-}
-@media (max-width: 450px) {
-  .navbar .nav-icons .avatar {
-    margin-left: 10px;
-  }
+  margin-top: 16px;
+  height: 40px;
 }
 .navbar .nav-icons .avatar img {
   width: 32px;
@@ -711,13 +768,8 @@ input[type=text], input[type=password] {
      object-fit: cover;
 }
 .navbar .nav-icons .avatar .avatar-number {
-  width: 17px;
-  height: 17px;
-  border-radius: 50%;
-  text-align: center;
-  position: absolute;
-  top: -4px;
-  right: -5px;
+  top: -5px;
+  right: 0px;
   background-color: white;
   color: #222222;
   font-size: 10px;
@@ -725,23 +777,35 @@ input[type=text], input[type=password] {
 }
 .navbar .nav-icons .ham-icon {
   display: none;
-  background-color: transparent;
   border: none;
-  cursor: pointer;
-}
-.navbar .nav-icons .ham-icon:focus {
-  outline: 1px solid #DFF0D8;
+  background-color: transparent;
+  margin-top: 17px;
+  height: 43px;
+  width: 35px;
 }
 @media (max-width: 980px) {
   .navbar .nav-icons .ham-icon {
     display: block;
   }
 }
-.navbar .nav-icons .ham-icon img {
-  width: 32px;
-  height: 32px;
-  -o-object-fit: cover;
-     object-fit: cover;
+.navbar .nav-icons .ham-icon div {
+  height: 100%;
+  width: 27px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+}
+.navbar .nav-icons .ham-icon div .line {
+  display: inline-block;
+  max-width: 100%;
+  width: 98%;
+  height: 3px;
+  margin-bottom: 6px;
+  background-color: #8DDC97;
+}
+.navbar .nav-icons .active-ham div .line {
+  background-color: #ffffff;
 }
 
 footer .footer-top {

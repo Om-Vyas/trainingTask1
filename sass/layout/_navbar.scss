@@ -42,33 +42,54 @@
         }
 
         .nav-item{
-            margin-left: 32px;
+            margin: 0px 12px;
             z-index: 999;
-            cursor: pointer;
             height: 56px;
             line-height: 56px;
             color: $navbarColor;
 
             @include forTablet{
-                margin-left: 16px;
-                height: 46px;
-                line-height: 46px;
+                min-height: 48px;
+                height: fit-content;
+                line-height: 48px;
+                width: calc(100% - 24px);
             }
 
-            a{
-                text-decoration: none;
-                color: $navbarColor;
+            div{
+                a{
+                    text-decoration: none;
+                    color: $navbarColor;
+                    padding: 4px 4px;
+                    cursor: pointer;
 
-                &:focus{
-                    outline: 1px solid $outlineColor2;
-                }
-                @include forTablet{
-                    color: $verticalNavbarText;
                     &:focus{
-                        outline: 1px solid $outlineColor;
+                        outline: 1px solid $outlineColor2;
+                    }
+                    @include forTablet{
+                        color: $verticalNavbarText;
+                        &:focus{
+                            outline: 1px solid $outlineColor;
+                        }
+                    }
+                }
+                .drop-down-icon{
+                    display: none;
+                    @include forTablet{
+                        display: block;
+                        width: 12px;
+                        height: 24px;
+                        float: right;
+                        padding: 12px;
+                        margin-top: 12px;
+                        background-image: url("/assets/icons/arrow-down.svg");
+                        background-position: center;
+                        background-size: cover;
+                        background-color: $verticalNavbarBackground;
+                        border: none;
                     }
                 }
             }
+        
         }
         .active-white{
             border-bottom: 4px solid white;
@@ -84,33 +105,58 @@
             }
         }
     }
-    .collapse{
+    .expand{
         visibility: visible;
     }
 
+    //===========================SUb-NAVBAR=========
+    .subnav{
+        display: none;
+        @include forTablet{
+            @include flex(column,center,start);
+        }
+    }
+    .close{
+        display: none;
+    }
+    .subnav-item{
+        height: 48px;
+        line-height: 46px;
+        margin-left: 16px;
+        a{
+            text-decoration: none;
+            color: $verticalNavbarText;
+            padding: 4px 4px;
+        }
+    }
+
+    //====================NAV ICONS=======================
     .nav-icons{
-        @include flex(row,center,center);
-        margin-right: 24px;
+        @include flex(row,center,start);
+        margin-right: 8px;
+        height: 56px;
         @include forPhone{
-            margin-right: 2px;
+            margin-right: 0px;
         }
 
         .nav-icon{
             background: transparent;
             border: none;
-            margin-left: 32px;
+            margin: 0px 12px;
+            padding: 0 4px;
             cursor: pointer;
             position: relative;
-            height: 100%;
             
             &:focus{
                 outline: 1px solid $outlineColor2;
             }
 
-            @include forPhone{
-                margin-left: 10px;
+            @include forPhoneXl {
+                margin: 0 5px;
+                padding: 0 2px;
             }
-            .icon-number{
+
+            .nav-icon-number{
                 width: 17px;
                 height: 17px;
                 line-height: 17px;
@@ -119,39 +165,46 @@
                 border-radius: 50%;
                 text-align: center;
                 position: absolute;
-                top: -6px;
-                right: -5px;
+            }   
+        }
+
+        .alerts{
+            margin-top: 20px;
+            height: 36px;
+            img{
+                width: 21px;
+                height: 24px;
             }
-            .announcement-number{
-                top: -10px;
-                right: -5px;
+            .alert-number{
+                top: -7px;
+                right: -2px;
             }
         }
+
+        .announcements{
+            margin-top: 22px;
+            height: 34px;
+            img{
+                width: 20px;
+                height: 20px;
+            }
+            .announcement-number{
+                top: -9px;
+                right: -7px;
+            }
+        }
+
         .avatar{
-            position: relative;
-            cursor: pointer;
-            margin-left: 32px;
-
-            &:focus{
-                outline: 1px solid $outlineColor2;
-            }
-
-            @include forPhone{
-                margin-left: 10px;
-            }
+            margin-top: 16px;
+            height: 40px;
             img{
                 width: 32px;
                 height: 32px;
                 object-fit: cover;
             }
             .avatar-number{
-                width: 17px;
-                height: 17px;
-                border-radius: 50%;
-                text-align: center;
-                position: absolute;
-                top: -4px;
-                right: -5px;
+                top: -5px;
+                right: 0px;
                 background-color: $badgeColor;
                 color: $selectTextColor;
                 font-size: 10px;
@@ -160,23 +213,36 @@
         }
         .ham-icon{
             display: none;
-            background-color: transparent;
             border: none;
-            cursor: pointer;
-            &:focus{
-                outline: 1px solid $outlineColor2;
-            }
+            background-color: transparent;
+            margin-top: 17px;
+            height: 43px;
+            width: 35px;
+            // padding-left: 0px;
             @include forTablet{
                 display: block;
             }
-            img{
-                width: 32px;
-                height: 32px;
-                object-fit: cover;
+            div{
+                height: 100%;
+                width: 27px;
+                @include flex(column, start,start);
+                .line{
+                    display: inline-block;
+                    max-width: 100%;
+                    width: 98%;
+                    height: 3px;
+                    margin-bottom: 6px;
+                    background-color: $hamburgerLines;
+                }
+            }
+        }
+        .active-ham{
+            div{
+                .line{
+                    background-color: $hamburgerLinesA;
+                }
             }
         }
     }
 }
-.blue-bottom{
-    
-}
+

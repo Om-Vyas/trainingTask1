@@ -20,50 +20,141 @@
 
       <ul class="navbar-nav">
         <div class="navbar-bg"></div>
+
         <li class="nav-item active-white">
-          <a href="#">DASHBOARD</a>
+          <div class="subnav-header">
+            <a href="#">DASHBOARD</a>
+          </div>
         </li>
+
         <li class="nav-item">
-          <a href="#">CONTENT</a>
+          <div
+            class="subnav-header"
+            onmouseover="submenuOpen(`CONTENT`)"
+            onmouseout="submenuClose(`CONTENT`)"
+          >
+            <a href="#">CONTENT</a>
+            <button class="drop-down-icon"></button>
+          </div>
+          <ul
+            id="CONTENT"
+            class="subnav close"
+            onmouseover="submenuOpen(`CONTENT`)"
+            onmouseout="submenuClose(`CONTENT`)"
+          >
+            <li class="subnav-item">
+              <a href="#">COURSE CATALOG</a>
+            </li>
+            <li class="subnav-item">
+              <a href="#">COURSE CATALOG</a>
+            </li>
+          </ul>
         </li>
+
         <li class="nav-item">
-          <a href="#">USERS</a>
+          <div
+            class="subnav-header"
+            onmouseover="submenuOpen(`USERS`)"
+            onmouseout="submenuClose(`USERS`)"
+          >
+            <a href="#">USERS</a>
+            <button class="drop-down-icon"></button>
+          </div>
+          <ul
+            id="USERS"
+            class="subnav close"
+            onmouseover="submenuOpen(`USERS`)"
+            onmouseout="submenuClose(`USERS`)"
+          >
+            <li class="subnav-item">
+              <a href="#">COURSE CATALOG</a>
+            </li>
+            <li class="subnav-item">
+              <a href="#">COURSE CATALOG</a>
+            </li>
+          </ul>
         </li>
+
         <li class="nav-item">
-          <a href="#">REPORTS</a>
+          <div
+            class="subnav-header"
+            onmouseover="submenuOpen(`REPORTS`)"
+            onmouseout="submenuClose(`REPORTS`)"
+          >
+            <a href="#">REPORTS</a>
+            <button class="drop-down-icon"></button>
+          </div>
+          <ul
+            id="REPORTS"
+            class="subnav close"
+            onmouseover="submenuOpen(`REPORTS`)"
+            onmouseout="submenuClose(`REPORTS`)"
+          >
+            <li class="subnav-item">
+              <a href="#">COURSE CATALOG</a>
+            </li>
+            <li class="subnav-item">
+              <a href="#">COURSE CATALOG</a>
+            </li>
+          </ul>
         </li>
+
         <li class="nav-item">
-          <a href="#">ADMIN</a>
+          <div
+            class="subnav-header"
+            onmouseover="submenuOpen(`ADMIN`)"
+            onmouseout="submenuClose(`ADMIN`)"
+          >
+            <a href="#">ADMIN</a>
+            <button class="drop-down-icon"></button>
+          </div>
+          <ul
+            id="ADMIN"
+            class="subnav close"
+            onmouseover="submenuOpen(`ADMIN`)"
+            onmouseout="submenuClose(`ADMIN`)"
+          >
+            <li class="subnav-item">
+              <a href="#">COURSE CATALOG</a>
+            </li>
+            <li class="subnav-item">
+              <a href="#">COURSE CATALOG</a>
+            </li>
+          </ul>
         </li>
       </ul>
 
       <div class="nav-icons">
-        <div tabindex="0" class="nav-icon">
-          <span class="icon-number">5</span>
+        <a href="#" class="alerts nav-icon">
+          <span class="alert-number nav-icon-number">5</span>
           <img src="./assets/icons/alerts.svg" alt="" />
-        </div>
-        <div tabindex="0" class="nav-icon">
-          <span class="icon-number announcement-number">5</span>
+        </a>
+        <a href="#" class="announcements nav-icon">
+          <span class="announcement-number nav-icon-number">5</span>
           <img src="./assets/icons/announcements.svg" alt="" />
-        </div>
-        <div tabindex="0" class="avatar">
-          <span class="avatar-number">T</span>
+        </a>
+        <a href="#" class="avatar nav-icon">
+          <span class="avatar-number nav-icon-number">T</span>
           <img src="./assets/icons/account_circle.svg" alt="" />
-        </div>
-        <button class="nav-icon ham-icon">
-          <img src="./assets/icons/hamburger-menu.svg" alt="" />
+        </a>
+        <button class="ham-icon nav-icon">
+          <div>
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+          </div>
         </button>
       </div>
     </nav>
 
     <!-- Topbar -->
     <div class="topbar">
-      <button class="icon-card active-black" onclick="changeTopbar(this)" id="">
+      <button class="icon-card active-black" id="">
         <img src="./assets/icons/courses.svg" alt="" class="icon" />
         <span class="icon-number">5</span>
         <span class="icon-text">Courses</span>
       </button>
-      <button class="icon-card" onclick="changeTopbar(this)">
+      <button class="icon-card">
         <img src="./assets/icons/classes.svg" alt="" class="icon" />
         <span class="icon-number">4</span>
         <p class="icon-text">Classes</p>
@@ -162,6 +253,6 @@
         </div>
       </div>
     </footer>
-    <script src="./index.js"></script>
+    <script src="./typeScript/dashboard.js"></script>
   </body>
 </html>

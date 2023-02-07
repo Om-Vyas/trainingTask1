@@ -1,93 +1,40 @@
 //====================Hamburger menu=======================
 
-const btn = document.querySelector(".ham-icon");
-const navbar = document.querySelector(".navbar-nav");
+const btnT = document.querySelector(".ham-icon") as HTMLButtonElement;
+const navbarT = document.querySelector(".navbar-nav") as HTMLUListElement;
 
-const hamburger = () => {
-  navbar.classList.toggle("collapse");
-  trap(navbar);
+const hamburgerOpenT = () => {
+  btnT.classList.add("active-ham");
+  navbarT.classList.add("expand");
+};
+const hamburgerCloseT = () => {
+  btnT.classList.remove("active-ham");
+  navbarT.classList.remove("expand");
 };
 
-btn.addEventListener("click", hamburger);
+btnT.addEventListener("mouseover", hamburgerOpenT);
+navbarT.addEventListener("mouseover", hamburgerOpenT);
+btnT.addEventListener("mouseout", hamburgerCloseT);
+navbarT.addEventListener("mouseout", hamburgerCloseT);
 
-//=====================Topbar==============================
+//========================Subnavbar===========================
 
-const changeTopbar = (val) => {
-  const topbarCardList = document.getElementsByClassName("icon-card");
-  for (card of topbarCardList) {
-    try {
-      card.classList.remove("active-black");
-    } catch (err) {}
-  }
-  val.classList.add("active-black");
-  val.blur();
+const submenuOpen = (val) => {
+  let id = "#" + val;
+  const submenu = document.querySelector(id);
+  submenu?.classList.remove("close");
+};
+const submenuClose = (val) => {
+  let id = "#" + val;
+  const submenu = document.querySelector(id);
+  submenu?.classList.add("close");
 };
 
 //=======================Render Course cards==================
 
-const coursedata = [
-  {
-    star: true,
-    courseImage: "/assets/images/imageMask.png",
-    courseTitle: "Acceleration",
-    courseSubject: "Physics",
-    courseGrade: ["Grade 7", "+2"],
-    courseUnit: [4, 18, 24],
-    courseClasses: ["Mr. Frank's Class B", "Mr. Frank's Class C"],
-    courseStudent: 50,
-    coursedate: {
-      from: "21-Jan-2020",
-      to: "21-&nbsp;Aug-2020",
-    },
-    disabledButton: [false, false, false, false],
-  },
-  {
-    star: true,
-    courseImage: "./assets/images/imageMask-1.png",
-    courseTitle: "Displacement, Velocity and Speed",
-    courseSubject: "Physics",
-    courseGrade: ["Grade 6", "+3"],
-    courseUnit: [2, 15, 20],
-    courseClasses: [],
-    courseStudent: 0,
-    coursedate: {},
-    disabledButton: [false, true, true, false],
-  },
-  {
-    star: true,
-    courseImage: "./assets/images/imageMask-3.png",
-    courseTitle:
-      "Introduction to Biology: Micro organisms and how they affect the other Life Systems in En...",
-    courseSubject: "Biology",
-    courseGrade: ["Grade 4", "+1"],
-    courseUnit: [5, 16, 22],
-    courseClasses: ["All Classes"],
-    courseStudent: 300,
-    coursedate: {},
-    disabledButton: [false, true, true, false],
-  },
-  {
-    star: false,
-    expired: true,
-    courseImage: "./assets/images/imageMask-2.png",
-    courseTitle:
-      "Introduction to Biology: Micro organisms and how they affect the other Life Systems in En...",
-    courseSubject: "Mathematics",
-    courseGrade: ["Grade 8", "+3"],
-    courseUnit: [],
-    courseClasses: ["Mr. Frank's Class B"],
-    courseStudent: 44,
-    coursedate: {
-      from: "14-Oct-2019",
-      to: "20-&nbsp;Oct-2020",
-    },
-    disabledButton: [false, false, false, false],
-  },
-];
-
 //===================This is for creating card element
 
-function createCard(course) {
+function createCardT(course) {
   let cardHTML = `
     ${
       course.star
@@ -179,10 +126,18 @@ function createCard(course) {
 
 //=================This is for appending all the cards to it's container
 
-function cards() {
-  const container = document.querySelector(".course-main-col");
-  for (course of coursedata) {
-    container.appendChild(createCard(course));
+async function cardsT() {
+  //fetch data
+  let coursedata = await fetch("/data/courseData.json")
+    .then((response) => response.json())
+    .then((data) => data);
+
+  //render cards using for loops
+  const container = document.querySelector(
+    ".course-main-col"
+  ) as HTMLDivElement;
+  for (let course of coursedata) {
+    container.appendChild(createCardT(course));
   }
 }
-cards();
+cardsT();
