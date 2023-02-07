@@ -1,4 +1,3 @@
-// import { coursedata } from "./courses";
 //====================Hamburger menu=======================
 
 const btn = document.querySelector(".ham-icon");
@@ -11,47 +10,6 @@ const hamburger = () => {
 
 btn.addEventListener("click", hamburger);
 
-//======================Hamburger close button===========
-const closeBtn = document.querySelector(".close-btn");
-
-const closeHamburger = () => {
-  navbar.classList.remove("collapse");
-};
-closeBtn.addEventListener("click", closeHamburger);
-
-//=======================trap focus=======================
-
-const trap = (element) => {
-  const focusEl = element.querySelectorAll(
-    "a[href]:not([disabled]),button:not([disabled])"
-  );
-  const firstEl = focusEl[0];
-  const lastEl = focusEl[focusEl.length - 1];
-  firstEl.focus();
-  element.addEventListener("keydown", function (e) {
-    const tabPress = e.key === "Tab";
-    if (e.key === "Enter") {
-      navbar.classList.remove("collapse");
-      btn.focus();
-      e.preventDefault();
-    }
-    if (!tabPress) {
-      return;
-    }
-    if (e.shiftKey) {
-      if (document.activeElement === firstEl) {
-        lastEl.focus();
-        e.preventDefault();
-      }
-    } else {
-      if (document.activeElement === lastEl) {
-        firstEl.focus();
-        e.preventDefault();
-      }
-    }
-  });
-};
-
 //=====================Topbar==============================
 
 const changeTopbar = (val) => {
@@ -63,19 +21,6 @@ const changeTopbar = (val) => {
   }
   val.classList.add("active-black");
   val.blur();
-};
-
-//=======================Navbar Active Link white
-
-const changeNavbar = (val) => {
-  const navItems = document.getElementsByClassName("nav-item");
-  for (item of navItems) {
-    try {
-      item.classList.remove("active-white");
-    } catch (err) {}
-  }
-  val.classList.add("active-white");
-  hamburger();
 };
 
 //=======================Render Course cards==================
@@ -241,9 +186,3 @@ function cards() {
   }
 }
 cards();
-
-//=====================make disabled unaccessible=========
-const disabled = document.querySelectorAll(".disabled");
-for (let i = 0; i < disabled.length; i++) {
-  disabled[i].setAttribute("tabindex", "-1");
-}
