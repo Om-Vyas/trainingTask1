@@ -26,6 +26,8 @@
         z-index: 5;
     }
 
+    //=========================Navbar================
+
     .navbar-nav{
         @include flex(row,center,center);
         @include forTablet{
@@ -115,20 +117,22 @@
         @include forTablet{
             @include flex(column,center,start);
         }
+
+        .subnav-item{
+            height: 48px;
+            line-height: 46px;
+            margin-left: 16px;
+            a{
+                text-decoration: none;
+                color: $verticalNavbarText;
+                padding: 4px 4px;
+            }
+        }
     }
     .close{
         display: none;
     }
-    .subnav-item{
-        height: 48px;
-        line-height: 46px;
-        margin-left: 16px;
-        a{
-            text-decoration: none;
-            color: $verticalNavbarText;
-            padding: 4px 4px;
-        }
-    }
+    
 
     //====================NAV ICONS=======================
     .nav-icons{
@@ -139,6 +143,7 @@
             margin-right: 0px;
         }
 
+        //===================Genral Icons CSS====================
         .nav-icon{
             background: transparent;
             border: none;
@@ -168,6 +173,7 @@
             }   
         }
 
+        //====================Alerts============================
         .alerts{
             margin-top: 20px;
             height: 36px;
@@ -180,7 +186,71 @@
                 right: -2px;
             }
         }
+        .alerts-container{
+            width: 315px;
+            max-height: 582px;
+            background-color: #fff;
+            z-index: 50;
+            position: absolute;
+            top:56px;
+            right: 24.5%;
+            box-shadow: 0px 13px 20px #0000003D;
 
+            .alerts-list{  
+                max-height: 534px;
+                overflow-y: scroll;          
+                .alert{
+                    padding: 16px;
+                    .alert-text{
+                        width: 90%;
+                        // max-width: 260px;
+                        margin: 0px 8px 8px 0px;
+                        @include setFont(normal,500,14px,18px,'Quicksand');
+                        display: inline-block;
+                    }
+                    img{
+                        width: 15px;
+                        height: 18px;
+                        // background-color: $alertsCheckColor;
+                        float: right;
+                    }
+                    .alert-course-info{
+                        @include setFont(normal,500,12px,16px,'Quicksand');
+                        margin-bottom: 8px;
+                        .alert-course{
+                            color: $alertDateCourse;
+                        }
+                    }
+                    .alert-date{
+                        @include setFont(normal,500,12px,14px,'Quicksand');
+                        color: $alertDateCourse;
+                        text-align: right;
+                    }
+                }
+                .alert-DND{
+                    background-color: $alertDNDback;
+                }
+                .alert-check{
+                    background-color: $alertCheck;
+                }
+            }
+            .showall-alert{
+                display: inline-block;
+                text-align: center;
+                height: 48px;
+                width: 100%;
+                border: none;
+                color: $alertsCheckColor;
+                @include setFont(normal, 500, 14px, 48px, 'Quicksand');
+                box-shadow: 0px 1px 6px #0000003D;
+                border-radius: 0px 0px 2px 2px;
+            }
+        }
+        .close{
+            display: none;
+        }
+
+        //====================Announcements=====================
         .announcements{
             margin-top: 22px;
             height: 34px;
@@ -193,7 +263,99 @@
                 right: -7px;
             }
         }
+        .announcements-container{
+            width: 315px;
+            max-height: 582px;
+            background-color: #fff;
+            z-index: 50;
+            position: absolute;
+            top:56px;
+            right: 17.60%;
+            box-shadow: 0px 13px 20px #0000003D;
 
+            .announcements-list{
+                max-height: 534px;
+                overflow-y: scroll;  
+                .announcement{
+                    padding: 16px;
+                    .announcement-line1{
+                        @include flex(row,space-between,start);
+                        margin-bottom: 5px;
+                        .public-address-info{
+                            display: inline-block;
+                            @include setFont(normal,500,12px,16px,'Quicksand');
+                
+                            .public-address{
+                                color: $PAannouncements;
+                            }
+                        }
+                        img{
+                            width: 15px;
+                            height: 18px;
+                            // background-color: $alertsCheckColor;
+                            float: right;
+                        }
+                    }
+                    
+                    .announcement-text{
+                        width: 90%;
+                        // max-width: 260px;
+                        margin: 0px 8px 8px 0px;
+                        @include setFont(normal,500,14px,18px,'Quicksand');
+                        display: inline-block;
+                    }
+                    .announcement-course-info{
+                        @include setFont(normal,500,12px,16px,'Quicksand');
+                        margin-bottom: 8px;
+                        .announcement-course{
+                            color: $alertDateCourse;
+                        }
+                    }
+                    .announcement-line3{
+                        @include flex(row,end,start);
+                        .announcement-file,.announcement-date{
+                            @include setFont(normal,500,12px,18px,'Quicksand');
+                            color: $PAannouncements;
+                            display: inline-block;
+                        }
+                        .announcement-file{
+                            margin-right: auto;
+                        }
+                    }
+                    
+                }
+                .announcement-DND{
+                    background-color: $alertDNDback;
+                }
+                .announcement-check{
+                    background-color: $alertCheck;
+                }    
+            }
+            
+            .announcement-bottom-buttons{
+                width: 100%;
+                height: 48px;
+                @include flex(row,space-around,center);
+                box-shadow: 0px 1px 6px #0000003D;
+                border-radius: 0px 0px 2px 2px;
+
+                .showall-alert,.create-new{
+                    display: inline-block;
+                    text-align: center;
+                    height: 48px;
+                    width: 50%;
+                    border: none;
+                    color: $alertsCheckColor;
+                    @include setFont(normal, 500, 14px, 48px, 'Quicksand');
+                }
+                .line{
+                    @include verticalLine(30px,0px,#0000001F);
+                }
+
+            }
+        }
+
+        //====================Avatar============================
         .avatar{
             margin-top: 16px;
             height: 40px;
@@ -211,6 +373,8 @@
                 line-height: 17px;
             }
         }
+
+        //====================Hamburger Icon====================
         .ham-icon{
             display: none;
             border: none;

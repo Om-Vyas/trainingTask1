@@ -49,7 +49,7 @@ btnT.addEventListener("mouseover", hamburgerOpenT);
 navbarT.addEventListener("mouseover", hamburgerOpenT);
 btnT.addEventListener("mouseout", hamburgerCloseT);
 navbarT.addEventListener("mouseout", hamburgerCloseT);
-//========================Subnavbar===========================
+//========================Sub-Navbar===========================
 var submenuOpen = function (val) {
     var id = "#" + val;
     var submenu = document.querySelector(id);
@@ -60,6 +60,32 @@ var submenuClose = function (val) {
     var submenu = document.querySelector(id);
     submenu === null || submenu === void 0 ? void 0 : submenu.classList.add("close");
 };
+//=======================Alerts==============================
+var alertBtn = document.querySelector(".alerts");
+var alertsContainer = document.querySelector(".alerts-container");
+var alertsOpen = function () {
+    alertsContainer.classList.remove("close");
+};
+var alertsClose = function () {
+    alertsContainer.classList.add("close");
+};
+alertBtn.addEventListener("mouseover", alertsOpen);
+alertsContainer.addEventListener("mouseover", alertsOpen);
+alertBtn.addEventListener("mouseout", alertsClose);
+alertsContainer.addEventListener("mouseout", alertsClose);
+//===========================Announcements============================
+var announcementBtn = document.querySelector(".announcements");
+var announcementsContainer = document.querySelector(".announcements-container");
+var announcementsOpen = function () {
+    announcementsContainer.classList.remove("close");
+};
+var announcementsClose = function () {
+    announcementsContainer.classList.add("close");
+};
+announcementBtn.addEventListener("mouseover", announcementsOpen);
+announcementsContainer.addEventListener("mouseover", announcementsOpen);
+announcementBtn.addEventListener("mouseout", announcementsClose);
+announcementsContainer.addEventListener("mouseout", announcementsClose);
 //=======================Render Course cards==================
 //===================This is for creating card element
 function createCardT(course) {

@@ -17,7 +17,7 @@ navbarT.addEventListener("mouseover", hamburgerOpenT);
 btnT.addEventListener("mouseout", hamburgerCloseT);
 navbarT.addEventListener("mouseout", hamburgerCloseT);
 
-//========================Subnavbar===========================
+//========================Sub-Navbar===========================
 
 const submenuOpen = (val) => {
   let id = "#" + val;
@@ -29,6 +29,46 @@ const submenuClose = (val) => {
   const submenu = document.querySelector(id);
   submenu?.classList.add("close");
 };
+
+//=======================Alerts==============================
+
+const alertBtn = document.querySelector(".alerts") as HTMLButtonElement;
+const alertsContainer = document.querySelector(
+  ".alerts-container"
+) as HTMLDivElement;
+
+const alertsOpen = () => {
+  alertsContainer.classList.remove("close");
+};
+const alertsClose = () => {
+  alertsContainer.classList.add("close");
+};
+
+alertBtn.addEventListener("mouseover", alertsOpen);
+alertsContainer.addEventListener("mouseover", alertsOpen);
+alertBtn.addEventListener("mouseout", alertsClose);
+alertsContainer.addEventListener("mouseout", alertsClose);
+
+//===========================Announcements============================
+
+const announcementBtn = document.querySelector(
+  ".announcements"
+) as HTMLButtonElement;
+const announcementsContainer = document.querySelector(
+  ".announcements-container"
+) as HTMLDivElement;
+
+const announcementsOpen = () => {
+  announcementsContainer.classList.remove("close");
+};
+const announcementsClose = () => {
+  announcementsContainer.classList.add("close");
+};
+
+announcementBtn.addEventListener("mouseover", announcementsOpen);
+announcementsContainer.addEventListener("mouseover", announcementsOpen);
+announcementBtn.addEventListener("mouseout", announcementsClose);
+announcementsContainer.addEventListener("mouseout", announcementsClose);
 
 //=======================Render Course cards==================
 

@@ -680,18 +680,18 @@ input[type=text], input[type=password] {
     align-items: start;
   }
 }
-.navbar .close {
-  display: none;
-}
-.navbar .subnav-item {
+.navbar .subnav .subnav-item {
   height: 48px;
   line-height: 46px;
   margin-left: 16px;
 }
-.navbar .subnav-item a {
+.navbar .subnav .subnav-item a {
   text-decoration: none;
   color: #1F7A54;
   padding: 4px 4px;
+}
+.navbar .close {
+  display: none;
 }
 .navbar .nav-icons {
   display: flex;
@@ -745,6 +745,82 @@ input[type=text], input[type=password] {
   top: -7px;
   right: -2px;
 }
+.navbar .nav-icons .alerts-container {
+  width: 315px;
+  max-height: 582px;
+  background-color: #fff;
+  z-index: 50;
+  position: absolute;
+  top: 56px;
+  right: 24.5%;
+  box-shadow: 0px 13px 20px rgba(0, 0, 0, 0.2392156863);
+}
+.navbar .nav-icons .alerts-container .alerts-list {
+  max-height: 534px;
+  overflow-y: scroll;
+}
+.navbar .nav-icons .alerts-container .alerts-list .alert {
+  padding: 16px;
+}
+.navbar .nav-icons .alerts-container .alerts-list .alert .alert-text {
+  width: 90%;
+  margin: 0px 8px 8px 0px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  font-family: "Quicksand";
+  display: inline-block;
+}
+.navbar .nav-icons .alerts-container .alerts-list .alert img {
+  width: 15px;
+  height: 18px;
+  float: right;
+}
+.navbar .nav-icons .alerts-container .alerts-list .alert .alert-course-info {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  font-family: "Quicksand";
+  margin-bottom: 8px;
+}
+.navbar .nav-icons .alerts-container .alerts-list .alert .alert-course-info .alert-course {
+  color: #6E6E6E;
+}
+.navbar .nav-icons .alerts-container .alerts-list .alert .alert-date {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  font-family: "Quicksand";
+  color: #6E6E6E;
+  text-align: right;
+}
+.navbar .nav-icons .alerts-container .alerts-list .alert-DND {
+  background-color: #FFFFEE;
+}
+.navbar .nav-icons .alerts-container .alerts-list .alert-check {
+  background-color: #ffffff;
+}
+.navbar .nav-icons .alerts-container .showall-alert {
+  display: inline-block;
+  text-align: center;
+  height: 48px;
+  width: 100%;
+  border: none;
+  color: #1F7A54;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 48px;
+  font-family: "Quicksand";
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2392156863);
+  border-radius: 0px 0px 2px 2px;
+}
+.navbar .nav-icons .close {
+  display: none;
+}
 .navbar .nav-icons .announcements {
   margin-top: 22px;
   height: 34px;
@@ -756,6 +832,121 @@ input[type=text], input[type=password] {
 .navbar .nav-icons .announcements .announcement-number {
   top: -9px;
   right: -7px;
+}
+.navbar .nav-icons .announcements-container {
+  width: 315px;
+  max-height: 582px;
+  background-color: #fff;
+  z-index: 50;
+  position: absolute;
+  top: 56px;
+  right: 17.6%;
+  box-shadow: 0px 13px 20px rgba(0, 0, 0, 0.2392156863);
+}
+.navbar .nav-icons .announcements-container .announcements-list {
+  max-height: 534px;
+  overflow-y: scroll;
+}
+.navbar .nav-icons .announcements-container .announcements-list .announcement {
+  padding: 16px;
+}
+.navbar .nav-icons .announcements-container .announcements-list .announcement .announcement-line1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 5px;
+}
+.navbar .nav-icons .announcements-container .announcements-list .announcement .announcement-line1 .public-address-info {
+  display: inline-block;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  font-family: "Quicksand";
+}
+.navbar .nav-icons .announcements-container .announcements-list .announcement .announcement-line1 .public-address-info .public-address {
+  color: #6E6E6E;
+}
+.navbar .nav-icons .announcements-container .announcements-list .announcement .announcement-line1 img {
+  width: 15px;
+  height: 18px;
+  float: right;
+}
+.navbar .nav-icons .announcements-container .announcements-list .announcement .announcement-text {
+  width: 90%;
+  margin: 0px 8px 8px 0px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  font-family: "Quicksand";
+  display: inline-block;
+}
+.navbar .nav-icons .announcements-container .announcements-list .announcement .announcement-course-info {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  font-family: "Quicksand";
+  margin-bottom: 8px;
+}
+.navbar .nav-icons .announcements-container .announcements-list .announcement .announcement-course-info .announcement-course {
+  color: #6E6E6E;
+}
+.navbar .nav-icons .announcements-container .announcements-list .announcement .announcement-line3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: start;
+}
+.navbar .nav-icons .announcements-container .announcements-list .announcement .announcement-line3 .announcement-file, .navbar .nav-icons .announcements-container .announcements-list .announcement .announcement-line3 .announcement-date {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  font-family: "Quicksand";
+  color: #6E6E6E;
+  display: inline-block;
+}
+.navbar .nav-icons .announcements-container .announcements-list .announcement .announcement-line3 .announcement-file {
+  margin-right: auto;
+}
+.navbar .nav-icons .announcements-container .announcements-list .announcement-DND {
+  background-color: #FFFFEE;
+}
+.navbar .nav-icons .announcements-container .announcements-list .announcement-check {
+  background-color: #ffffff;
+}
+.navbar .nav-icons .announcements-container .announcement-bottom-buttons {
+  width: 100%;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2392156863);
+  border-radius: 0px 0px 2px 2px;
+}
+.navbar .nav-icons .announcements-container .announcement-bottom-buttons .showall-alert, .navbar .nav-icons .announcements-container .announcement-bottom-buttons .create-new {
+  display: inline-block;
+  text-align: center;
+  height: 48px;
+  width: 50%;
+  border: none;
+  color: #1F7A54;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 48px;
+  font-family: "Quicksand";
+}
+.navbar .nav-icons .announcements-container .announcement-bottom-buttons .line {
+  display: inline-block;
+  width: 1px;
+  height: 30px;
+  margin: 0 0px;
+  background-color: rgba(0, 0, 0, 0.1215686275);
 }
 .navbar .nav-icons .avatar {
   margin-top: 16px;
