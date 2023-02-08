@@ -13,7 +13,7 @@ const hamburgerOpenT = () => {
   hamIcon.classList.add("icon-active");
 };
 const hamburgerCloseT = () => {
-  navbarT.style.animation = "menuClose 15s linear";
+  navbarT.style.animation = "menuClose 3s linear";
   btnT.classList.remove("active-ham");
   navbarT.classList.remove("expand");
   hamIcon.classList.remove("icon-active");
