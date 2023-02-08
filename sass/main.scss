@@ -2,6 +2,7 @@
 @import "./utils/mixin";
 @import "./utils/variables";
 @import "./utils/utility";
+@import "./utils/animations";
 
 //============Pages================
 @import "./pages/logIn";
@@ -12,6 +13,8 @@
 @import "./components/select";
 @import "./components/textPswd";
 @import "./components/loginBtn";
+@import "./components/scrollbar";
+
 
 
 //=============Layouts

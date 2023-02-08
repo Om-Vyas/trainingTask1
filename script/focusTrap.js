@@ -35,4 +35,5 @@ const trap = (element) => {
 const disabled = document.querySelectorAll(".disabled");
 for (let i = 0; i < disabled.length; i++) {
   disabled[i].setAttribute("tabindex", "-1");
+  // disabled[i].style.cursor = ""
 }

@@ -39,11 +39,13 @@ var btnT = document.querySelector(".ham-icon");
 var navbarT = document.querySelector(".navbar-nav");
 var hamIcon = document.querySelector(".ham-icon-background");
 var hamburgerOpenT = function () {
+    navbarT.style.animation = "menuOpen 300ms linear";
     btnT.classList.add("active-ham");
     navbarT.classList.add("expand");
     hamIcon.classList.add("icon-active");
 };
 var hamburgerCloseT = function () {
+    navbarT.style.animation = "menuClose 15s linear";
     btnT.classList.remove("active-ham");
     navbarT.classList.remove("expand");
     hamIcon.classList.remove("icon-active");
@@ -63,6 +65,7 @@ var submenuToggle = function (obj, val) {
         var id = "#" + val;
         var submenu = document.querySelector(id);
         submenu === null || submenu === void 0 ? void 0 : submenu.classList.toggle("close");
+        submenu.style.animation = "menuOpen 300ms linear";
     }
 };
 //=======================Alerts==============================
@@ -71,11 +74,13 @@ var bellIcon = document.querySelector(".alert-image-background");
 var alertBadge = document.querySelector(".alert-number");
 var alertsContainer = document.querySelector(".alerts-container");
 var alertsOpen = function () {
+    alertsContainer.style.animation = "menuOpen 300ms linear";
     alertsContainer.classList.remove("close");
     bellIcon.classList.add("icon-active");
     alertBadge.classList.add("hide");
 };
 var alertsClose = function () {
+    alertsContainer.style.animation = "menuClose 300ms linear";
     alertsContainer.classList.add("close");
     bellIcon.classList.remove("icon-active");
     alertBadge.classList.remove("hide");
@@ -90,11 +95,13 @@ var announcementIcon = document.querySelector(".announcements-image-background")
 var announcementBadge = document.querySelector(".announcement-number");
 var announcementsContainer = document.querySelector(".announcements-container");
 var announcementsOpen = function () {
+    announcementsContainer.style.animation = "menuOpen 300ms linear";
     announcementsContainer.classList.remove("close");
     announcementIcon.classList.add("icon-active");
     announcementBadge.classList.add("hide");
 };
 var announcementsClose = function () {
+    announcementsContainer.style.animation = "menuOpen 300ms linear";
     announcementsContainer.classList.add("close");
     announcementIcon.classList.remove("icon-active");
     announcementBadge.classList.remove("hide");

@@ -7,11 +7,13 @@ const hamIcon = document.querySelector(
 ) as HTMLDivElement;
 
 const hamburgerOpenT = () => {
+  navbarT.style.animation = "menuOpen 300ms linear";
   btnT.classList.add("active-ham");
   navbarT.classList.add("expand");
   hamIcon.classList.add("icon-active");
 };
 const hamburgerCloseT = () => {
+  navbarT.style.animation = "menuClose 15s linear";
   btnT.classList.remove("active-ham");
   navbarT.classList.remove("expand");
   hamIcon.classList.remove("icon-active");
@@ -32,8 +34,9 @@ const submenuToggle = (obj, val) => {
     obj.querySelector(".drop-down-icon").classList.toggle("upsidedown");
     //select the submenu through ID and toggle it
     let id = "#" + val;
-    const submenu = document.querySelector(id);
+    const submenu = document.querySelector(id) as HTMLDivElement;
     submenu?.classList.toggle("close");
+    submenu.style.animation = "menuOpen 300ms linear";
   }
 };
 
@@ -49,11 +52,13 @@ const alertsContainer = document.querySelector(
 ) as HTMLDivElement;
 
 const alertsOpen = () => {
+  alertsContainer.style.animation = "menuOpen 300ms linear";
   alertsContainer.classList.remove("close");
   bellIcon.classList.add("icon-active");
   alertBadge.classList.add("hide");
 };
 const alertsClose = () => {
+  alertsContainer.style.animation = "menuClose 300ms linear";
   alertsContainer.classList.add("close");
   bellIcon.classList.remove("icon-active");
   alertBadge.classList.remove("hide");
@@ -80,11 +85,13 @@ const announcementsContainer = document.querySelector(
 ) as HTMLDivElement;
 
 const announcementsOpen = () => {
+  announcementsContainer.style.animation = "menuOpen 300ms linear";
   announcementsContainer.classList.remove("close");
   announcementIcon.classList.add("icon-active");
   announcementBadge.classList.add("hide");
 };
 const announcementsClose = () => {
+  announcementsContainer.style.animation = "menuOpen 300ms linear";
   announcementsContainer.classList.add("close");
   announcementIcon.classList.remove("icon-active");
   announcementBadge.classList.remove("hide");
