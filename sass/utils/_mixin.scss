@@ -21,6 +21,29 @@
     background-color: $bg;
 }
 
+
+@mixin customScroll($width,$track,$thumb,$hov){
+    /* width */
+::-webkit-scrollbar {
+    width: $width;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: $track;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: $thumb;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: $hov;
+  }
+}
+
 @mixin forPhoneXs{
     @media (max-width:350px){@content;}
 }

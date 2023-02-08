@@ -37,37 +37,48 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var btnT = document.querySelector(".ham-icon");
 var navbarT = document.querySelector(".navbar-nav");
+var hamIcon = document.querySelector(".ham-icon-background");
 var hamburgerOpenT = function () {
     btnT.classList.add("active-ham");
     navbarT.classList.add("expand");
+    hamIcon.classList.add("icon-active");
 };
 var hamburgerCloseT = function () {
     btnT.classList.remove("active-ham");
     navbarT.classList.remove("expand");
+    hamIcon.classList.remove("icon-active");
 };
 btnT.addEventListener("mouseover", hamburgerOpenT);
 navbarT.addEventListener("mouseover", hamburgerOpenT);
 btnT.addEventListener("mouseout", hamburgerCloseT);
 navbarT.addEventListener("mouseout", hamburgerCloseT);
 //========================Sub-Navbar===========================
-var submenuOpen = function (val) {
-    var id = "#" + val;
-    var submenu = document.querySelector(id);
-    submenu === null || submenu === void 0 ? void 0 : submenu.classList.remove("close");
-};
-var submenuClose = function (val) {
-    var id = "#" + val;
-    var submenu = document.querySelector(id);
-    submenu === null || submenu === void 0 ? void 0 : submenu.classList.add("close");
+var submenuToggle = function (obj, val) {
+    if (window.innerWidth <= 980) {
+        //select parent and change the background color of all
+        obj.parentElement.classList.toggle("active-subnav");
+        //select btn and make it up-side-down
+        obj.querySelector(".drop-down-icon").classList.toggle("upsidedown");
+        //select the submenu through ID and toggle it
+        var id = "#" + val;
+        var submenu = document.querySelector(id);
+        submenu === null || submenu === void 0 ? void 0 : submenu.classList.toggle("close");
+    }
 };
 //=======================Alerts==============================
 var alertBtn = document.querySelector(".alerts");
+var bellIcon = document.querySelector(".alert-image-background");
+var alertBadge = document.querySelector(".alert-number");
 var alertsContainer = document.querySelector(".alerts-container");
 var alertsOpen = function () {
     alertsContainer.classList.remove("close");
+    bellIcon.classList.add("icon-active");
+    alertBadge.classList.add("hide");
 };
 var alertsClose = function () {
     alertsContainer.classList.add("close");
+    bellIcon.classList.remove("icon-active");
+    alertBadge.classList.remove("hide");
 };
 alertBtn.addEventListener("mouseover", alertsOpen);
 alertsContainer.addEventListener("mouseover", alertsOpen);
@@ -75,12 +86,18 @@ alertBtn.addEventListener("mouseout", alertsClose);
 alertsContainer.addEventListener("mouseout", alertsClose);
 //===========================Announcements============================
 var announcementBtn = document.querySelector(".announcements");
+var announcementIcon = document.querySelector(".announcements-image-background");
+var announcementBadge = document.querySelector(".announcement-number");
 var announcementsContainer = document.querySelector(".announcements-container");
 var announcementsOpen = function () {
     announcementsContainer.classList.remove("close");
+    announcementIcon.classList.add("icon-active");
+    announcementBadge.classList.add("hide");
 };
 var announcementsClose = function () {
     announcementsContainer.classList.add("close");
+    announcementIcon.classList.remove("icon-active");
+    announcementBadge.classList.remove("hide");
 };
 announcementBtn.addEventListener("mouseover", announcementsOpen);
 announcementsContainer.addEventListener("mouseover", announcementsOpen);

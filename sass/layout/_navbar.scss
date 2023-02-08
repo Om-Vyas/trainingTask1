@@ -51,13 +51,19 @@
             color: $navbarColor;
 
             @include forTablet{
+                margin: 0px;
                 min-height: 48px;
                 height: fit-content;
                 line-height: 48px;
-                width: calc(100% - 24px);
+                width: 100%;
+                box-sizing: border-box;
             }
 
-            div{
+            .subnav-header{
+                @include forTablet{
+                    padding-left: 12px;
+                }
+                cursor: pointer;
                 a{
                     text-decoration: none;
                     color: $navbarColor;
@@ -78,17 +84,21 @@
                     display: none;
                     @include forTablet{
                         display: block;
+                        cursor: pointer;
                         width: 12px;
                         height: 24px;
                         float: right;
                         padding: 12px;
-                        margin-top: 12px;
+                        margin: 12px 12px 0px 0px;
                         background-image: url("/assets/icons/arrow-down.svg");
                         background-position: center;
                         background-size: cover;
-                        background-color: $verticalNavbarBackground;
+                        background-color: inherit;
                         border: none;
                     }
+                }
+                .upsidedown{
+                    transform: scaleY(-1);
                 }
             }
         
@@ -106,6 +116,11 @@
                 }
             }
         }
+        .active-subnav{
+            @include forTablet{
+                background-color: $submenuOpenBack;
+            }
+        }
     }
     .expand{
         visibility: visible;
@@ -121,7 +136,7 @@
         .subnav-item{
             height: 48px;
             line-height: 46px;
-            margin-left: 16px;
+            margin-left: 28px;
             a{
                 text-decoration: none;
                 color: $verticalNavbarText;
@@ -177,13 +192,31 @@
         .alerts{
             margin-top: 20px;
             height: 36px;
-            img{
+            .alert-image{
                 width: 21px;
                 height: 24px;
+                background-color: transparent;
+                border: none;
+                .alert-image-background{
+                    cursor: pointer;
+                    width: 100%;
+                    height: 100%;
+                    mask: url("/assets/icons/alerts.svg");
+                    mask-size: cover;
+                    background-color: $alertIcon;
+                    mask-position: center;
+                }
+                .icon-active{
+                    background-color: $alertIconActive;
+                }
             }
             .alert-number{
                 top: -7px;
                 right: -2px;
+                z-index: 10;
+            }
+            .hide{
+                display: none;
             }
         }
         .alerts-container{
@@ -198,9 +231,10 @@
 
             .alerts-list{  
                 max-height: 534px;
-                overflow-y: scroll;          
+                overflow-y: scroll;       
                 .alert{
-                    padding: 16px;
+                    padding: 16px 16px 15px;
+                    border-bottom: 1px solid $alertBorder;
                     .alert-text{
                         width: 90%;
                         // max-width: 260px;
@@ -208,11 +242,21 @@
                         @include setFont(normal,500,14px,18px,'Quicksand');
                         display: inline-block;
                     }
-                    img{
+                    .check-icon,.dnd-icon{
                         width: 15px;
                         height: 18px;
-                        // background-color: $alertsCheckColor;
+                        background-color: $alertsCheckColor;
+                        mask: url("/assets/icons/CheckCircle.svg");
+                        mask-size: cover;
+                        mask-position: center;
                         float: right;
+                    }
+                    .dnd-icon{
+                        width: 17px;
+                        height: 21px;
+                        mask: url("/assets/icons/DND.svg");
+                        mask-size: contain;
+                        mask-repeat: no-repeat;
                     }
                     .alert-course-info{
                         @include setFont(normal,500,12px,16px,'Quicksand');
@@ -254,13 +298,30 @@
         .announcements{
             margin-top: 22px;
             height: 34px;
-            img{
+            .announcements-image{
                 width: 20px;
                 height: 20px;
+                background-color: transparent;
+                border: none;
+                .announcements-image-background{
+                    width: 100%;
+                    height: 100%;
+                    mask: url("/assets/icons/announcements.svg");
+                    mask-size: cover;
+                    background-color: $alertIcon;
+                    mask-position: center;
+                }
+                .icon-active{
+                    background-color: $alertIconActive;
+                }
             }
             .announcement-number{
                 top: -9px;
                 right: -7px;
+                z-index: 10;
+            }
+            .hide{
+                display: none;
             }
         }
         .announcements-container{
@@ -277,7 +338,9 @@
                 max-height: 534px;
                 overflow-y: scroll;  
                 .announcement{
-                    padding: 16px;
+                    padding: 16px 16px 15px;
+                    border-bottom: 1px solid $alertBorder;
+                    box-sizing: border-box;
                     .announcement-line1{
                         @include flex(row,space-between,start);
                         margin-bottom: 5px;
@@ -289,16 +352,26 @@
                                 color: $PAannouncements;
                             }
                         }
-                        img{
+                        .check-icon,.dnd-icon{
                             width: 15px;
                             height: 18px;
-                            // background-color: $alertsCheckColor;
+                            background-color: $alertsCheckColor;
+                            mask: url("/assets/icons/CheckCircle.svg");
+                            mask-size: cover;
+                            mask-position: center;
                             float: right;
+                        }
+                        .dnd-icon{
+                            width: 17px;
+                            height: 21px;
+                            mask: url("/assets/icons/DND.svg");
+                            mask-size: contain;
+                            mask-repeat: no-repeat;
                         }
                     }
                     
                     .announcement-text{
-                        width: 90%;
+                        width: 245px;
                         // max-width: 260px;
                         margin: 0px 8px 8px 0px;
                         @include setFont(normal,500,14px,18px,'Quicksand');
@@ -354,6 +427,9 @@
 
             }
         }
+        .close{
+            display: none;
+        }
 
         //====================Avatar============================
         .avatar{
@@ -379,25 +455,23 @@
             display: none;
             border: none;
             background-color: transparent;
-            margin-top: 17px;
+            margin-top: 19px;
             height: 43px;
             width: 35px;
-            // padding-left: 0px;
+            padding-bottom: 25px;
             @include forTablet{
                 display: block;
             }
-            div{
-                height: 100%;
+            .ham-icon-background{
                 width: 27px;
-                @include flex(column, start,start);
-                .line{
-                    display: inline-block;
-                    max-width: 100%;
-                    width: 98%;
-                    height: 3px;
-                    margin-bottom: 6px;
-                    background-color: $hamburgerLines;
-                }
+                height: 18px;
+                mask: url("/assets/icons/hamburger-menu.svg");
+                mask-size: cover;
+                background-color: $alertIcon;
+                mask-position: center;
+            }
+            .icon-active{
+                background-color: $alertIconActive;
             }
         }
         .active-ham{

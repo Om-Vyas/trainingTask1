@@ -18,6 +18,8 @@
         class="main-logo"
       />
 
+      <!-- ------------------Navbar-Menu--------------------- -->
+
       <ul class="navbar-nav">
         <div class="navbar-bg"></div>
 
@@ -28,20 +30,11 @@
         </li>
 
         <li class="nav-item">
-          <div
-            class="subnav-header"
-            onmouseover="submenuOpen(`CONTENT`)"
-            onmouseout="submenuClose(`CONTENT`)"
-          >
+          <div class="subnav-header" onclick="submenuToggle(this,`CONTENT`)">
             <a href="#">CONTENT</a>
             <button class="drop-down-icon"></button>
           </div>
-          <ul
-            id="CONTENT"
-            class="subnav close"
-            onmouseover="submenuOpen(`CONTENT`)"
-            onmouseout="submenuClose(`CONTENT`)"
-          >
+          <ul id="CONTENT" class="subnav close">
             <li class="subnav-item">
               <a href="#">COURSE CATALOG</a>
             </li>
@@ -52,20 +45,11 @@
         </li>
 
         <li class="nav-item">
-          <div
-            class="subnav-header"
-            onmouseover="submenuOpen(`USERS`)"
-            onmouseout="submenuClose(`USERS`)"
-          >
+          <div class="subnav-header" onclick="submenuToggle(this,`USERS`)">
             <a href="#">USERS</a>
             <button class="drop-down-icon"></button>
           </div>
-          <ul
-            id="USERS"
-            class="subnav close"
-            onmouseover="submenuOpen(`USERS`)"
-            onmouseout="submenuClose(`USERS`)"
-          >
+          <ul id="USERS" class="subnav close">
             <li class="subnav-item">
               <a href="#">COURSE CATALOG</a>
             </li>
@@ -76,20 +60,11 @@
         </li>
 
         <li class="nav-item">
-          <div
-            class="subnav-header"
-            onmouseover="submenuOpen(`REPORTS`)"
-            onmouseout="submenuClose(`REPORTS`)"
-          >
+          <div class="subnav-header" onclick="submenuToggle(this,`REPORTS`)">
             <a href="#">REPORTS</a>
             <button class="drop-down-icon"></button>
           </div>
-          <ul
-            id="REPORTS"
-            class="subnav close"
-            onmouseover="submenuOpen(`REPORTS`)"
-            onmouseout="submenuClose(`REPORTS`)"
-          >
+          <ul id="REPORTS" class="subnav close">
             <li class="subnav-item">
               <a href="#">COURSE CATALOG</a>
             </li>
@@ -100,20 +75,11 @@
         </li>
 
         <li class="nav-item">
-          <div
-            class="subnav-header"
-            onmouseover="submenuOpen(`ADMIN`)"
-            onmouseout="submenuClose(`ADMIN`)"
-          >
+          <div class="subnav-header" onclick="submenuToggle(this,`ADMIN`)">
             <a href="#">ADMIN</a>
             <button class="drop-down-icon"></button>
           </div>
-          <ul
-            id="ADMIN"
-            class="subnav close"
-            onmouseover="submenuOpen(`ADMIN`)"
-            onmouseout="submenuClose(`ADMIN`)"
-          >
+          <ul id="ADMIN" class="subnav close">
             <li class="subnav-item">
               <a href="#">COURSE CATALOG</a>
             </li>
@@ -129,7 +95,9 @@
 
         <a href="#" class="alerts nav-icon">
           <span class="alert-number nav-icon-number">5</span>
-          <img src="./assets/icons/alerts.svg" alt="" />
+          <button class="alert-image">
+            <div class="alert-image-background"></div>
+          </button>
         </a>
         <div class="alerts-container close">
           <ul class="alerts-list">
@@ -138,7 +106,7 @@
                 License for Introduction to Algebra has been assigned to your
                 school
               </p>
-              <img src="/assets/icons/DND.svg" alt="" />
+              <div class="dnd-icon"></div>
               <p class="alert-date">15-Sep-2018 at 07:21 pm</p>
             </li>
 
@@ -146,7 +114,7 @@
               <p class="alert-text">
                 Lesson 3 Practice Worksheet overdue for Amy Santiago
               </p>
-              <img src="/assets/icons/CheckCircle.svg" alt="" />
+              <div class="check-icon"></div>
               <p class="alert-course-info">
                 <span class="alert-course">Course: </span>
                 <span class="alert-course-name">Advanced Mathematics</span>
@@ -156,13 +124,13 @@
 
             <li class="alert alert-DND">
               <p class="alert-text">23 new students created</p>
-              <img src="/assets/icons/DND.svg" alt="" />
+              <div class="dnd-icon"></div>
               <p class="alert-date">14-Sep-2018 at 01:21 pm</p>
             </li>
 
             <li class="alert alert-DND">
               <p class="alert-text">15 submissions ready for evaluation</p>
-              <img src="/assets/icons/DND.svg" alt="" />
+              <div class="dnd-icon"></div>
               <p class="alert-course-info">
                 <span class="alert-course">Class: </span>
                 <span class="alert-course-name">Basics of Algebra</span>
@@ -175,7 +143,7 @@
                 License for Basic Concepts in Geometry has been assigned to
                 your... school
               </p>
-              <img src="/assets/icons/DND.svg" alt="" />
+              <div class="dnd-icon"></div>
               <p class="alert-course-info">
                 <span class="alert-course">Class: </span>
                 <span class="alert-course-name">Advanced Mathematics</span>
@@ -187,7 +155,7 @@
               <p class="alert-text">
                 Lesson 3 Practice Worksheet overdue for Sam Diego
               </p>
-              <img src="/assets/icons/DND.svg" alt="" />
+              <div class="check-icon"></div>
               <p class="alert-date">15-Sep-2018 at 07:21 pm</p>
             </li>
           </ul>
@@ -198,7 +166,9 @@
 
         <a href="#" class="announcements nav-icon">
           <span class="announcement-number nav-icon-number">5</span>
-          <img src="./assets/icons/announcements.svg" alt="" />
+          <button class="announcements-image">
+            <div class="announcements-image-background"></div>
+          </button>
         </a>
         <div class="announcements-container close">
           <ul class="announcements-list">
@@ -208,7 +178,7 @@
                   <span class="public-address">PA: </span>
                   <span class="public-address-name">Wilson Kumar</span>
                 </p>
-                <img src="/assets/icons/CheckCircle.svg" alt="" />
+                <div class="check-icon"></div>
               </div>
               <p class="announcement-text">
                 No classes will be held on 21st Nov
@@ -225,7 +195,7 @@
                   <span class="public-address">PA: </span>
                   <span class="public-address-name">Samson White</span>
                 </p>
-                <img src="/assets/icons/DND.svg" alt="" />
+                <div class="dnd-icon"></div>
               </div>
               <p class="announcement-text">
                 Guest lecture on Geometry on 20th September
@@ -242,7 +212,7 @@
                   <span class="public-address">PA: </span>
                   <span class="public-address-name">Wilson Kumar</span>
                 </p>
-                <img src="/assets/icons/CheckCircle.svg" alt="" />
+                <div class="check-icon"></div>
               </div>
               <p class="announcement-text">
                 Additional course materials available on request
@@ -263,7 +233,7 @@
                   <span class="public-address">PA: </span>
                   <span class="public-address-name">Wilson Kumar</span>
                 </p>
-                <img src="/assets/icons/DND.svg" alt="" />
+                <div class="dnd-icon"></div>
               </div>
               <p class="announcement-text">
                 No classes will be held on 25th Dec
@@ -279,7 +249,7 @@
                   <span class="public-address">PA: </span>
                   <span class="public-address-name">Wilson Kumar</span>
                 </p>
-                <img src="/assets/icons/DND.svg" alt="" />
+                <div class="dnd-icon"></div>
               </div>
               <p class="announcement-text">
                 Additional course materials available on request
@@ -309,11 +279,7 @@
 
         <!-- ----------------------ham button------------------------------- -->
         <button class="ham-icon nav-icon">
-          <div>
-            <span class="line"></span>
-            <span class="line"></span>
-            <span class="line"></span>
-          </div>
+          <div class="ham-icon-background"></div>
         </button>
       </div>
     </nav>

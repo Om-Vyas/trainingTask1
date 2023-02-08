@@ -2,14 +2,19 @@
 
 const btnT = document.querySelector(".ham-icon") as HTMLButtonElement;
 const navbarT = document.querySelector(".navbar-nav") as HTMLUListElement;
+const hamIcon = document.querySelector(
+  ".ham-icon-background"
+) as HTMLDivElement;
 
 const hamburgerOpenT = () => {
   btnT.classList.add("active-ham");
   navbarT.classList.add("expand");
+  hamIcon.classList.add("icon-active");
 };
 const hamburgerCloseT = () => {
   btnT.classList.remove("active-ham");
   navbarT.classList.remove("expand");
+  hamIcon.classList.remove("icon-active");
 };
 
 btnT.addEventListener("mouseover", hamburgerOpenT);
@@ -19,29 +24,39 @@ navbarT.addEventListener("mouseout", hamburgerCloseT);
 
 //========================Sub-Navbar===========================
 
-const submenuOpen = (val) => {
-  let id = "#" + val;
-  const submenu = document.querySelector(id);
-  submenu?.classList.remove("close");
-};
-const submenuClose = (val) => {
-  let id = "#" + val;
-  const submenu = document.querySelector(id);
-  submenu?.classList.add("close");
+const submenuToggle = (obj, val) => {
+  if (window.innerWidth <= 980) {
+    //select parent and change the background color of all
+    obj.parentElement.classList.toggle("active-subnav");
+    //select btn and make it up-side-down
+    obj.querySelector(".drop-down-icon").classList.toggle("upsidedown");
+    //select the submenu through ID and toggle it
+    let id = "#" + val;
+    const submenu = document.querySelector(id);
+    submenu?.classList.toggle("close");
+  }
 };
 
 //=======================Alerts==============================
 
 const alertBtn = document.querySelector(".alerts") as HTMLButtonElement;
+const bellIcon = document.querySelector(
+  ".alert-image-background"
+) as HTMLDivElement;
+const alertBadge = document.querySelector(".alert-number") as HTMLSpanElement;
 const alertsContainer = document.querySelector(
   ".alerts-container"
 ) as HTMLDivElement;
 
 const alertsOpen = () => {
   alertsContainer.classList.remove("close");
+  bellIcon.classList.add("icon-active");
+  alertBadge.classList.add("hide");
 };
 const alertsClose = () => {
   alertsContainer.classList.add("close");
+  bellIcon.classList.remove("icon-active");
+  alertBadge.classList.remove("hide");
 };
 
 alertBtn.addEventListener("mouseover", alertsOpen);
@@ -54,15 +69,25 @@ alertsContainer.addEventListener("mouseout", alertsClose);
 const announcementBtn = document.querySelector(
   ".announcements"
 ) as HTMLButtonElement;
+const announcementIcon = document.querySelector(
+  ".announcements-image-background"
+) as HTMLDivElement;
+const announcementBadge = document.querySelector(
+  ".announcement-number"
+) as HTMLSpanElement;
 const announcementsContainer = document.querySelector(
   ".announcements-container"
 ) as HTMLDivElement;
 
 const announcementsOpen = () => {
   announcementsContainer.classList.remove("close");
+  announcementIcon.classList.add("icon-active");
+  announcementBadge.classList.add("hide");
 };
 const announcementsClose = () => {
   announcementsContainer.classList.add("close");
+  announcementIcon.classList.remove("icon-active");
+  announcementBadge.classList.remove("hide");
 };
 
 announcementBtn.addEventListener("mouseover", announcementsOpen);
