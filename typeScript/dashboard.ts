@@ -127,10 +127,22 @@ const hamIcon = document.querySelector(
 ) as HTMLDivElement;
 
 const hamburgerToggle = () => {
-  // navbarT.style.animation = "menuOpen 300ms linear";
-  btnT.classList.toggle("active-ham");
-  navbarT.classList.toggle("expand");
-  hamIcon.classList.toggle("icon-active");
+  if (document.querySelector("ul.expand")) {
+    if (window.innerWidth < 981) {
+      navbarT.style.animation = "menuClose 300ms";
+    }
+    hamIcon.classList.remove("icon-active");
+    setTimeout(() => {
+      navbarT.classList.remove("expand");
+    }, 290);
+  } else if (!document.querySelector("ul.expand")) {
+    if (window.innerWidth < 981) {
+      navbarT.style.animation = "menuOpen 300ms";
+    }
+    hamIcon.classList.add("icon-active");
+    navbarT.classList.add("expand");
+    // setTimeout(() => {}, 300);
+  }
 };
 
 btnT.addEventListener("click", hamburgerToggle);
@@ -138,37 +150,53 @@ btnT.addEventListener("click", hamburgerToggle);
 //========================Sub-Navbar===========================
 
 const submenuToggle = (obj, val) => {
-  //this is flag to check if the current selected nav item and previous nav item is
-  //same then that nav -item should be closed.
-  let previous = false;
-  let currentNavItem = obj.parentElement;
   if (window.innerWidth <= 980) {
-    //Code to remove the previous active subnav
+    //obj -> subnav header (It's children is subnav)(parent->navitem)
+    //val -> id of subnav
+    //this is flag. It's set if the current selected nav item and
+    //previous nav item is same.
+    let previous = false;
+    let currentNavItem = obj.parentElement;
+
+    //Code to remove the previous 'active subnav'
+    //get prev active navitem
     try {
-      const prevNavItem = document.querySelector(".active-subnav");
+      const prevNavItem = document.querySelector(
+        ".active-navitem"
+      ) as HTMLDivElement;
       if (prevNavItem == currentNavItem) {
         previous = true;
       }
       if (prevNavItem !== undefined || null) {
+        //remove upsidedown from dropdown icon
         prevNavItem
           ?.querySelector(".drop-down-icon")
           ?.classList.remove("upsidedown");
-        prevNavItem?.querySelector(".subnav")?.classList.add("close");
-        prevNavItem?.classList.remove("active-subnav");
+        //select subnav of pre-active-nav-item
+        const subnav = prevNavItem.querySelector(".subnav") as HTMLDivElement;
+        subnav.style.animation = "menuClose 300ms";
+        setTimeout(() => {
+          //close the subnav
+          subnav.classList.add("close");
+          //remove active tag from pre-active-NavItem
+          prevNavItem?.classList.remove("active-navitem");
+        }, 300);
       }
     } catch (err) {
-      console.log("h");
+      console.log(err);
     }
+
     if (!previous) {
       try {
-        //select parent and change the background color
-        currentNavItem.classList.toggle("active-subnav");
+        //select navitem and make it active so background color changes
+        currentNavItem.classList.add("active-navitem");
         //select btn and make it up-side-down
-        obj.querySelector(".drop-down-icon").classList.toggle("upsidedown");
+        obj.querySelector(".drop-down-icon").classList.add("upsidedown");
         //select the submenu through ID and toggle it
         let id = "#" + val;
-        const submenu = document.querySelector(id) as HTMLDivElement;
-        submenu?.classList.toggle("close");
+        const subnav = document.querySelector(id) as HTMLDivElement;
+        subnav.style.animation = "menuOpen 300ms";
+        subnav?.classList.remove("close");
         // submenu.style.animation = "menuOpen 300ms linear";
       } catch (err) {}
     }
@@ -196,9 +224,9 @@ const alertsOpen = () => {
 };
 const alertsClose = () => {
   if (window.innerWidth > 900) {
-    alertsContainer.classList.add("close");
     bellIcon.classList.remove("icon-active");
     alertBadge.classList.remove("hide");
+    alertsContainer.classList.add("close");
   }
 };
 //for mobile

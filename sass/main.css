@@ -16,10 +16,13 @@ select, .sortmenu div .sortby .sort-select {
 }
 @keyframes menuClose {
   0% {
-    transform: scaleY(1) translateY(0%);
+    transform: translateY(0%) scaleY(1);
+  }
+  99% {
+    transform: translateY(-50%) scaleY(0);
   }
   100% {
-    transform: scaleY(0) translateY(-50%);
+    display: none;
   }
 }
 .container {
@@ -721,13 +724,12 @@ input[type=text], input[type=password] {
   }
 }
 @media (max-width: 980px) {
-  .navbar .navbar-nav .active-subnav {
+  .navbar .navbar-nav .active-navitem {
     background-color: #F3F3F3;
   }
 }
 .navbar .expand {
   display: flex;
-  animation: menuOpen 300ms linear;
 }
 .navbar .subnav {
   display: none;
@@ -836,7 +838,7 @@ input[type=text], input[type=password] {
   top: 56px;
   right: 136px;
   box-shadow: 0px 13px 20px rgba(0, 0, 0, 0.2392156863);
-  animation: menuOpen 300ms linear;
+  animation: menuOpen 300ms;
 }
 @media (max-width: 980px) {
   .navbar .nav-icons .alerts-container {
@@ -1182,9 +1184,6 @@ input[type=text], input[type=password] {
 }
 .navbar .nav-icons .ham-icon .icon-active {
   background-color: #fff;
-}
-.navbar .nav-icons .active-ham div .line {
-  background-color: #ffffff;
 }
 
 footer .footer-top {
