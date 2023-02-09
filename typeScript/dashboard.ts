@@ -131,6 +131,7 @@ const hamburgerToggle = () => {
       hamIcon.classList.remove("icon-active");
       setTimeout(() => {
         navbarT.classList.remove("expand");
+        navbarT.style.animation = "";
         //when menu is closed -> close the previous active sub nav
         if (document.querySelector(".active-navitem")) {
           const prevNavItem = document.querySelector(

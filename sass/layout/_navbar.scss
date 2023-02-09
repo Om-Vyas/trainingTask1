@@ -74,6 +74,7 @@
                         outline: 1px solid $outlineColor2;
                     }
                     @include forTablet{
+                        padding: 14px 4px;
                         color: $verticalNavbarText;
                         &:focus{
                             outline: 1px solid $outlineColor;
@@ -172,12 +173,6 @@
                 outline: 1px solid $outlineColor2;
             }
 
-            button{
-                cursor: pointer;
-                &:focus{
-                    outline: none;
-                }
-            }
 
             @include forPhoneXl {
                 margin: 0 2px;

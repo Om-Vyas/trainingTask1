@@ -681,6 +681,7 @@ input[type=text], input[type=password] {
 }
 @media (max-width: 980px) {
   .navbar .navbar-nav .nav-item .subnav-header a {
+    padding: 14px 4px;
     color: #1F7A54;
   }
   .navbar .navbar-nav .nav-item .subnav-header a:focus {
@@ -779,12 +780,6 @@ input[type=text], input[type=password] {
 }
 .navbar .nav-icons .nav-icon:focus {
   outline: 1px solid #DFF0D8;
-}
-.navbar .nav-icons .nav-icon button {
-  cursor: pointer;
-}
-.navbar .nav-icons .nav-icon button:focus {
-  outline: none;
 }
 @media (max-width: 580px) {
   .navbar .nav-icons .nav-icon {
