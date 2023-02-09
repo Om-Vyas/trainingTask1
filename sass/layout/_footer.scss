@@ -24,6 +24,8 @@ footer{
         @include flex(row,center,center);
 
         .footer-logo{
+            width: 90px;
+            height: 24px;
             margin-left: 32px;
         }
         .line{

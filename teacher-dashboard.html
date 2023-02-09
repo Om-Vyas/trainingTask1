@@ -5,7 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Teacher's dashboard</title>
-
+    <link
+      rel="preload"
+      href="/assets/fonts/Quicksand-VariableFont_wght.ttf"
+      as="font"
+    />
     <link rel="stylesheet" href="./sass/main.css" />
   </head>
   <body>
@@ -24,7 +28,7 @@
         <div class="navbar-bg"></div>
 
         <li class="nav-item active-white">
-          <div class="subnav-header">
+          <div class="subnav-header" onclick="submenuToggle(this,`DASHBOARD`)">
             <a href="#">DASHBOARD</a>
           </div>
         </li>
@@ -95,7 +99,7 @@
 
         <a href="#" class="alerts nav-icon">
           <span class="alert-number nav-icon-number">5</span>
-          <button class="alert-image">
+          <button class="alert-image" aria-label="alert">
             <div class="alert-image-background"></div>
           </button>
         </a>
@@ -159,14 +163,14 @@
               <p class="alert-date">15-Sep-2018 at 07:21 pm</p>
             </li>
           </ul>
-          <a class="showall-alert">SHOW ALL</a>
+          <a href="#" class="showall-alert">SHOW ALL</a>
         </div>
 
         <!-- --------------------announcements------------------ -->
 
         <a href="#" class="announcements nav-icon">
           <span class="announcement-number nav-icon-number">5</span>
-          <button class="announcements-image">
+          <button class="announcements-image" aria-label="announcements">
             <div class="announcements-image-background"></div>
           </button>
         </a>
@@ -265,9 +269,9 @@
             </li>
           </ul>
           <div class="announcement-bottom-buttons">
-            <a class="showall-alert">SHOW ALL</a>
+            <a href="#" class="showall-alert">SHOW ALL</a>
             <div class="line"></div>
-            <a class="create-new">CREATE NEW</a>
+            <a href="#" class="create-new">CREATE NEW</a>
           </div>
         </div>
 
@@ -278,7 +282,7 @@
         </a>
 
         <!-- ----------------------ham button------------------------------- -->
-        <button class="ham-icon nav-icon">
+        <button aria-label="hamburger menu" class="ham-icon nav-icon">
           <div class="ham-icon-background"></div>
         </button>
       </div>
@@ -374,7 +378,10 @@
     <!-- footer -->
     <footer>
       <div class="footer-top">
-        <p><a>About</a><span class="line"></span><a>Contact Us</a></p>
+        <p>
+          <a href="#">About</a><span class="line"> </span
+          ><a href="#">Contact Us</a>
+        </p>
       </div>
       <div class="footer-bottom">
         <img

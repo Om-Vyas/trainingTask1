@@ -1,107 +1,3 @@
-//====================Hamburger menu=======================
-
-const btnT = document.querySelector(".ham-icon") as HTMLButtonElement;
-const navbarT = document.querySelector(".navbar-nav") as HTMLUListElement;
-const hamIcon = document.querySelector(
-  ".ham-icon-background"
-) as HTMLDivElement;
-
-const hamburgerOpenT = () => {
-  navbarT.style.animation = "menuOpen 300ms linear";
-  btnT.classList.add("active-ham");
-  navbarT.classList.add("expand");
-  hamIcon.classList.add("icon-active");
-};
-const hamburgerCloseT = () => {
-  navbarT.style.animation = "menuClose 3s linear";
-  btnT.classList.remove("active-ham");
-  navbarT.classList.remove("expand");
-  hamIcon.classList.remove("icon-active");
-};
-
-btnT.addEventListener("mouseover", hamburgerOpenT);
-navbarT.addEventListener("mouseover", hamburgerOpenT);
-btnT.addEventListener("mouseout", hamburgerCloseT);
-navbarT.addEventListener("mouseout", hamburgerCloseT);
-
-//========================Sub-Navbar===========================
-
-const submenuToggle = (obj, val) => {
-  if (window.innerWidth <= 980) {
-    //select parent and change the background color of all
-    obj.parentElement.classList.toggle("active-subnav");
-    //select btn and make it up-side-down
-    obj.querySelector(".drop-down-icon").classList.toggle("upsidedown");
-    //select the submenu through ID and toggle it
-    let id = "#" + val;
-    const submenu = document.querySelector(id) as HTMLDivElement;
-    submenu?.classList.toggle("close");
-    submenu.style.animation = "menuOpen 300ms linear";
-  }
-};
-
-//=======================Alerts==============================
-
-const alertBtn = document.querySelector(".alerts") as HTMLButtonElement;
-const bellIcon = document.querySelector(
-  ".alert-image-background"
-) as HTMLDivElement;
-const alertBadge = document.querySelector(".alert-number") as HTMLSpanElement;
-const alertsContainer = document.querySelector(
-  ".alerts-container"
-) as HTMLDivElement;
-
-const alertsOpen = () => {
-  alertsContainer.style.animation = "menuOpen 300ms linear";
-  alertsContainer.classList.remove("close");
-  bellIcon.classList.add("icon-active");
-  alertBadge.classList.add("hide");
-};
-const alertsClose = () => {
-  alertsContainer.style.animation = "menuClose 300ms linear";
-  alertsContainer.classList.add("close");
-  bellIcon.classList.remove("icon-active");
-  alertBadge.classList.remove("hide");
-};
-
-alertBtn.addEventListener("mouseover", alertsOpen);
-alertsContainer.addEventListener("mouseover", alertsOpen);
-alertBtn.addEventListener("mouseout", alertsClose);
-alertsContainer.addEventListener("mouseout", alertsClose);
-
-//===========================Announcements============================
-
-const announcementBtn = document.querySelector(
-  ".announcements"
-) as HTMLButtonElement;
-const announcementIcon = document.querySelector(
-  ".announcements-image-background"
-) as HTMLDivElement;
-const announcementBadge = document.querySelector(
-  ".announcement-number"
-) as HTMLSpanElement;
-const announcementsContainer = document.querySelector(
-  ".announcements-container"
-) as HTMLDivElement;
-
-const announcementsOpen = () => {
-  announcementsContainer.style.animation = "menuOpen 300ms linear";
-  announcementsContainer.classList.remove("close");
-  announcementIcon.classList.add("icon-active");
-  announcementBadge.classList.add("hide");
-};
-const announcementsClose = () => {
-  announcementsContainer.style.animation = "menuOpen 300ms linear";
-  announcementsContainer.classList.add("close");
-  announcementIcon.classList.remove("icon-active");
-  announcementBadge.classList.remove("hide");
-};
-
-announcementBtn.addEventListener("mouseover", announcementsOpen);
-announcementsContainer.addEventListener("mouseover", announcementsOpen);
-announcementBtn.addEventListener("mouseout", announcementsClose);
-announcementsContainer.addEventListener("mouseout", announcementsClose);
-
 //=======================Render Course cards==================
 
 //===================This is for creating card element
@@ -176,17 +72,25 @@ function createCardT(course) {
     </div>
     <div class="hl"></div>
     <div class="course-card-bottom">
-      <button ${course.disabledButton[0] ? `class="disabled"` : ""}>
-        <img src="./assets/icons/preview.svg" alt="" />
+      <button aria-label="preview" ${
+        course.disabledButton[0] ? `class="disabled"` : ""
+      }>
+        <img class="preview" src="./assets/icons/preview.svg" alt="" />
       </button>
-      <button ${course.disabledButton[1] ? `class="disabled"` : ""}>
-        <img src="./assets/icons/manage course.svg" alt="" />
+      <button aria-label="manage course" ${
+        course.disabledButton[1] ? `class="disabled"` : ""
+      }>
+        <img class="manage-course" src="./assets/icons/manage course.svg" alt="" />
       </button>
-      <button ${course.disabledButton[2] ? `class="disabled"` : ""}>
-        <img src="./assets/icons/grade submissions.svg" alt="" />
+      <button aria-label="grade submission" ${
+        course.disabledButton[2] ? `class="disabled"` : ""
+      }>
+        <img class="grade-submission" src="./assets/icons/grade submissions.svg" alt="" />
       </button>
-      <button ${course.disabledButton[3] ? `class="disabled"` : ""}>
-        <img src="./assets/icons/reports.svg" alt="" />
+      <button aria-label="reports" ${
+        course.disabledButton[3] ? `class="disabled"` : ""
+      }>
+        <img class="reports" src="./assets/icons/reports.svg" alt="" />
       </button>
     </div>
     `;
@@ -213,3 +117,145 @@ async function cardsT() {
   }
 }
 cardsT();
+
+//====================Hamburger menu=======================
+
+const btnT = document.querySelector(".ham-icon") as HTMLButtonElement;
+const navbarT = document.querySelector(".navbar-nav") as HTMLUListElement;
+const hamIcon = document.querySelector(
+  ".ham-icon-background"
+) as HTMLDivElement;
+
+const hamburgerToggle = () => {
+  // navbarT.style.animation = "menuOpen 300ms linear";
+  btnT.classList.toggle("active-ham");
+  navbarT.classList.toggle("expand");
+  hamIcon.classList.toggle("icon-active");
+};
+
+btnT.addEventListener("click", hamburgerToggle);
+
+//========================Sub-Navbar===========================
+
+const submenuToggle = (obj, val) => {
+  //this is flag to check if the current selected nav item and previous nav item is
+  //same then that nav -item should be closed.
+  let previous = false;
+  let currentNavItem = obj.parentElement;
+  if (window.innerWidth <= 980) {
+    //Code to remove the previous active subnav
+    try {
+      const prevNavItem = document.querySelector(".active-subnav");
+      if (prevNavItem == currentNavItem) {
+        previous = true;
+      }
+      if (prevNavItem !== undefined || null) {
+        prevNavItem
+          ?.querySelector(".drop-down-icon")
+          ?.classList.remove("upsidedown");
+        prevNavItem?.querySelector(".subnav")?.classList.add("close");
+        prevNavItem?.classList.remove("active-subnav");
+      }
+    } catch (err) {
+      console.log("h");
+    }
+    if (!previous) {
+      try {
+        //select parent and change the background color
+        currentNavItem.classList.toggle("active-subnav");
+        //select btn and make it up-side-down
+        obj.querySelector(".drop-down-icon").classList.toggle("upsidedown");
+        //select the submenu through ID and toggle it
+        let id = "#" + val;
+        const submenu = document.querySelector(id) as HTMLDivElement;
+        submenu?.classList.toggle("close");
+        // submenu.style.animation = "menuOpen 300ms linear";
+      } catch (err) {}
+    }
+  }
+};
+
+//=======================Alerts==============================
+
+const alertBtn = document.querySelector(".alerts") as HTMLButtonElement;
+const bellIcon = document.querySelector(
+  ".alert-image-background"
+) as HTMLDivElement;
+const alertBadge = document.querySelector(".alert-number") as HTMLSpanElement;
+const alertsContainer = document.querySelector(
+  ".alerts-container"
+) as HTMLDivElement;
+
+//For laptops
+const alertsOpen = () => {
+  if (window.innerWidth > 900) {
+    alertsContainer.classList.remove("close");
+    bellIcon.classList.add("icon-active");
+    alertBadge.classList.add("hide");
+  }
+};
+const alertsClose = () => {
+  if (window.innerWidth > 900) {
+    alertsContainer.classList.add("close");
+    bellIcon.classList.remove("icon-active");
+    alertBadge.classList.remove("hide");
+  }
+};
+//for mobile
+const alertToggle = () => {
+  if (window.innerWidth < 900) {
+    alertsContainer.classList.toggle("close");
+    bellIcon.classList.toggle("icon-active");
+    alertBadge.classList.toggle("hide");
+  }
+};
+alertBtn.addEventListener("click", alertToggle);
+
+alertBtn.addEventListener("mouseover", alertsOpen);
+alertsContainer.addEventListener("mouseover", alertsOpen);
+alertBtn.addEventListener("mouseout", alertsClose);
+alertsContainer.addEventListener("mouseout", alertsClose);
+
+//===========================Announcements============================
+
+const announcementBtn = document.querySelector(
+  ".announcements"
+) as HTMLButtonElement;
+const announcementIcon = document.querySelector(
+  ".announcements-image-background"
+) as HTMLDivElement;
+const announcementBadge = document.querySelector(
+  ".announcement-number"
+) as HTMLSpanElement;
+const announcementsContainer = document.querySelector(
+  ".announcements-container"
+) as HTMLDivElement;
+//For laptop
+const announcementsOpen = () => {
+  if (window.innerWidth > 900) {
+    announcementsContainer.classList.remove("close");
+    announcementIcon.classList.add("icon-active");
+    announcementBadge.classList.add("hide");
+  }
+};
+const announcementsClose = () => {
+  if (window.innerWidth > 900) {
+    announcementsContainer.classList.add("close");
+    announcementIcon.classList.remove("icon-active");
+    announcementBadge.classList.remove("hide");
+  }
+};
+//for mobile
+const announcementsToggle = () => {
+  if (window.innerWidth < 900) {
+    announcementsContainer.classList.toggle("close");
+    announcementIcon.classList.toggle("icon-active");
+    announcementBadge.classList.toggle("hide");
+  }
+};
+announcementBtn.addEventListener("click", announcementsToggle);
+
+announcementBtn.addEventListener("mouseover", announcementsOpen);
+announcementsContainer.addEventListener("mouseover", announcementsOpen);
+announcementBtn.addEventListener("mouseout", announcementsClose);
+announcementsContainer.addEventListener("mouseout", announcementsClose);

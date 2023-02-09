@@ -1,4 +1,4 @@
-//====================Hamburger menu=======================
+//=======================Render Course cards==================
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -35,82 +35,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var btnT = document.querySelector(".ham-icon");
-var navbarT = document.querySelector(".navbar-nav");
-var hamIcon = document.querySelector(".ham-icon-background");
-var hamburgerOpenT = function () {
-    navbarT.style.animation = "menuOpen 300ms linear";
-    btnT.classList.add("active-ham");
-    navbarT.classList.add("expand");
-    hamIcon.classList.add("icon-active");
-};
-var hamburgerCloseT = function () {
-    navbarT.style.animation = "menuClose 3s linear";
-    btnT.classList.remove("active-ham");
-    navbarT.classList.remove("expand");
-    hamIcon.classList.remove("icon-active");
-};
-btnT.addEventListener("mouseover", hamburgerOpenT);
-navbarT.addEventListener("mouseover", hamburgerOpenT);
-btnT.addEventListener("mouseout", hamburgerCloseT);
-navbarT.addEventListener("mouseout", hamburgerCloseT);
-//========================Sub-Navbar===========================
-var submenuToggle = function (obj, val) {
-    if (window.innerWidth <= 980) {
-        //select parent and change the background color of all
-        obj.parentElement.classList.toggle("active-subnav");
-        //select btn and make it up-side-down
-        obj.querySelector(".drop-down-icon").classList.toggle("upsidedown");
-        //select the submenu through ID and toggle it
-        var id = "#" + val;
-        var submenu = document.querySelector(id);
-        submenu === null || submenu === void 0 ? void 0 : submenu.classList.toggle("close");
-        submenu.style.animation = "menuOpen 300ms linear";
-    }
-};
-//=======================Alerts==============================
-var alertBtn = document.querySelector(".alerts");
-var bellIcon = document.querySelector(".alert-image-background");
-var alertBadge = document.querySelector(".alert-number");
-var alertsContainer = document.querySelector(".alerts-container");
-var alertsOpen = function () {
-    alertsContainer.style.animation = "menuOpen 300ms linear";
-    alertsContainer.classList.remove("close");
-    bellIcon.classList.add("icon-active");
-    alertBadge.classList.add("hide");
-};
-var alertsClose = function () {
-    alertsContainer.style.animation = "menuClose 300ms linear";
-    alertsContainer.classList.add("close");
-    bellIcon.classList.remove("icon-active");
-    alertBadge.classList.remove("hide");
-};
-alertBtn.addEventListener("mouseover", alertsOpen);
-alertsContainer.addEventListener("mouseover", alertsOpen);
-alertBtn.addEventListener("mouseout", alertsClose);
-alertsContainer.addEventListener("mouseout", alertsClose);
-//===========================Announcements============================
-var announcementBtn = document.querySelector(".announcements");
-var announcementIcon = document.querySelector(".announcements-image-background");
-var announcementBadge = document.querySelector(".announcement-number");
-var announcementsContainer = document.querySelector(".announcements-container");
-var announcementsOpen = function () {
-    announcementsContainer.style.animation = "menuOpen 300ms linear";
-    announcementsContainer.classList.remove("close");
-    announcementIcon.classList.add("icon-active");
-    announcementBadge.classList.add("hide");
-};
-var announcementsClose = function () {
-    announcementsContainer.style.animation = "menuOpen 300ms linear";
-    announcementsContainer.classList.add("close");
-    announcementIcon.classList.remove("icon-active");
-    announcementBadge.classList.remove("hide");
-};
-announcementBtn.addEventListener("mouseover", announcementsOpen);
-announcementsContainer.addEventListener("mouseover", announcementsOpen);
-announcementBtn.addEventListener("mouseout", announcementsClose);
-announcementsContainer.addEventListener("mouseout", announcementsClose);
-//=======================Render Course cards==================
 //===================This is for creating card element
 function createCardT(course) {
     var cardHTML = "\n    ".concat(course.star
@@ -129,7 +53,7 @@ function createCardT(course) {
         ? "<span class=\"line\"></span>"
         : "", "\n          <span class=\"course-date\"> ").concat(course.coursedate.from !== undefined
         ? "".concat(course.coursedate.from, " - ").concat(course.coursedate.from)
-        : "", " \n          </span>\n        </div>\n      </div>\n    </div>\n    <div class=\"hl\"></div>\n    <div class=\"course-card-bottom\">\n      <button ").concat(course.disabledButton[0] ? "class=\"disabled\"" : "", ">\n        <img src=\"./assets/icons/preview.svg\" alt=\"\" />\n      </button>\n      <button ").concat(course.disabledButton[1] ? "class=\"disabled\"" : "", ">\n        <img src=\"./assets/icons/manage course.svg\" alt=\"\" />\n      </button>\n      <button ").concat(course.disabledButton[2] ? "class=\"disabled\"" : "", ">\n        <img src=\"./assets/icons/grade submissions.svg\" alt=\"\" />\n      </button>\n      <button ").concat(course.disabledButton[3] ? "class=\"disabled\"" : "", ">\n        <img src=\"./assets/icons/reports.svg\" alt=\"\" />\n      </button>\n    </div>\n    ");
+        : "", " \n          </span>\n        </div>\n      </div>\n    </div>\n    <div class=\"hl\"></div>\n    <div class=\"course-card-bottom\">\n      <button aria-label=\"preview\" ").concat(course.disabledButton[0] ? "class=\"disabled\"" : "", ">\n        <img class=\"preview\" src=\"./assets/icons/preview.svg\" alt=\"\" />\n      </button>\n      <button aria-label=\"manage course\" ").concat(course.disabledButton[1] ? "class=\"disabled\"" : "", ">\n        <img class=\"manage-course\" src=\"./assets/icons/manage course.svg\" alt=\"\" />\n      </button>\n      <button aria-label=\"grade submission\" ").concat(course.disabledButton[2] ? "class=\"disabled\"" : "", ">\n        <img class=\"grade-submission\" src=\"./assets/icons/grade submissions.svg\" alt=\"\" />\n      </button>\n      <button aria-label=\"reports\" ").concat(course.disabledButton[3] ? "class=\"disabled\"" : "", ">\n        <img class=\"reports\" src=\"./assets/icons/reports.svg\" alt=\"\" />\n      </button>\n    </div>\n    ");
     var card = document.createElement("div");
     card.classList.add("course-card");
     card.innerHTML = cardHTML;
@@ -157,3 +81,119 @@ function cardsT() {
     });
 }
 cardsT();
+//====================Hamburger menu=======================
+var btnT = document.querySelector(".ham-icon");
+var navbarT = document.querySelector(".navbar-nav");
+var hamIcon = document.querySelector(".ham-icon-background");
+var hamburgerToggle = function () {
+    // navbarT.style.animation = "menuOpen 300ms linear";
+    btnT.classList.toggle("active-ham");
+    navbarT.classList.toggle("expand");
+    hamIcon.classList.toggle("icon-active");
+};
+btnT.addEventListener("click", hamburgerToggle);
+//========================Sub-Navbar===========================
+var submenuToggle = function (obj, val) {
+    var _a, _b;
+    //this is flag to check if the current selected nav item and previous nav item is
+    //same then that nav -item should be closed.
+    var previous = false;
+    var currentNavItem = obj.parentElement;
+    if (window.innerWidth <= 980) {
+        //Code to remove the previous active subnav
+        try {
+            var prevNavItem = document.querySelector(".active-subnav");
+            if (prevNavItem == currentNavItem) {
+                previous = true;
+            }
+            if (prevNavItem !== undefined || null) {
+                (_a = prevNavItem === null || prevNavItem === void 0 ? void 0 : prevNavItem.querySelector(".drop-down-icon")) === null || _a === void 0 ? void 0 : _a.classList.remove("upsidedown");
+                (_b = prevNavItem === null || prevNavItem === void 0 ? void 0 : prevNavItem.querySelector(".subnav")) === null || _b === void 0 ? void 0 : _b.classList.add("close");
+                prevNavItem === null || prevNavItem === void 0 ? void 0 : prevNavItem.classList.remove("active-subnav");
+            }
+        }
+        catch (err) {
+            console.log("h");
+        }
+        if (!previous) {
+            try {
+                //select parent and change the background color
+                currentNavItem.classList.toggle("active-subnav");
+                //select btn and make it up-side-down
+                obj.querySelector(".drop-down-icon").classList.toggle("upsidedown");
+                //select the submenu through ID and toggle it
+                var id = "#" + val;
+                var submenu = document.querySelector(id);
+                submenu === null || submenu === void 0 ? void 0 : submenu.classList.toggle("close");
+                // submenu.style.animation = "menuOpen 300ms linear";
+            }
+            catch (err) { }
+        }
+    }
+};
+//=======================Alerts==============================
+var alertBtn = document.querySelector(".alerts");
+var bellIcon = document.querySelector(".alert-image-background");
+var alertBadge = document.querySelector(".alert-number");
+var alertsContainer = document.querySelector(".alerts-container");
+//For laptops
+var alertsOpen = function () {
+    if (window.innerWidth > 900) {
+        alertsContainer.classList.remove("close");
+        bellIcon.classList.add("icon-active");
+        alertBadge.classList.add("hide");
+    }
+};
+var alertsClose = function () {
+    if (window.innerWidth > 900) {
+        alertsContainer.classList.add("close");
+        bellIcon.classList.remove("icon-active");
+        alertBadge.classList.remove("hide");
+    }
+};
+//for mobile
+var alertToggle = function () {
+    if (window.innerWidth < 900) {
+        alertsContainer.classList.toggle("close");
+        bellIcon.classList.toggle("icon-active");
+        alertBadge.classList.toggle("hide");
+    }
+};
+alertBtn.addEventListener("click", alertToggle);
+alertBtn.addEventListener("mouseover", alertsOpen);
+alertsContainer.addEventListener("mouseover", alertsOpen);
+alertBtn.addEventListener("mouseout", alertsClose);
+alertsContainer.addEventListener("mouseout", alertsClose);
+//===========================Announcements============================
+var announcementBtn = document.querySelector(".announcements");
+var announcementIcon = document.querySelector(".announcements-image-background");
+var announcementBadge = document.querySelector(".announcement-number");
+var announcementsContainer = document.querySelector(".announcements-container");
+//For laptop
+var announcementsOpen = function () {
+    if (window.innerWidth > 900) {
+        announcementsContainer.classList.remove("close");
+        announcementIcon.classList.add("icon-active");
+        announcementBadge.classList.add("hide");
+    }
+};
+var announcementsClose = function () {
+    if (window.innerWidth > 900) {
+        announcementsContainer.classList.add("close");
+        announcementIcon.classList.remove("icon-active");
+        announcementBadge.classList.remove("hide");
+    }
+};
+//for mobile
+var announcementsToggle = function () {
+    if (window.innerWidth < 900) {
+        announcementsContainer.classList.toggle("close");
+        announcementIcon.classList.toggle("icon-active");
+        announcementBadge.classList.toggle("hide");
+    }
+};
+announcementBtn.addEventListener("click", announcementsToggle);
+announcementBtn.addEventListener("mouseover", announcementsOpen);
+announcementsContainer.addEventListener("mouseover", announcementsOpen);
+announcementBtn.addEventListener("mouseout", announcementsClose);
+announcementsContainer.addEventListener("mouseout", announcementsClose);

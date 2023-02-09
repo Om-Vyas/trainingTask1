@@ -8,9 +8,9 @@
 }
 @keyframes menuClose{
     0%{
-        transform: scaleY(1);
+        transform: scaleY(1) translateY(0%) ;
     }
     100%{
-        transform: translateY(-50%) scaleY(0.0001);
+        transform: scaleY(0) translateY(-50%) ;
     }
 }

@@ -186,6 +186,10 @@
                     top:5px;
                     right:5px;
                 }
+                img{
+                    width: 20px;
+                    height: 24px;
+                }
             }
     
             .course-card-top{
@@ -313,6 +317,14 @@
                     border: none;
                     img{
                         cursor: pointer;
+                    }
+                    img.preview{
+                        width: 22px;
+                        height: 24px;
+                    }
+                    img.manage-course, img.grade-submission{
+                        width: 18px;
+                        height: 20px;
                     }
                 }
 
