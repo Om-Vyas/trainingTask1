@@ -131,7 +131,7 @@
         display: none;
         @include forTablet{
             @include flex(column,center,start);
-            animation: menuOpen 300ms linear;
+            // animation: menuOpen 300ms linear;
         }
 
         .subnav-item{
@@ -229,19 +229,18 @@
             top:56px;
             right: 136px;
             box-shadow: 0px 13px 20px #0000003D;
-            animation: menuOpen 300ms;
+            // animation: menuOpen 300ms;
 
             @include forTablet{
                 right: 188px;
             }
 
             @include forPhone{
-                right: 90px;
-                width: 280px;
+                right: 10px;
                 max-height: 400px;
             }
             @include forPhoneXs{
-                right: 30px;
+                right: 0px;
             }
 
             .alerts-list{  
@@ -351,19 +350,18 @@
             top:56px;
             right: 80px;
             box-shadow: 0px 13px 20px #0000003D;
-            animation: menuOpen 300ms linear;
+            // animation: menuOpen 300ms linear;
 
             @include forTablet{
                 right: 136px;
             }
 
             @include forPhone{
-                right: 90px;
-                width: 280px;
+                right: 10px;
                 max-height: 400px;
             }
             @include forPhoneXs{
-                right: 10px;
+                right: 0px;
             }
 
             .announcements-list{

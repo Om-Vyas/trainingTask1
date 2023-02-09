@@ -30,7 +30,7 @@
         <div class="navbar-bg"></div>
 
         <li class="nav-item active-white">
-          <div class="subnav-header" onclick="submenuToggle(this,`DASHBOARD`)">
+          <div class="subnav-header">
             <a href="#">DASHBOARD</a>
           </div>
         </li>
@@ -99,7 +99,12 @@
       <div class="nav-icons">
         <!-- --------------alerts------------------------ -->
 
-        <a href="#" class="alerts nav-icon">
+        <a
+          onmouseover="alertsOpen()"
+          onmouseout="alertsClose()"
+          href="#"
+          class="alerts nav-icon"
+        >
           <span class="alert-number nav-icon-number">5</span>
           <button class="alert-image" aria-label="alert">
             <div class="alert-image-background"></div>

@@ -127,21 +127,30 @@ const hamIcon = document.querySelector(
 ) as HTMLDivElement;
 
 const hamburgerToggle = () => {
-  if (document.querySelector("ul.expand")) {
-    if (window.innerWidth < 981) {
+  if (window.innerWidth < 981) {
+    if (document.querySelector("ul.expand")) {
       navbarT.style.animation = "menuClose 300ms";
-    }
-    hamIcon.classList.remove("icon-active");
-    setTimeout(() => {
-      navbarT.classList.remove("expand");
-    }, 290);
-  } else if (!document.querySelector("ul.expand")) {
-    if (window.innerWidth < 981) {
+      hamIcon.classList.remove("icon-active");
+      setTimeout(() => {
+        navbarT.classList.remove("expand");
+        //when menu is closed -> close the previous active sub nav
+        if (document.querySelector(".active-navitem")) {
+          const prevNavItem = document.querySelector(
+            ".active-navitem"
+          ) as HTMLDivElement;
+          const subnav = prevNavItem.querySelector(".subnav") as HTMLDivElement;
+          //close the subnav
+          subnav.classList.add("close");
+          //remove active tag from pre-active-NavItem
+          prevNavItem?.classList.remove("active-navitem");
+        }
+      }, 290);
+    } else if (!document.querySelector("ul.expand")) {
       navbarT.style.animation = "menuOpen 300ms";
+      hamIcon.classList.add("icon-active");
+      navbarT.classList.add("expand");
+      setTimeout(() => {}, 300);
     }
-    hamIcon.classList.add("icon-active");
-    navbarT.classList.add("expand");
-    // setTimeout(() => {}, 300);
   }
 };
 
@@ -161,31 +170,35 @@ const submenuToggle = (obj, val) => {
     //Code to remove the previous 'active subnav'
     //get prev active navitem
     try {
-      const prevNavItem = document.querySelector(
-        ".active-navitem"
-      ) as HTMLDivElement;
-      if (prevNavItem == currentNavItem) {
-        previous = true;
-      }
-      if (prevNavItem !== undefined || null) {
-        //remove upsidedown from dropdown icon
-        prevNavItem
-          ?.querySelector(".drop-down-icon")
-          ?.classList.remove("upsidedown");
-        //select subnav of pre-active-nav-item
-        const subnav = prevNavItem.querySelector(".subnav") as HTMLDivElement;
-        subnav.style.animation = "menuClose 300ms";
-        setTimeout(() => {
+      if (document.querySelector(".active-navitem")) {
+        const prevNavItem = document.querySelector(
+          ".active-navitem"
+        ) as HTMLDivElement;
+        //check if preActiveNavItem and currently clicked Nav Item is same
+        if (prevNavItem == currentNavItem) {
+          previous = true;
+        }
+        if (prevNavItem !== undefined || null) {
+          //remove upsidedown from dropdown icon
+          prevNavItem
+            ?.querySelector(".drop-down-icon")
+            ?.classList.remove("upsidedown");
+          //select subnav of pre-active-nav-item
+          const subnav = prevNavItem.querySelector(".subnav") as HTMLDivElement;
+          // subnav.style.animation = "menuClose 300ms";
+          // setTimeout(() => {
           //close the subnav
           subnav.classList.add("close");
           //remove active tag from pre-active-NavItem
           prevNavItem?.classList.remove("active-navitem");
-        }, 300);
+          // }, 300);
+        }
       }
     } catch (err) {
       console.log(err);
     }
 
+    // Active currently clicked subnav
     if (!previous) {
       try {
         //select navitem and make it active so background color changes
@@ -216,25 +229,37 @@ const alertsContainer = document.querySelector(
 
 //For laptops
 const alertsOpen = () => {
-  if (window.innerWidth > 900) {
+  if (window.innerWidth > 800) {
     alertsContainer.classList.remove("close");
-    bellIcon.classList.add("icon-active");
+    alertsContainer.style.animation = "menuOpen 300ms";
     alertBadge.classList.add("hide");
+    bellIcon.classList.add("icon-active");
   }
 };
 const alertsClose = () => {
-  if (window.innerWidth > 900) {
+  if (window.innerWidth > 800) {
     bellIcon.classList.remove("icon-active");
     alertBadge.classList.remove("hide");
+    alertsContainer.style.animation = "menuClose 300ms";
     alertsContainer.classList.add("close");
   }
 };
 //for mobile
 const alertToggle = () => {
-  if (window.innerWidth < 900) {
-    alertsContainer.classList.toggle("close");
-    bellIcon.classList.toggle("icon-active");
-    alertBadge.classList.toggle("hide");
+  if (window.innerWidth < 800) {
+    if (alertsContainer.classList.contains("close")) {
+      alertsContainer.classList.remove("close");
+      bellIcon.classList.add("icon-active");
+      alertBadge.classList.add("hide");
+      alertsContainer.style.animation = "menuOpen 300ms";
+    } else if (!alertsContainer.classList.contains("close")) {
+      alertsContainer.style.animation = "menuClose 300ms";
+      bellIcon.classList.remove("icon-active");
+      alertBadge.classList.remove("hide");
+      setTimeout(() => {
+        alertsContainer.classList.add("close");
+      }, 290);
+    }
   }
 };
 alertBtn.addEventListener("click", alertToggle);
@@ -262,23 +287,35 @@ const announcementsContainer = document.querySelector(
 const announcementsOpen = () => {
   if (window.innerWidth > 900) {
     announcementsContainer.classList.remove("close");
-    announcementIcon.classList.add("icon-active");
+    announcementsContainer.style.animation = "menuOpen 300ms";
     announcementBadge.classList.add("hide");
+    announcementIcon.classList.add("icon-active");
   }
 };
 const announcementsClose = () => {
   if (window.innerWidth > 900) {
-    announcementsContainer.classList.add("close");
     announcementIcon.classList.remove("icon-active");
     announcementBadge.classList.remove("hide");
+    announcementsContainer.style.animation = "menuClose 300ms";
+    announcementsContainer.classList.add("close");
   }
 };
 //for mobile
 const announcementsToggle = () => {
-  if (window.innerWidth < 900) {
-    announcementsContainer.classList.toggle("close");
-    announcementIcon.classList.toggle("icon-active");
-    announcementBadge.classList.toggle("hide");
+  if (window.innerWidth < 800) {
+    if (announcementsContainer.classList.contains("close")) {
+      announcementsContainer.classList.remove("close");
+      announcementIcon.classList.add("icon-active");
+      announcementBadge.classList.add("hide");
+      announcementsContainer.style.animation = "menuOpen 300ms";
+    } else if (!announcementsContainer.classList.contains("close")) {
+      announcementsContainer.style.animation = "menuClose 300ms";
+      announcementIcon.classList.remove("icon-active");
+      announcementBadge.classList.remove("hide");
+      setTimeout(() => {
+        announcementsContainer.classList.add("close");
+      }, 290);
+    }
   }
 };
 announcementBtn.addEventListener("click", announcementsToggle);

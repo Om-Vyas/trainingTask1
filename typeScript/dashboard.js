@@ -86,22 +86,29 @@ var btnT = document.querySelector(".ham-icon");
 var navbarT = document.querySelector(".navbar-nav");
 var hamIcon = document.querySelector(".ham-icon-background");
 var hamburgerToggle = function () {
-    if (document.querySelector("ul.expand")) {
-        if (window.innerWidth < 981) {
+    if (window.innerWidth < 981) {
+        if (document.querySelector("ul.expand")) {
             navbarT.style.animation = "menuClose 300ms";
+            hamIcon.classList.remove("icon-active");
+            setTimeout(function () {
+                navbarT.classList.remove("expand");
+                //when menu is closed -> close the previous active sub nav
+                if (document.querySelector(".active-navitem")) {
+                    var prevNavItem = document.querySelector(".active-navitem");
+                    var subnav = prevNavItem.querySelector(".subnav");
+                    //close the subnav
+                    subnav.classList.add("close");
+                    //remove active tag from pre-active-NavItem
+                    prevNavItem === null || prevNavItem === void 0 ? void 0 : prevNavItem.classList.remove("active-navitem");
+                }
+            }, 290);
         }
-        hamIcon.classList.remove("icon-active");
-        setTimeout(function () {
-            navbarT.classList.remove("expand");
-        }, 290);
-    }
-    else if (!document.querySelector("ul.expand")) {
-        if (window.innerWidth < 981) {
+        else if (!document.querySelector("ul.expand")) {
             navbarT.style.animation = "menuOpen 300ms";
+            hamIcon.classList.add("icon-active");
+            navbarT.classList.add("expand");
+            setTimeout(function () { }, 300);
         }
-        hamIcon.classList.add("icon-active");
-        navbarT.classList.add("expand");
-        // setTimeout(() => {}, 300);
     }
 };
 btnT.addEventListener("click", hamburgerToggle);
@@ -118,27 +125,31 @@ var submenuToggle = function (obj, val) {
         //Code to remove the previous 'active subnav'
         //get prev active navitem
         try {
-            var prevNavItem_1 = document.querySelector(".active-navitem");
-            if (prevNavItem_1 == currentNavItem) {
-                previous = true;
-            }
-            if (prevNavItem_1 !== undefined || null) {
-                //remove upsidedown from dropdown icon
-                (_a = prevNavItem_1 === null || prevNavItem_1 === void 0 ? void 0 : prevNavItem_1.querySelector(".drop-down-icon")) === null || _a === void 0 ? void 0 : _a.classList.remove("upsidedown");
-                //select subnav of pre-active-nav-item
-                var subnav_1 = prevNavItem_1.querySelector(".subnav");
-                subnav_1.style.animation = "menuClose 300ms";
-                setTimeout(function () {
+            if (document.querySelector(".active-navitem")) {
+                var prevNavItem = document.querySelector(".active-navitem");
+                //check if preActiveNavItem and currently clicked Nav Item is same
+                if (prevNavItem == currentNavItem) {
+                    previous = true;
+                }
+                if (prevNavItem !== undefined || null) {
+                    //remove upsidedown from dropdown icon
+                    (_a = prevNavItem === null || prevNavItem === void 0 ? void 0 : prevNavItem.querySelector(".drop-down-icon")) === null || _a === void 0 ? void 0 : _a.classList.remove("upsidedown");
+                    //select subnav of pre-active-nav-item
+                    var subnav = prevNavItem.querySelector(".subnav");
+                    // subnav.style.animation = "menuClose 300ms";
+                    // setTimeout(() => {
                     //close the subnav
-                    subnav_1.classList.add("close");
+                    subnav.classList.add("close");
                     //remove active tag from pre-active-NavItem
-                    prevNavItem_1 === null || prevNavItem_1 === void 0 ? void 0 : prevNavItem_1.classList.remove("active-navitem");
-                }, 300);
+                    prevNavItem === null || prevNavItem === void 0 ? void 0 : prevNavItem.classList.remove("active-navitem");
+                    // }, 300);
+                }
             }
         }
         catch (err) {
             console.log(err);
         }
+        // Active currently clicked subnav
         if (!previous) {
             try {
                 //select navitem and make it active so background color changes
@@ -163,25 +174,38 @@ var alertBadge = document.querySelector(".alert-number");
 var alertsContainer = document.querySelector(".alerts-container");
 //For laptops
 var alertsOpen = function () {
-    if (window.innerWidth > 900) {
+    if (window.innerWidth > 800) {
         alertsContainer.classList.remove("close");
-        bellIcon.classList.add("icon-active");
+        alertsContainer.style.animation = "menuOpen 300ms";
         alertBadge.classList.add("hide");
+        bellIcon.classList.add("icon-active");
     }
 };
 var alertsClose = function () {
-    if (window.innerWidth > 900) {
+    if (window.innerWidth > 800) {
         bellIcon.classList.remove("icon-active");
         alertBadge.classList.remove("hide");
+        alertsContainer.style.animation = "menuClose 300ms";
         alertsContainer.classList.add("close");
     }
 };
 //for mobile
 var alertToggle = function () {
-    if (window.innerWidth < 900) {
-        alertsContainer.classList.toggle("close");
-        bellIcon.classList.toggle("icon-active");
-        alertBadge.classList.toggle("hide");
+    if (window.innerWidth < 800) {
+        if (alertsContainer.classList.contains("close")) {
+            alertsContainer.classList.remove("close");
+            bellIcon.classList.add("icon-active");
+            alertBadge.classList.add("hide");
+            alertsContainer.style.animation = "menuOpen 300ms";
+        }
+        else if (!alertsContainer.classList.contains("close")) {
+            alertsContainer.style.animation = "menuClose 300ms";
+            bellIcon.classList.remove("icon-active");
+            alertBadge.classList.remove("hide");
+            setTimeout(function () {
+                alertsContainer.classList.add("close");
+            }, 290);
+        }
     }
 };
 alertBtn.addEventListener("click", alertToggle);
@@ -198,23 +222,36 @@ var announcementsContainer = document.querySelector(".announcements-container");
 var announcementsOpen = function () {
     if (window.innerWidth > 900) {
         announcementsContainer.classList.remove("close");
-        announcementIcon.classList.add("icon-active");
+        announcementsContainer.style.animation = "menuOpen 300ms";
         announcementBadge.classList.add("hide");
+        announcementIcon.classList.add("icon-active");
     }
 };
 var announcementsClose = function () {
     if (window.innerWidth > 900) {
-        announcementsContainer.classList.add("close");
         announcementIcon.classList.remove("icon-active");
         announcementBadge.classList.remove("hide");
+        announcementsContainer.style.animation = "menuClose 300ms";
+        announcementsContainer.classList.add("close");
     }
 };
 //for mobile
 var announcementsToggle = function () {
-    if (window.innerWidth < 900) {
-        announcementsContainer.classList.toggle("close");
-        announcementIcon.classList.toggle("icon-active");
-        announcementBadge.classList.toggle("hide");
+    if (window.innerWidth < 800) {
+        if (announcementsContainer.classList.contains("close")) {
+            announcementsContainer.classList.remove("close");
+            announcementIcon.classList.add("icon-active");
+            announcementBadge.classList.add("hide");
+            announcementsContainer.style.animation = "menuOpen 300ms";
+        }
+        else if (!announcementsContainer.classList.contains("close")) {
+            announcementsContainer.style.animation = "menuClose 300ms";
+            announcementIcon.classList.remove("icon-active");
+            announcementBadge.classList.remove("hide");
+            setTimeout(function () {
+                announcementsContainer.classList.add("close");
+            }, 290);
+        }
     }
 };
 announcementBtn.addEventListener("click", announcementsToggle);
