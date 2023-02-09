@@ -122,9 +122,7 @@ cardsT();
 
 const btnT = document.querySelector(".ham-icon") as HTMLButtonElement;
 const navbarT = document.querySelector(".navbar-nav") as HTMLUListElement;
-const hamIcon = document.querySelector(
-  ".ham-icon-background"
-) as HTMLDivElement;
+const hamIcon = document.querySelector(".ham-icon-image") as HTMLDivElement;
 
 const hamburgerToggle = () => {
   if (window.innerWidth < 981) {
@@ -185,13 +183,19 @@ const submenuToggle = (obj, val) => {
             ?.classList.remove("upsidedown");
           //select subnav of pre-active-nav-item
           const subnav = prevNavItem.querySelector(".subnav") as HTMLDivElement;
-          // subnav.style.animation = "menuClose 300ms";
-          // setTimeout(() => {
-          //close the subnav
-          subnav.classList.add("close");
-          //remove active tag from pre-active-NavItem
-          prevNavItem?.classList.remove("active-navitem");
-          // }, 300);
+          //If removing preActiveSubnav then add animation otherwise not
+          if (previous) {
+            subnav.style.animation = "menuClose 300ms";
+            setTimeout(() => {
+              //close the subnav
+              subnav.classList.add("close");
+              //remove active tag from pre-active-NavItem
+              prevNavItem?.classList.remove("active-navitem");
+            }, 300);
+          } else {
+            subnav.classList.add("close");
+            prevNavItem?.classList.remove("active-navitem");
+          }
         }
       }
     } catch (err) {

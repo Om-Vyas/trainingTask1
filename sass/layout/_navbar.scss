@@ -67,7 +67,7 @@
                 a{
                     text-decoration: none;
                     color: $navbarColor;
-                    padding: 4px 4px;
+                    padding: 19px 4px;
                     cursor: pointer;
 
                     &:focus{
@@ -163,18 +163,25 @@
         .nav-icon{
             background: transparent;
             border: none;
-            margin: 0px 12px;
-            padding: 0 4px;
-            cursor: pointer;
+            margin: 0px 4px;
+            padding: 0 12px;
+            cursor: pointer !important;
             position: relative;
-            
+            height: 56px;
             &:focus{
                 outline: 1px solid $outlineColor2;
             }
 
+            button{
+                cursor: pointer;
+                &:focus{
+                    outline: none;
+                }
+            }
+
             @include forPhoneXl {
-                margin: 0 5px;
-                padding: 0 2px;
+                margin: 0 2px;
+                padding: 0 5px;
             }
 
             .nav-icon-number{
@@ -191,17 +198,14 @@
 
         //====================Alerts============================
         .alerts{
-            margin-top: 20px;
-            height: 36px;
             .alert-image{
-                width: 21px;
-                height: 24px;
+                padding: 16px 0px;
                 background-color: transparent;
                 border: none;
                 .alert-image-background{
                     cursor: pointer;
-                    width: 100%;
-                    height: 100%;
+                    width: 21px;
+                    height: 24px;
                     mask: url("/assets/icons/alerts.svg");
                     mask-size: cover;
                     background-color: $alertIcon;
@@ -212,9 +216,12 @@
                 }
             }
             .alert-number{
-                top: -7px;
-                right: -2px;
+                top: 8px;
+                right: 6px;
                 z-index: 10;
+                @include forPhoneXl{
+                    right:-1px;
+                }
             }
             .hide{
                 display: none;
@@ -313,16 +320,13 @@
 
         //====================Announcements=====================
         .announcements{
-            margin-top: 22px;
-            height: 34px;
             .announcements-image{
-                width: 20px;
-                height: 20px;
+                padding: 18px 0px;
                 background-color: transparent;
                 border: none;
                 .announcements-image-background{
-                    width: 100%;
-                    height: 100%;
+                    width: 20px;
+                    height: 20px;
                     mask: url("/assets/icons/announcements.svg");
                     mask-size: cover;
                     background-color: $alertIcon;
@@ -333,9 +337,12 @@
                 }
             }
             .announcement-number{
-                top: -9px;
-                right: -7px;
+                top: 8px;
+                right: 1px;
                 z-index: 10;
+                @include forPhoneXl{
+                    right:-6px;
+                }
             }
             .hide{
                 display: none;
@@ -467,20 +474,26 @@
 
         //====================Avatar============================
         .avatar{
-            margin-top: 16px;
-            height: 40px;
+            padding: 12px;
+            @include forPhoneXl {
+                margin: 0 2px;
+                padding: 12px 5px;
+            }
             img{
                 width: 32px;
                 height: 32px;
                 object-fit: cover;
             }
             .avatar-number{
-                top: -5px;
-                right: 0px;
+                top: 7px;
+                right: 9px;
                 background-color: $badgeColor;
                 color: $selectTextColor;
                 font-size: 10px;
                 line-height: 17px;
+                @include forPhoneXl{
+                    right:2px;
+                }
             }
         }
 
@@ -489,23 +502,28 @@
             display: none;
             border: none;
             background-color: transparent;
-            margin-top: 19px;
-            height: 43px;
-            width: 35px;
-            padding-bottom: 25px;
+            padding: 19px 10px ;
+            @include forPhoneXl {
+                margin: 0 2px;
+                padding: 19px 5px;
+            }
             @include forTablet{
                 display: block;
             }
-            .ham-icon-background{
-                width: 27px;
+            .ham-icon-image{
+                width: 31px;
                 height: 18px;
-                mask: url("/assets/icons/hamburger-menu.svg");
-                mask-size: cover;
-                background-color: $alertIcon;
-                mask-position: center;
             }
+            // .ham-icon-background{
+            //     width: 27px;
+            //     height: 18px;
+            //     mask: url("/assets/icons/hamburger-menu.svg");
+            //     mask-size: cover;
+            //     background-color: $alertIcon;
+            //     mask-position: center;
+            // }
             .icon-active{
-                background-color: $alertIconActive;
+                filter: brightness(0) invert(1);;
             }
         }
     }

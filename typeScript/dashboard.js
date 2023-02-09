@@ -84,7 +84,7 @@ cardsT();
 //====================Hamburger menu=======================
 var btnT = document.querySelector(".ham-icon");
 var navbarT = document.querySelector(".navbar-nav");
-var hamIcon = document.querySelector(".ham-icon-background");
+var hamIcon = document.querySelector(".ham-icon-image");
 var hamburgerToggle = function () {
     if (window.innerWidth < 981) {
         if (document.querySelector("ul.expand")) {
@@ -126,23 +126,30 @@ var submenuToggle = function (obj, val) {
         //get prev active navitem
         try {
             if (document.querySelector(".active-navitem")) {
-                var prevNavItem = document.querySelector(".active-navitem");
+                var prevNavItem_1 = document.querySelector(".active-navitem");
                 //check if preActiveNavItem and currently clicked Nav Item is same
-                if (prevNavItem == currentNavItem) {
+                if (prevNavItem_1 == currentNavItem) {
                     previous = true;
                 }
-                if (prevNavItem !== undefined || null) {
+                if (prevNavItem_1 !== undefined || null) {
                     //remove upsidedown from dropdown icon
-                    (_a = prevNavItem === null || prevNavItem === void 0 ? void 0 : prevNavItem.querySelector(".drop-down-icon")) === null || _a === void 0 ? void 0 : _a.classList.remove("upsidedown");
+                    (_a = prevNavItem_1 === null || prevNavItem_1 === void 0 ? void 0 : prevNavItem_1.querySelector(".drop-down-icon")) === null || _a === void 0 ? void 0 : _a.classList.remove("upsidedown");
                     //select subnav of pre-active-nav-item
-                    var subnav = prevNavItem.querySelector(".subnav");
-                    // subnav.style.animation = "menuClose 300ms";
-                    // setTimeout(() => {
-                    //close the subnav
-                    subnav.classList.add("close");
-                    //remove active tag from pre-active-NavItem
-                    prevNavItem === null || prevNavItem === void 0 ? void 0 : prevNavItem.classList.remove("active-navitem");
-                    // }, 300);
+                    var subnav_1 = prevNavItem_1.querySelector(".subnav");
+                    //If removing preActiveSubnav then add animation otherwise not
+                    if (previous) {
+                        subnav_1.style.animation = "menuClose 300ms";
+                        setTimeout(function () {
+                            //close the subnav
+                            subnav_1.classList.add("close");
+                            //remove active tag from pre-active-NavItem
+                            prevNavItem_1 === null || prevNavItem_1 === void 0 ? void 0 : prevNavItem_1.classList.remove("active-navitem");
+                        }, 300);
+                    }
+                    else {
+                        subnav_1.classList.add("close");
+                        prevNavItem_1 === null || prevNavItem_1 === void 0 ? void 0 : prevNavItem_1.classList.remove("active-navitem");
+                    }
                 }
             }
         }
