@@ -227,7 +227,7 @@ var announcementBadge = document.querySelector(".announcement-number");
 var announcementsContainer = document.querySelector(".announcements-container");
 //For laptop
 var announcementsOpen = function () {
-    if (window.innerWidth > 900) {
+    if (window.innerWidth > 800) {
         announcementsContainer.classList.remove("close");
         announcementsContainer.style.animation = "menuOpen 300ms";
         announcementBadge.classList.add("hide");
@@ -235,7 +235,7 @@ var announcementsOpen = function () {
     }
 };
 var announcementsClose = function () {
-    if (window.innerWidth > 900) {
+    if (window.innerWidth > 800) {
         announcementIcon.classList.remove("icon-active");
         announcementBadge.classList.remove("hide");
         announcementsContainer.style.animation = "menuClose 300ms";

@@ -4,9 +4,14 @@ select{
     outline: none;
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-    // width: 100%;
-    // @include setFont(normal,500,16px,20px,'Quicksand');
     color: $selectTextColor;
     padding-bottom: 5px;
+    -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari and Chrome */
+    -ms-appearance:none; /* Microsoft Edge */
+    appearance:none;
+    background-image: url("/assets/icons/arrow-down.svg");
+    background-repeat: no-repeat;
+    background-position: 102%;
 }
 

@@ -74,6 +74,7 @@
         }
         select{
             @include setFont(normal,500,16px,20px,'Quicksand');
+            background-color: $loginSelectBack;
             width: 100%;
         }
     }
@@ -96,7 +97,7 @@
             object-fit: cover;
             position: absolute;
             top:2px;
-            right: 10px;
+            right: 0px;
         }
     }
 
@@ -105,7 +106,13 @@
     }
     .pswd{
         margin-top: 33px;
+        //remove view icon from password field
+        input::-ms-reveal,
+        input::-ms-clear{
+            display: none;
+        }
     }
+    
 
     .remember-me{
         margin-top: 24px;

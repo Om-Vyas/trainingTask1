@@ -291,7 +291,7 @@ const announcementsContainer = document.querySelector(
 ) as HTMLDivElement;
 //For laptop
 const announcementsOpen = () => {
-  if (window.innerWidth > 900) {
+  if (window.innerWidth > 800) {
     announcementsContainer.classList.remove("close");
     announcementsContainer.style.animation = "menuOpen 300ms";
     announcementBadge.classList.add("hide");
@@ -299,7 +299,7 @@ const announcementsOpen = () => {
   }
 };
 const announcementsClose = () => {
-  if (window.innerWidth > 900) {
+  if (window.innerWidth > 800) {
     announcementIcon.classList.remove("icon-active");
     announcementBadge.classList.remove("hide");
     announcementsContainer.style.animation = "menuClose 300ms";

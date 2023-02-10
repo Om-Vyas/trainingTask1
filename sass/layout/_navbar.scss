@@ -68,7 +68,7 @@
                     text-decoration: none;
                     color: $navbarColor;
                     padding: 19px 4px;
-                    cursor: pointer;
+                    // cursor: pointer;
 
                     &:focus{
                         outline: 1px solid $outlineColor2;
@@ -83,19 +83,23 @@
                 }
                 .drop-down-icon{
                     display: none;
-                    @include forTablet{
-                        display: block;
-                        cursor: pointer;
-                        width: 12px;
+                    cursor: pointer;
+                    width: 36px;
+                    height: 36px;
+                    float: right;
+                    padding: 6px 12px;
+                    margin: 6px 12px 0px 0px;
+                    background-position: center;
+                    background-size: cover;
+                    background-color: inherit;
+                    border: none;
+                    img{
+                        width: 13px;
                         height: 24px;
-                        float: right;
-                        padding: 12px;
-                        margin: 12px 12px 0px 0px;
-                        background-image: url("/assets/icons/arrow-down.svg");
-                        background-position: center;
-                        background-size: cover;
-                        background-color: inherit;
-                        border: none;
+                        filter: invert(0.33) sepia(0.5) saturate(9.8) hue-rotate(93.6deg) brightness(0.61);
+                    }
+                    @include forTablet{
+                        display: block;  
                     }
                 }
                 .upsidedown{
@@ -199,7 +203,7 @@
                 .alert-image{
                     padding: 16px 0px;
                     .alert-image-background{
-                        cursor: pointer;
+                        // cursor: pointer;
                         width: 21px;
                         height: 24px;
                         mask: url("/assets/icons/alerts.svg");
