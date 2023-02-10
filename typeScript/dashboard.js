@@ -102,13 +102,12 @@ var hamburgerToggle = function () {
                     //remove active tag from pre-active-NavItem
                     prevNavItem === null || prevNavItem === void 0 ? void 0 : prevNavItem.classList.remove("active-navitem");
                 }
-            }, 290);
+            }, 280);
         }
         else if (!document.querySelector("ul.expand")) {
             navbarT.style.animation = "menuOpen 300ms";
             hamIcon.classList.add("icon-active");
             navbarT.classList.add("expand");
-            setTimeout(function () { }, 300);
         }
     }
 };
@@ -145,7 +144,7 @@ var submenuToggle = function (obj, val) {
                             subnav_1.classList.add("close");
                             //remove active tag from pre-active-NavItem
                             prevNavItem_1 === null || prevNavItem_1 === void 0 ? void 0 : prevNavItem_1.classList.remove("active-navitem");
-                        }, 300);
+                        }, 280);
                     }
                     else {
                         subnav_1.classList.add("close");
@@ -176,7 +175,7 @@ var submenuToggle = function (obj, val) {
     }
 };
 //=======================Alerts==============================
-var alertBtn = document.querySelector(".alerts");
+var alertBtn = document.querySelector(".alerts-icon-item");
 var bellIcon = document.querySelector(".alert-image-background");
 var alertBadge = document.querySelector(".alert-number");
 var alertsContainer = document.querySelector(".alerts-container");
@@ -194,9 +193,13 @@ var alertsClose = function () {
         bellIcon.classList.remove("icon-active");
         alertBadge.classList.remove("hide");
         alertsContainer.style.animation = "menuClose 300ms";
-        alertsContainer.classList.add("close");
+        setTimeout(function () {
+            alertsContainer.classList.add("close");
+        }, 280);
     }
 };
+alertBtn.addEventListener("mouseenter", alertsOpen);
+alertBtn.addEventListener("mouseleave", alertsClose);
 //for mobile
 var alertToggle = function () {
     if (window.innerWidth < 800) {
@@ -212,17 +215,13 @@ var alertToggle = function () {
             alertBadge.classList.remove("hide");
             setTimeout(function () {
                 alertsContainer.classList.add("close");
-            }, 290);
+            }, 280);
         }
     }
 };
 alertBtn.addEventListener("click", alertToggle);
-alertBtn.addEventListener("mouseover", alertsOpen);
-alertsContainer.addEventListener("mouseover", alertsOpen);
-alertBtn.addEventListener("mouseout", alertsClose);
-alertsContainer.addEventListener("mouseout", alertsClose);
 //===========================Announcements============================
-var announcementBtn = document.querySelector(".announcements");
+var announcementBtn = document.querySelector(".announcements-icon-item");
 var announcementIcon = document.querySelector(".announcements-image-background");
 var announcementBadge = document.querySelector(".announcement-number");
 var announcementsContainer = document.querySelector(".announcements-container");
@@ -240,9 +239,13 @@ var announcementsClose = function () {
         announcementIcon.classList.remove("icon-active");
         announcementBadge.classList.remove("hide");
         announcementsContainer.style.animation = "menuClose 300ms";
-        announcementsContainer.classList.add("close");
+        setTimeout(function () {
+            announcementsContainer.classList.add("close");
+        }, 280);
     }
 };
+announcementBtn.addEventListener("mouseenter", announcementsOpen);
+announcementBtn.addEventListener("mouseleave", announcementsClose);
 //for mobile
 var announcementsToggle = function () {
     if (window.innerWidth < 800) {
@@ -258,12 +261,8 @@ var announcementsToggle = function () {
             announcementBadge.classList.remove("hide");
             setTimeout(function () {
                 announcementsContainer.classList.add("close");
-            }, 290);
+            }, 280);
         }
     }
 };
 announcementBtn.addEventListener("click", announcementsToggle);
-announcementBtn.addEventListener("mouseover", announcementsOpen);
-announcementsContainer.addEventListener("mouseover", announcementsOpen);
-announcementBtn.addEventListener("mouseout", announcementsClose);
-announcementsContainer.addEventListener("mouseout", announcementsClose);

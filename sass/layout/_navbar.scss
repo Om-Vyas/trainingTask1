@@ -161,231 +161,103 @@
         }
 
         //===================Genral Icons CSS====================
-        .nav-icon{
-            background: transparent;
-            border: none;
+        .nav-icon-item{
+            height: 56px;
             margin: 0px 4px;
             padding: 0 12px;
-            cursor: pointer !important;
-            position: relative;
-            height: 56px;
-            &:focus{
-                outline: 1px solid $outlineColor2;
-            }
-
 
             @include forPhoneXl {
                 margin: 0 2px;
                 padding: 0 5px;
             }
 
-            .nav-icon-number{
-                width: 17px;
-                height: 17px;
-                line-height: 17px;
-                background-color: $badgeBackground;
-                color: $badgeColor;
-                border-radius: 50%;
-                text-align: center;
-                position: absolute;
-            }   
-        }
-
-        //====================Alerts============================
-        .alerts{
-            .alert-image{
-                padding: 16px 0px;
-                background-color: transparent;
+            .nav-icon{
+                background: transparent;
                 border: none;
-                .alert-image-background{
-                    cursor: pointer;
-                    width: 21px;
-                    height: 24px;
-                    mask: url("/assets/icons/alerts.svg");
-                    mask-size: cover;
-                    background-color: $alertIcon;
-                    mask-position: center;
+                position: relative;
+                &:focus{
+                    outline: 1px solid $outlineColor2;
                 }
-                .icon-active{
-                    background-color: $alertIconActive;
-                }
-            }
-            .alert-number{
-                top: 8px;
-                right: 6px;
-                z-index: 10;
-                @include forPhoneXl{
-                    right:-1px;
-                }
-            }
-            .hide{
-                display: none;
-            }
-        }
-        .alerts-container{
-            width: 315px;
-            max-height: 582px;
-            background-color: #fff;
-            z-index: 50;
-            position: absolute;
-            top:56px;
-            right: 136px;
-            box-shadow: 0px 13px 20px #0000003D;
-            // animation: menuOpen 300ms;
 
-            @include forTablet{
-                right: 188px;
-            }
-
-            @include forPhone{
-                right: 10px;
-                max-height: 400px;
-            }
-            @include forPhoneXs{
-                right: 0px;
-            }
-
-            .alerts-list{  
-                max-height: 534px;
-                overflow-y: scroll;    
-                @include forPhone{
-                    max-height: 350px;
-                }    
-                .alert{
-                    padding: 16px 16px 15px;
-                    border-bottom: 1px solid $alertBorder;
-                    .alert-text{
-                        width: 90%;
-                        // max-width: 260px;
-                        margin: 0px 8px 8px 0px;
-                        @include setFont(normal,500,14px,18px,'Quicksand');
-                        display: inline-block;
-                    }
-                    .check-icon,.dnd-icon{
-                        width: 15px;
-                        height: 18px;
-                        background-color: $alertsCheckColor;
-                        mask: url("/assets/icons/CheckCircle.svg");
+                .nav-icon-number{
+                    width: 17px;
+                    height: 17px;
+                    line-height: 17px;
+                    background-color: $badgeBackground;
+                    color: $badgeColor;
+                    border-radius: 50%;
+                    text-align: center;
+                    position: absolute;
+                }   
+            }           
+        }  
+        
+         //====================Alerts============================
+         .alerts-icon-item{
+            .alerts{
+                // z-index: 99;
+                .alert-image{
+                    padding: 16px 0px;
+                    .alert-image-background{
+                        cursor: pointer;
+                        width: 21px;
+                        height: 24px;
+                        mask: url("/assets/icons/alerts.svg");
                         mask-size: cover;
+                        background-color: $alertIcon;
                         mask-position: center;
-                        float: right;
                     }
-                    .dnd-icon{
-                        width: 17px;
-                        height: 21px;
-                        mask: url("/assets/icons/DND.svg");
-                        mask-size: contain;
-                        mask-repeat: no-repeat;
-                    }
-                    .alert-course-info{
-                        @include setFont(normal,500,12px,16px,'Quicksand');
-                        margin-bottom: 8px;
-                        .alert-course{
-                            color: $alertDateCourse;
-                        }
-                    }
-                    .alert-date{
-                        @include setFont(normal,500,12px,14px,'Quicksand');
-                        color: $alertDateCourse;
-                        text-align: right;
+                    .icon-active{
+                        background-color: $alertIconActive;
                     }
                 }
-                .alert-DND{
-                    background-color: $alertDNDback;
+                .alert-number{
+                    top: 9px;
+                    right: -7px;
+                    z-index: 10;
                 }
-                .alert-check{
-                    background-color: $alertCheck;
-                }
-            }
-            .showall-alert{
-                display: inline-block;
-                text-align: center;
-                height: 48px;
-                width: 100%;
-                border: none;
-                color: $alertsCheckColor;
-                @include setFont(normal, 500, 14px, 48px, 'Quicksand');
-                box-shadow: 0px 1px 6px #0000003D;
-                border-radius: 0px 0px 2px 2px;
-            }
-        }
-        .close{
-            display: none;
-        }
-
-        //====================Announcements=====================
-        .announcements{
-            .announcements-image{
-                padding: 18px 0px;
-                background-color: transparent;
-                border: none;
-                .announcements-image-background{
-                    width: 20px;
-                    height: 20px;
-                    mask: url("/assets/icons/announcements.svg");
-                    mask-size: cover;
-                    background-color: $alertIcon;
-                    mask-position: center;
-                }
-                .icon-active{
-                    background-color: $alertIconActive;
+                .hide{
+                    display: none;
                 }
             }
-            .announcement-number{
-                top: 8px;
-                right: 1px;
-                z-index: 10;
-                @include forPhoneXl{
-                    right:-6px;
-                }
-            }
-            .hide{
-                display: none;
-            }
-        }
-        .announcements-container{
-            width: 315px;
-            max-height: 582px;
-            background-color: #fff;
-            z-index: 50;
-            position: absolute;
-            top:56px;
-            right: 80px;
-            box-shadow: 0px 13px 20px #0000003D;
-            // animation: menuOpen 300ms linear;
-
-            @include forTablet{
+            .alerts-container{
+                width: 315px;
+                max-height: 582px;
+                background-color: #fff;
+                z-index: 50;
+                position: absolute;
+                top:56px;
                 right: 136px;
-            }
-
-            @include forPhone{
-                right: 10px;
-                max-height: 400px;
-            }
-            @include forPhoneXs{
-                right: 0px;
-            }
-
-            .announcements-list{
-                max-height: 534px;
-                overflow-y: scroll; 
+                box-shadow: 0px 13px 20px #0000003D;
+                // animation: menuOpen 300ms;
+    
+                @include forTablet{
+                    right: 188px;
+                }
+    
                 @include forPhone{
-                    max-height: 350px;
-                } 
-                .announcement{
-                    padding: 16px 16px 15px;
-                    border-bottom: 1px solid $alertBorder;
-                    box-sizing: border-box;
-                    .announcement-line1{
-                        @include flex(row,space-between,start);
-                        margin-bottom: 5px;
-                        .public-address-info{
+                    right: 10px;
+                    max-height: 400px;
+                }
+                @include forPhoneXs{
+                    right: 0px;
+                }
+    
+                .alerts-list{  
+                    max-height: 534px;
+                    overflow-y: scroll;    
+                    @include forPhone{
+                        max-height: 350px;
+                    }    
+                    .alert{
+                        padding: 16px 16px 15px;
+                        border-bottom: 1px solid $alertBorder;
+                        .alert-text{
+                            width: 90%;
+                            // max-width: 260px;
+                            margin: 0px 8px 8px 0px;
+                            @include setFont(normal,500,14px,18px,'Quicksand');
                             display: inline-block;
-                            @include setFont(normal,500,12px,16px,'Quicksand');
-                
-                            .public-address{
-                                color: $PAannouncements;
-                            }
                         }
                         .check-icon,.dnd-icon{
                             width: 15px;
@@ -403,124 +275,256 @@
                             mask-size: contain;
                             mask-repeat: no-repeat;
                         }
-                    }
-                    
-                    .announcement-text{
-                        width: 245px;
-                        // max-width: 260px;
-                        margin: 0px 8px 8px 0px;
-                        @include setFont(normal,500,14px,18px,'Quicksand');
-                        display: inline-block;
-                    }
-                    .announcement-course-info{
-                        @include setFont(normal,500,12px,16px,'Quicksand');
-                        margin-bottom: 8px;
-                        .announcement-course{
+                        .alert-course-info{
+                            @include setFont(normal,500,12px,16px,'Quicksand');
+                            margin-bottom: 8px;
+                            .alert-course{
+                                color: $alertDateCourse;
+                            }
+                        }
+                        .alert-date{
+                            @include setFont(normal,500,12px,14px,'Quicksand');
                             color: $alertDateCourse;
+                            text-align: right;
                         }
                     }
-                    .announcement-line3{
-                        @include flex(row,end,start);
-                        .announcement-file,.announcement-date{
-                            @include setFont(normal,500,12px,18px,'Quicksand');
-                            color: $PAannouncements;
-                            display: inline-block;
-                        }
-                        .announcement-file{
-                            margin-right: auto;
-                        }
+                    .alert-DND{
+                        background-color: $alertDNDback;
                     }
-                    
+                    .alert-check{
+                        background-color: $alertCheck;
+                    }
                 }
-                .announcement-DND{
-                    background-color: $alertDNDback;
-                }
-                .announcement-check{
-                    background-color: $alertCheck;
-                }    
-            }
-            
-            .announcement-bottom-buttons{
-                width: 100%;
-                height: 48px;
-                @include flex(row,space-around,center);
-                box-shadow: 0px 1px 6px #0000003D;
-                border-radius: 0px 0px 2px 2px;
-                background: $bottomButtons;
-
-                .showall-alert,.create-new{
+                .showall-alert{
                     display: inline-block;
                     text-align: center;
                     height: 48px;
-                    width: 50%;
+                    width: 100%;
                     border: none;
                     color: $alertsCheckColor;
                     @include setFont(normal, 500, 14px, 48px, 'Quicksand');
+                    box-shadow: 0px 1px 6px #0000003D;
+                    border-radius: 0px 0px 2px 2px;
                 }
-                .line{
-                    @include verticalLine(30px,0px,#0000001F);
+            }
+            .close{
+                display: none;
+            }
+         }
+        
+        //====================Announcements=====================
+        .announcements-icon-item{
+            .announcements{
+                .announcements-image{
+                    padding: 18px 0px;
+                    background-color: transparent;
+                    border: none;
+                    .announcements-image-background{
+                        width: 20px;
+                        height: 20px;
+                        mask: url("/assets/icons/announcements.svg");
+                        mask-size: cover;
+                        background-color: $alertIcon;
+                        mask-position: center;
+                    }
+                    .icon-active{
+                        background-color: $alertIconActive;
+                    }
                 }
-
+                .announcement-number{
+                    top: 9px;
+                    right: -10px;
+                    z-index: 10;
+                    @include forPhoneXl{
+                        right:-6px;
+                    }
+                }
+                .hide{
+                    display: none;
+                }
+            }
+            .announcements-container{
+                width: 315px;
+                max-height: 582px;
+                background-color: #fff;
+                z-index: 50;
+                position: absolute;
+                top:56px;
+                right: 80px;
+                box-shadow: 0px 13px 20px #0000003D;
+    
+                @include forTablet{
+                    right: 136px;
+                }
+    
+                @include forPhone{
+                    right: 10px;
+                    max-height: 400px;
+                }
+                @include forPhoneXs{
+                    right: 0px;
+                }
+    
+                .announcements-list{
+                    max-height: 534px;
+                    overflow-y: scroll; 
+                    @include forPhone{
+                        max-height: 350px;
+                    } 
+                    .announcement{
+                        padding: 16px 16px 15px;
+                        border-bottom: 1px solid $alertBorder;
+                        box-sizing: border-box;
+                        .announcement-line1{
+                            @include flex(row,space-between,start);
+                            margin-bottom: 5px;
+                            .public-address-info{
+                                display: inline-block;
+                                @include setFont(normal,500,12px,16px,'Quicksand');
+                    
+                                .public-address{
+                                    color: $PAannouncements;
+                                }
+                            }
+                            .check-icon,.dnd-icon{
+                                width: 15px;
+                                height: 18px;
+                                background-color: $alertsCheckColor;
+                                mask: url("/assets/icons/CheckCircle.svg");
+                                mask-size: cover;
+                                mask-position: center;
+                                float: right;
+                            }
+                            .dnd-icon{
+                                width: 17px;
+                                height: 21px;
+                                mask: url("/assets/icons/DND.svg");
+                                mask-size: contain;
+                                mask-repeat: no-repeat;
+                            }
+                        }
+                        
+                        .announcement-text{
+                            width: 245px;
+                            // max-width: 260px;
+                            margin: 0px 8px 8px 0px;
+                            @include setFont(normal,500,14px,18px,'Quicksand');
+                            display: inline-block;
+                        }
+                        .announcement-course-info{
+                            @include setFont(normal,500,12px,16px,'Quicksand');
+                            margin-bottom: 8px;
+                            .announcement-course{
+                                color: $alertDateCourse;
+                            }
+                        }
+                        .announcement-line3{
+                            @include flex(row,end,start);
+                            .announcement-file,.announcement-date{
+                                @include setFont(normal,500,12px,18px,'Quicksand');
+                                color: $PAannouncements;
+                                display: inline-block;
+                            }
+                            .announcement-file{
+                                margin-right: auto;
+                            }
+                        }
+                        
+                    }
+                    .announcement-DND{
+                        background-color: $alertDNDback;
+                    }
+                    .announcement-check{
+                        background-color: $alertCheck;
+                    }    
+                }
+                
+                .announcement-bottom-buttons{
+                    width: 100%;
+                    height: 48px;
+                    @include flex(row,space-around,center);
+                    box-shadow: 0px 1px 6px #0000003D;
+                    border-radius: 0px 0px 2px 2px;
+                    background: $bottomButtons;
+    
+                    .showall-alert,.create-new{
+                        display: inline-block;
+                        text-align: center;
+                        height: 48px;
+                        width: 50%;
+                        border: none;
+                        color: $alertsCheckColor;
+                        @include setFont(normal, 500, 14px, 48px, 'Quicksand');
+                    }
+                    .line{
+                        @include verticalLine(30px,0px,#0000001F);
+                    }
+    
+                }
+            }
+            .close{
+                display: none;
             }
         }
-        .close{
-            display: none;
-        }
-
+        
         //====================Avatar============================
-        .avatar{
-            padding: 12px;
+        .avatar-icon-item{
+            padding: 0px 12px;
             @include forPhoneXl {
                 margin: 0 2px;
-                padding: 12px 5px;
+                padding: 0px 5px;
             }
-            img{
+            .avatar{
                 width: 32px;
-                height: 32px;
-                object-fit: cover;
-            }
-            .avatar-number{
-                top: 7px;
-                right: 9px;
-                background-color: $badgeColor;
-                color: $selectTextColor;
-                font-size: 10px;
-                line-height: 17px;
-                @include forPhoneXl{
-                    right:2px;
+                height: 56px;
+                display: inline-block;
+                img{
+                    margin: 12px 0px;
+                    display: inline-block;
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+                .avatar-number{
+                    top: 7px;
+                    right: -6px;
+                    background-color: $badgeColor;
+                    color: $selectTextColor;
+                    font-size: 10px;
+                    line-height: 17px;
+                    @include forPhoneXl{
+                        right:2px;
+                    }
                 }
             }
+    
         }
-
+        
         //====================Hamburger Icon====================
-        .ham-icon{
-            display: none;
-            border: none;
-            background-color: transparent;
+        .ham-icon-item{
             padding: 19px 10px ;
             @include forPhoneXl {
                 margin: 0 2px;
                 padding: 19px 5px;
             }
-            @include forTablet{
-                display: block;
-            }
-            .ham-icon-image{
-                width: 31px;
-                height: 18px;
-            }
-            // .ham-icon-background{
-            //     width: 27px;
-            //     height: 18px;
-            //     mask: url("/assets/icons/hamburger-menu.svg");
-            //     mask-size: cover;
-            //     background-color: $alertIcon;
-            //     mask-position: center;
-            // }
-            .icon-active{
-                filter: brightness(0) invert(1);;
-            }
-        }
+            .ham-icon{
+                display: none;
+                border: none;
+                background-color: transparent;
+                
+                @include forTablet{
+                    display: block;
+                }
+                .ham-icon-image{
+                    width: 31px;
+                    height: 18px;
+                }
+                .icon-active{
+                    filter: brightness(0) invert(1);;
+                }
+            }  
+        }  
     }
 }
 

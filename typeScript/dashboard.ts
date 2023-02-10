@@ -143,12 +143,11 @@ const hamburgerToggle = () => {
           //remove active tag from pre-active-NavItem
           prevNavItem?.classList.remove("active-navitem");
         }
-      }, 290);
+      }, 280);
     } else if (!document.querySelector("ul.expand")) {
       navbarT.style.animation = "menuOpen 300ms";
       hamIcon.classList.add("icon-active");
       navbarT.classList.add("expand");
-      setTimeout(() => {}, 300);
     }
   }
 };
@@ -192,7 +191,7 @@ const submenuToggle = (obj, val) => {
               subnav.classList.add("close");
               //remove active tag from pre-active-NavItem
               prevNavItem?.classList.remove("active-navitem");
-            }, 300);
+            }, 280);
           } else {
             subnav.classList.add("close");
             prevNavItem?.classList.remove("active-navitem");
@@ -223,7 +222,9 @@ const submenuToggle = (obj, val) => {
 
 //=======================Alerts==============================
 
-const alertBtn = document.querySelector(".alerts") as HTMLButtonElement;
+const alertBtn = document.querySelector(
+  ".alerts-icon-item"
+) as HTMLButtonElement;
 const bellIcon = document.querySelector(
   ".alert-image-background"
 ) as HTMLDivElement;
@@ -246,9 +247,14 @@ const alertsClose = () => {
     bellIcon.classList.remove("icon-active");
     alertBadge.classList.remove("hide");
     alertsContainer.style.animation = "menuClose 300ms";
-    alertsContainer.classList.add("close");
+    setTimeout(() => {
+      alertsContainer.classList.add("close");
+    }, 280);
   }
 };
+alertBtn.addEventListener("mouseenter", alertsOpen);
+alertBtn.addEventListener("mouseleave", alertsClose);
+
 //for mobile
 const alertToggle = () => {
   if (window.innerWidth < 800) {
@@ -263,21 +269,16 @@ const alertToggle = () => {
       alertBadge.classList.remove("hide");
       setTimeout(() => {
         alertsContainer.classList.add("close");
-      }, 290);
+      }, 280);
     }
   }
 };
 alertBtn.addEventListener("click", alertToggle);
 
-alertBtn.addEventListener("mouseover", alertsOpen);
-alertsContainer.addEventListener("mouseover", alertsOpen);
-alertBtn.addEventListener("mouseout", alertsClose);
-alertsContainer.addEventListener("mouseout", alertsClose);
-
 //===========================Announcements============================
 
 const announcementBtn = document.querySelector(
-  ".announcements"
+  ".announcements-icon-item"
 ) as HTMLButtonElement;
 const announcementIcon = document.querySelector(
   ".announcements-image-background"
@@ -302,9 +303,13 @@ const announcementsClose = () => {
     announcementIcon.classList.remove("icon-active");
     announcementBadge.classList.remove("hide");
     announcementsContainer.style.animation = "menuClose 300ms";
-    announcementsContainer.classList.add("close");
+    setTimeout(() => {
+      announcementsContainer.classList.add("close");
+    }, 280);
   }
 };
+announcementBtn.addEventListener("mouseenter", announcementsOpen);
+announcementBtn.addEventListener("mouseleave", announcementsClose);
 //for mobile
 const announcementsToggle = () => {
   if (window.innerWidth < 800) {
@@ -319,13 +324,8 @@ const announcementsToggle = () => {
       announcementBadge.classList.remove("hide");
       setTimeout(() => {
         announcementsContainer.classList.add("close");
-      }, 290);
+      }, 280);
     }
   }
 };
 announcementBtn.addEventListener("click", announcementsToggle);
-
-announcementBtn.addEventListener("mouseover", announcementsOpen);
-announcementsContainer.addEventListener("mouseover", announcementsOpen);
-announcementBtn.addEventListener("mouseout", announcementsClose);
-announcementsContainer.addEventListener("mouseout", announcementsClose);

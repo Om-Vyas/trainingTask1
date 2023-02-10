@@ -515,7 +515,7 @@ select, .sortmenu div .sortby .sort-select {
 .course-main-col .course-card .course-card-bottom button img {
   cursor: pointer;
 }
-.course-main-col .course-card .course-card-bottom button img.preview {
+.course-main-col .course-card .course-card-bottom button img.preview, .course-main-col .course-card .course-card-bottom button img.reports {
   width: 22px;
   height: 24px;
 }
@@ -769,25 +769,26 @@ input[type=text], input[type=password] {
     margin-right: 0px;
   }
 }
-.navbar .nav-icons .nav-icon {
-  background: transparent;
-  border: none;
+.navbar .nav-icons .nav-icon-item {
+  height: 56px;
   margin: 0px 4px;
   padding: 0 12px;
-  cursor: pointer !important;
-  position: relative;
-  height: 56px;
-}
-.navbar .nav-icons .nav-icon:focus {
-  outline: 1px solid #DFF0D8;
 }
 @media (max-width: 580px) {
-  .navbar .nav-icons .nav-icon {
+  .navbar .nav-icons .nav-icon-item {
     margin: 0 2px;
     padding: 0 5px;
   }
 }
-.navbar .nav-icons .nav-icon .nav-icon-number {
+.navbar .nav-icons .nav-icon-item .nav-icon {
+  background: transparent;
+  border: none;
+  position: relative;
+}
+.navbar .nav-icons .nav-icon-item .nav-icon:focus {
+  outline: 1px solid #DFF0D8;
+}
+.navbar .nav-icons .nav-icon-item .nav-icon .nav-icon-number {
   width: 17px;
   height: 17px;
   line-height: 17px;
@@ -797,12 +798,10 @@ input[type=text], input[type=password] {
   text-align: center;
   position: absolute;
 }
-.navbar .nav-icons .alerts .alert-image {
+.navbar .nav-icons .alerts-icon-item .alerts .alert-image {
   padding: 16px 0px;
-  background-color: transparent;
-  border: none;
 }
-.navbar .nav-icons .alerts .alert-image .alert-image-background {
+.navbar .nav-icons .alerts-icon-item .alerts .alert-image .alert-image-background {
   cursor: pointer;
   width: 21px;
   height: 24px;
@@ -814,23 +813,18 @@ input[type=text], input[type=password] {
   -webkit-mask-position: center;
           mask-position: center;
 }
-.navbar .nav-icons .alerts .alert-image .icon-active {
+.navbar .nav-icons .alerts-icon-item .alerts .alert-image .icon-active {
   background-color: #fff;
 }
-.navbar .nav-icons .alerts .alert-number {
-  top: 8px;
-  right: 6px;
+.navbar .nav-icons .alerts-icon-item .alerts .alert-number {
+  top: 9px;
+  right: -7px;
   z-index: 10;
 }
-@media (max-width: 580px) {
-  .navbar .nav-icons .alerts .alert-number {
-    right: -1px;
-  }
-}
-.navbar .nav-icons .alerts .hide {
+.navbar .nav-icons .alerts-icon-item .alerts .hide {
   display: none;
 }
-.navbar .nav-icons .alerts-container {
+.navbar .nav-icons .alerts-icon-item .alerts-container {
   width: 315px;
   max-height: 582px;
   background-color: #fff;
@@ -841,35 +835,35 @@ input[type=text], input[type=password] {
   box-shadow: 0px 13px 20px rgba(0, 0, 0, 0.2392156863);
 }
 @media (max-width: 980px) {
-  .navbar .nav-icons .alerts-container {
+  .navbar .nav-icons .alerts-icon-item .alerts-container {
     right: 188px;
   }
 }
 @media (max-width: 450px) {
-  .navbar .nav-icons .alerts-container {
+  .navbar .nav-icons .alerts-icon-item .alerts-container {
     right: 10px;
     max-height: 400px;
   }
 }
 @media (max-width: 350px) {
-  .navbar .nav-icons .alerts-container {
+  .navbar .nav-icons .alerts-icon-item .alerts-container {
     right: 0px;
   }
 }
-.navbar .nav-icons .alerts-container .alerts-list {
+.navbar .nav-icons .alerts-icon-item .alerts-container .alerts-list {
   max-height: 534px;
   overflow-y: scroll;
 }
 @media (max-width: 450px) {
-  .navbar .nav-icons .alerts-container .alerts-list {
+  .navbar .nav-icons .alerts-icon-item .alerts-container .alerts-list {
     max-height: 350px;
   }
 }
-.navbar .nav-icons .alerts-container .alerts-list .alert {
+.navbar .nav-icons .alerts-icon-item .alerts-container .alerts-list .alert {
   padding: 16px 16px 15px;
   border-bottom: 1px solid rgba(34, 34, 34, 0.1215686275);
 }
-.navbar .nav-icons .alerts-container .alerts-list .alert .alert-text {
+.navbar .nav-icons .alerts-icon-item .alerts-container .alerts-list .alert .alert-text {
   width: 90%;
   margin: 0px 8px 8px 0px;
   font-style: normal;
@@ -879,7 +873,7 @@ input[type=text], input[type=password] {
   font-family: "Quicksand";
   display: inline-block;
 }
-.navbar .nav-icons .alerts-container .alerts-list .alert .check-icon, .navbar .nav-icons .alerts-container .alerts-list .alert .dnd-icon {
+.navbar .nav-icons .alerts-icon-item .alerts-container .alerts-list .alert .check-icon, .navbar .nav-icons .alerts-icon-item .alerts-container .alerts-list .alert .dnd-icon {
   width: 15px;
   height: 18px;
   background-color: #1F7A54;
@@ -891,7 +885,7 @@ input[type=text], input[type=password] {
           mask-position: center;
   float: right;
 }
-.navbar .nav-icons .alerts-container .alerts-list .alert .dnd-icon {
+.navbar .nav-icons .alerts-icon-item .alerts-container .alerts-list .alert .dnd-icon {
   width: 17px;
   height: 21px;
   -webkit-mask: url("/assets/icons/DND.svg");
@@ -901,7 +895,7 @@ input[type=text], input[type=password] {
   -webkit-mask-repeat: no-repeat;
           mask-repeat: no-repeat;
 }
-.navbar .nav-icons .alerts-container .alerts-list .alert .alert-course-info {
+.navbar .nav-icons .alerts-icon-item .alerts-container .alerts-list .alert .alert-course-info {
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -909,10 +903,10 @@ input[type=text], input[type=password] {
   font-family: "Quicksand";
   margin-bottom: 8px;
 }
-.navbar .nav-icons .alerts-container .alerts-list .alert .alert-course-info .alert-course {
+.navbar .nav-icons .alerts-icon-item .alerts-container .alerts-list .alert .alert-course-info .alert-course {
   color: #6E6E6E;
 }
-.navbar .nav-icons .alerts-container .alerts-list .alert .alert-date {
+.navbar .nav-icons .alerts-icon-item .alerts-container .alerts-list .alert .alert-date {
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -921,13 +915,13 @@ input[type=text], input[type=password] {
   color: #6E6E6E;
   text-align: right;
 }
-.navbar .nav-icons .alerts-container .alerts-list .alert-DND {
+.navbar .nav-icons .alerts-icon-item .alerts-container .alerts-list .alert-DND {
   background-color: #FFFFEE;
 }
-.navbar .nav-icons .alerts-container .alerts-list .alert-check {
+.navbar .nav-icons .alerts-icon-item .alerts-container .alerts-list .alert-check {
   background-color: #ffffff;
 }
-.navbar .nav-icons .alerts-container .showall-alert {
+.navbar .nav-icons .alerts-icon-item .alerts-container .showall-alert {
   display: inline-block;
   text-align: center;
   height: 48px;
@@ -942,15 +936,15 @@ input[type=text], input[type=password] {
   box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2392156863);
   border-radius: 0px 0px 2px 2px;
 }
-.navbar .nav-icons .close {
+.navbar .nav-icons .alerts-icon-item .close {
   display: none;
 }
-.navbar .nav-icons .announcements .announcements-image {
+.navbar .nav-icons .announcements-icon-item .announcements .announcements-image {
   padding: 18px 0px;
   background-color: transparent;
   border: none;
 }
-.navbar .nav-icons .announcements .announcements-image .announcements-image-background {
+.navbar .nav-icons .announcements-icon-item .announcements .announcements-image .announcements-image-background {
   width: 20px;
   height: 20px;
   -webkit-mask: url("/assets/icons/announcements.svg");
@@ -961,23 +955,23 @@ input[type=text], input[type=password] {
   -webkit-mask-position: center;
           mask-position: center;
 }
-.navbar .nav-icons .announcements .announcements-image .icon-active {
+.navbar .nav-icons .announcements-icon-item .announcements .announcements-image .icon-active {
   background-color: #fff;
 }
-.navbar .nav-icons .announcements .announcement-number {
-  top: 8px;
-  right: 1px;
+.navbar .nav-icons .announcements-icon-item .announcements .announcement-number {
+  top: 9px;
+  right: -10px;
   z-index: 10;
 }
 @media (max-width: 580px) {
-  .navbar .nav-icons .announcements .announcement-number {
+  .navbar .nav-icons .announcements-icon-item .announcements .announcement-number {
     right: -6px;
   }
 }
-.navbar .nav-icons .announcements .hide {
+.navbar .nav-icons .announcements-icon-item .announcements .hide {
   display: none;
 }
-.navbar .nav-icons .announcements-container {
+.navbar .nav-icons .announcements-icon-item .announcements-container {
   width: 315px;
   max-height: 582px;
   background-color: #fff;
@@ -988,43 +982,43 @@ input[type=text], input[type=password] {
   box-shadow: 0px 13px 20px rgba(0, 0, 0, 0.2392156863);
 }
 @media (max-width: 980px) {
-  .navbar .nav-icons .announcements-container {
+  .navbar .nav-icons .announcements-icon-item .announcements-container {
     right: 136px;
   }
 }
 @media (max-width: 450px) {
-  .navbar .nav-icons .announcements-container {
+  .navbar .nav-icons .announcements-icon-item .announcements-container {
     right: 10px;
     max-height: 400px;
   }
 }
 @media (max-width: 350px) {
-  .navbar .nav-icons .announcements-container {
+  .navbar .nav-icons .announcements-icon-item .announcements-container {
     right: 0px;
   }
 }
-.navbar .nav-icons .announcements-container .announcements-list {
+.navbar .nav-icons .announcements-icon-item .announcements-container .announcements-list {
   max-height: 534px;
   overflow-y: scroll;
 }
 @media (max-width: 450px) {
-  .navbar .nav-icons .announcements-container .announcements-list {
+  .navbar .nav-icons .announcements-icon-item .announcements-container .announcements-list {
     max-height: 350px;
   }
 }
-.navbar .nav-icons .announcements-container .announcements-list .announcement {
+.navbar .nav-icons .announcements-icon-item .announcements-container .announcements-list .announcement {
   padding: 16px 16px 15px;
   border-bottom: 1px solid rgba(34, 34, 34, 0.1215686275);
   box-sizing: border-box;
 }
-.navbar .nav-icons .announcements-container .announcements-list .announcement .announcement-line1 {
+.navbar .nav-icons .announcements-icon-item .announcements-container .announcements-list .announcement .announcement-line1 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: start;
   margin-bottom: 5px;
 }
-.navbar .nav-icons .announcements-container .announcements-list .announcement .announcement-line1 .public-address-info {
+.navbar .nav-icons .announcements-icon-item .announcements-container .announcements-list .announcement .announcement-line1 .public-address-info {
   display: inline-block;
   font-style: normal;
   font-weight: 500;
@@ -1032,10 +1026,10 @@ input[type=text], input[type=password] {
   line-height: 16px;
   font-family: "Quicksand";
 }
-.navbar .nav-icons .announcements-container .announcements-list .announcement .announcement-line1 .public-address-info .public-address {
+.navbar .nav-icons .announcements-icon-item .announcements-container .announcements-list .announcement .announcement-line1 .public-address-info .public-address {
   color: #6E6E6E;
 }
-.navbar .nav-icons .announcements-container .announcements-list .announcement .announcement-line1 .check-icon, .navbar .nav-icons .announcements-container .announcements-list .announcement .announcement-line1 .dnd-icon {
+.navbar .nav-icons .announcements-icon-item .announcements-container .announcements-list .announcement .announcement-line1 .check-icon, .navbar .nav-icons .announcements-icon-item .announcements-container .announcements-list .announcement .announcement-line1 .dnd-icon {
   width: 15px;
   height: 18px;
   background-color: #1F7A54;
@@ -1047,7 +1041,7 @@ input[type=text], input[type=password] {
           mask-position: center;
   float: right;
 }
-.navbar .nav-icons .announcements-container .announcements-list .announcement .announcement-line1 .dnd-icon {
+.navbar .nav-icons .announcements-icon-item .announcements-container .announcements-list .announcement .announcement-line1 .dnd-icon {
   width: 17px;
   height: 21px;
   -webkit-mask: url("/assets/icons/DND.svg");
@@ -1057,7 +1051,7 @@ input[type=text], input[type=password] {
   -webkit-mask-repeat: no-repeat;
           mask-repeat: no-repeat;
 }
-.navbar .nav-icons .announcements-container .announcements-list .announcement .announcement-text {
+.navbar .nav-icons .announcements-icon-item .announcements-container .announcements-list .announcement .announcement-text {
   width: 245px;
   margin: 0px 8px 8px 0px;
   font-style: normal;
@@ -1067,7 +1061,7 @@ input[type=text], input[type=password] {
   font-family: "Quicksand";
   display: inline-block;
 }
-.navbar .nav-icons .announcements-container .announcements-list .announcement .announcement-course-info {
+.navbar .nav-icons .announcements-icon-item .announcements-container .announcements-list .announcement .announcement-course-info {
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -1075,16 +1069,16 @@ input[type=text], input[type=password] {
   font-family: "Quicksand";
   margin-bottom: 8px;
 }
-.navbar .nav-icons .announcements-container .announcements-list .announcement .announcement-course-info .announcement-course {
+.navbar .nav-icons .announcements-icon-item .announcements-container .announcements-list .announcement .announcement-course-info .announcement-course {
   color: #6E6E6E;
 }
-.navbar .nav-icons .announcements-container .announcements-list .announcement .announcement-line3 {
+.navbar .nav-icons .announcements-icon-item .announcements-container .announcements-list .announcement .announcement-line3 {
   display: flex;
   flex-direction: row;
   justify-content: end;
   align-items: start;
 }
-.navbar .nav-icons .announcements-container .announcements-list .announcement .announcement-line3 .announcement-file, .navbar .nav-icons .announcements-container .announcements-list .announcement .announcement-line3 .announcement-date {
+.navbar .nav-icons .announcements-icon-item .announcements-container .announcements-list .announcement .announcement-line3 .announcement-file, .navbar .nav-icons .announcements-icon-item .announcements-container .announcements-list .announcement .announcement-line3 .announcement-date {
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -1093,16 +1087,16 @@ input[type=text], input[type=password] {
   color: #6E6E6E;
   display: inline-block;
 }
-.navbar .nav-icons .announcements-container .announcements-list .announcement .announcement-line3 .announcement-file {
+.navbar .nav-icons .announcements-icon-item .announcements-container .announcements-list .announcement .announcement-line3 .announcement-file {
   margin-right: auto;
 }
-.navbar .nav-icons .announcements-container .announcements-list .announcement-DND {
+.navbar .nav-icons .announcements-icon-item .announcements-container .announcements-list .announcement-DND {
   background-color: #FFFFEE;
 }
-.navbar .nav-icons .announcements-container .announcements-list .announcement-check {
+.navbar .nav-icons .announcements-icon-item .announcements-container .announcements-list .announcement-check {
   background-color: #ffffff;
 }
-.navbar .nav-icons .announcements-container .announcement-bottom-buttons {
+.navbar .nav-icons .announcements-icon-item .announcements-container .announcement-bottom-buttons {
   width: 100%;
   height: 48px;
   display: flex;
@@ -1113,7 +1107,7 @@ input[type=text], input[type=password] {
   border-radius: 0px 0px 2px 2px;
   background: #fff;
 }
-.navbar .nav-icons .announcements-container .announcement-bottom-buttons .showall-alert, .navbar .nav-icons .announcements-container .announcement-bottom-buttons .create-new {
+.navbar .nav-icons .announcements-icon-item .announcements-container .announcement-bottom-buttons .showall-alert, .navbar .nav-icons .announcements-icon-item .announcements-container .announcement-bottom-buttons .create-new {
   display: inline-block;
   text-align: center;
   height: 48px;
@@ -1126,66 +1120,76 @@ input[type=text], input[type=password] {
   line-height: 48px;
   font-family: "Quicksand";
 }
-.navbar .nav-icons .announcements-container .announcement-bottom-buttons .line {
+.navbar .nav-icons .announcements-icon-item .announcements-container .announcement-bottom-buttons .line {
   display: inline-block;
   width: 1px;
   height: 30px;
   margin: 0 0px;
   background-color: rgba(0, 0, 0, 0.1215686275);
 }
-.navbar .nav-icons .close {
+.navbar .nav-icons .announcements-icon-item .close {
   display: none;
 }
-.navbar .nav-icons .avatar {
-  padding: 12px;
+.navbar .nav-icons .avatar-icon-item {
+  padding: 0px 12px;
 }
 @media (max-width: 580px) {
-  .navbar .nav-icons .avatar {
+  .navbar .nav-icons .avatar-icon-item {
     margin: 0 2px;
-    padding: 12px 5px;
+    padding: 0px 5px;
   }
 }
-.navbar .nav-icons .avatar img {
+.navbar .nav-icons .avatar-icon-item .avatar {
+  width: 32px;
+  height: 56px;
+  display: inline-block;
+}
+.navbar .nav-icons .avatar-icon-item .avatar img {
+  margin: 12px 0px;
+  display: inline-block;
   width: 32px;
   height: 32px;
+  border-radius: 50%;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.navbar .nav-icons .avatar .avatar-number {
+.navbar .nav-icons .avatar-icon-item .avatar .avatar-number {
   top: 7px;
-  right: 9px;
+  right: -6px;
   background-color: white;
   color: #222222;
   font-size: 10px;
   line-height: 17px;
 }
 @media (max-width: 580px) {
-  .navbar .nav-icons .avatar .avatar-number {
+  .navbar .nav-icons .avatar-icon-item .avatar .avatar-number {
     right: 2px;
   }
 }
-.navbar .nav-icons .ham-icon {
-  display: none;
-  border: none;
-  background-color: transparent;
+.navbar .nav-icons .ham-icon-item {
   padding: 19px 10px;
 }
 @media (max-width: 580px) {
-  .navbar .nav-icons .ham-icon {
+  .navbar .nav-icons .ham-icon-item {
     margin: 0 2px;
     padding: 19px 5px;
   }
 }
+.navbar .nav-icons .ham-icon-item .ham-icon {
+  display: none;
+  border: none;
+  background-color: transparent;
+}
 @media (max-width: 980px) {
-  .navbar .nav-icons .ham-icon {
+  .navbar .nav-icons .ham-icon-item .ham-icon {
     display: block;
   }
 }
-.navbar .nav-icons .ham-icon .ham-icon-image {
+.navbar .nav-icons .ham-icon-item .ham-icon .ham-icon-image {
   width: 31px;
   height: 18px;
 }
-.navbar .nav-icons .ham-icon .icon-active {
+.navbar .nav-icons .ham-icon-item .ham-icon .icon-active {
   filter: brightness(0) invert(1);
 }
 
@@ -1253,6 +1257,7 @@ footer .footer-bottom .footer-br .footer-data:nth-child(2) {
 @font-face {
   font-family: "Quicksand";
   src: url("/assets/fonts/Quicksand-VariableFont_wght.ttf");
+  font-display: swap;
 }
 * {
   box-sizing: border-box;

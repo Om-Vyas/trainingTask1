@@ -1,7 +1,7 @@
 [
   {
     "star": true,
-    "courseImage": "/assets/images/imageMask.png",
+    "courseImage": "/assets/images/imageMask-1.svg",
     "courseTitle": "Acceleration",
     "courseSubject": "Physics",
     "courseGrade": ["Grade 7", "+2"],
@@ -16,7 +16,7 @@
   },
   {
     "star": true,
-    "courseImage": "./assets/images/imageMask-1.png",
+    "courseImage": "./assets/images/imageMask-1.svg",
     "courseTitle": "Displacement, Velocity and Speed",
     "courseSubject": "Physics",
     "courseGrade": ["Grade 6", "+3"],
