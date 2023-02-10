@@ -179,6 +179,7 @@
                 background: transparent;
                 border: none;
                 position: relative;
+                display: inline-block;
                 &:focus{
                     outline: 1px solid $outlineColor2;
                 }
@@ -340,7 +341,7 @@
                     right: -10px;
                     z-index: 10;
                     @include forPhoneXl{
-                        right:-6px;
+                        right:-10px;
                     }
                 }
                 .hide{
@@ -498,7 +499,7 @@
                     font-size: 10px;
                     line-height: 17px;
                     @include forPhoneXl{
-                        right:2px;
+                        right:-5px;
                     }
                 }
             }
@@ -508,12 +509,16 @@
         //====================Hamburger Icon====================
         .ham-icon-item{
             padding: 19px 10px ;
+            display: none;
+            @include forTablet{
+                display: block;
+            }
             @include forPhoneXl {
                 margin: 0 2px;
                 padding: 19px 5px;
             }
             .ham-icon{
-                display: none;
+                cursor: pointer;
                 border: none;
                 background-color: transparent;
                 

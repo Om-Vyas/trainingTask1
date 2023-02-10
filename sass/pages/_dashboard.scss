@@ -111,7 +111,9 @@
             }
         }
         .up-icon{
+            min-width: 12px;
             width: 12px;
+            min-height: 24px;
             height: 24px;
             object-fit: contain;
         }
@@ -131,7 +133,8 @@
         flex-wrap: wrap;
         //footer bottom
         margin-bottom: 32px;
-        min-height: calc(100vh - 130px);
+        min-width: 100%;
+        width: 100%;
         //
 
         .course-card{
@@ -188,6 +191,7 @@
     
             .star{
                 position: absolute;
+                cursor: pointer;
                 top:24px;
                 right: 24px;
                 @include forPhoneXl{
@@ -204,14 +208,18 @@
                 display: flex;
     
                 .course-img{
+                    min-width: 132px;
                     width: 132px;
+                    min-height: 157px;
                     height: 157px;
                     margin-right: 16px;
                     @include forPhoneXl{
                         margin-right: 5px;
                     }
                     @include forPhoneXs{
+                        min-width: 80px;
                         width: 80px;
+                        min-height: 100px;
                         height: 100px;
                     }
                 }
@@ -280,11 +288,16 @@
                     .course-classes{
                         width: 100%;
                         select{
+                            background-color: $loginSelectBack;
                             @include setFont(normal,500,16px,20px,Quicksand);
                             @include forPhoneXs{
                                 @include setFont(normal,500,12px,14px,Quicksand);
                                 padding: 0px;
                             }
+                            border-bottom: 1px solid rgba(0, 0, 0, 0.38);
+                        }
+                        .disabled{
+                            cursor: auto;
                         }
                         .full-width{
                             width: 100%;
@@ -338,7 +351,9 @@
 
                 .disabled{
                     opacity: 0.4;
-                    cursor:auto;
+                    img{
+                        cursor:auto;
+                    }
                 }
             }
         }

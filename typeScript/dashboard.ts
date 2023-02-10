@@ -47,7 +47,7 @@ function createCardT(course) {
                     return `<option value="">${cls}</option>`;
                   })}
                 </select>`
-             : `<select name='' id='' class='full-width disabled'>
+             : `<select name='' id='' class='full-width disabled' disabled>
                   <option value="" disabled selected>No Classes</option>
                 </select>`
          }
@@ -73,22 +73,22 @@ function createCardT(course) {
     <div class="hl"></div>
     <div class="course-card-bottom">
       <button aria-label="preview" ${
-        course.disabledButton[0] ? `class="disabled"` : ""
+        course.disabledButton[0] ? `class="disabled" disabled` : ""
       }>
         <img class="preview" src="./assets/icons/preview.svg" alt="" />
       </button>
       <button aria-label="manage course" ${
-        course.disabledButton[1] ? `class="disabled"` : ""
+        course.disabledButton[1] ? `class="disabled" disabled` : ""
       }>
         <img class="manage-course" src="./assets/icons/manage course.svg" alt="" />
       </button>
       <button aria-label="grade submission" ${
-        course.disabledButton[2] ? `class="disabled"` : ""
+        course.disabledButton[2] ? `class="disabled" disabled` : ""
       }>
         <img class="grade-submission" src="./assets/icons/grade submissions.svg" alt="" />
       </button>
       <button aria-label="reports" ${
-        course.disabledButton[3] ? `class="disabled"` : ""
+        course.disabledButton[3] ? `class="disabled" disabled` : ""
       }>
         <img class="reports" src="./assets/icons/reports.svg" alt="" />
       </button>

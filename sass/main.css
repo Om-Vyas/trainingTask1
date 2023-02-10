@@ -18,11 +18,8 @@ select, .sortmenu div .sortby .sort-select {
   0% {
     transform: translateY(0%) scaleY(1);
   }
-  99% {
-    transform: translateY(-50%) scaleY(0);
-  }
   100% {
-    display: none;
+    transform: translateY(-50%) scaleY(0);
   }
 }
 .container {
@@ -286,7 +283,9 @@ select, .sortmenu div .sortby .sort-select {
   background-position: 105%;
 }
 .sortmenu div .up-icon {
+  min-width: 12px;
   width: 12px;
+  min-height: 24px;
   height: 24px;
   -o-object-fit: contain;
      object-fit: contain;
@@ -299,7 +298,8 @@ select, .sortmenu div .sortby .sort-select {
   justify-content: center;
   flex-wrap: wrap;
   margin-bottom: 32px;
-  min-height: calc(100vh - 130px);
+  min-width: 100%;
+  width: 100%;
 }
 .course-main-col .course-card {
   max-width: 476px;
@@ -358,6 +358,7 @@ select, .sortmenu div .sortby .sort-select {
 }
 .course-main-col .course-card .star {
   position: absolute;
+  cursor: pointer;
   top: 24px;
   right: 24px;
 }
@@ -375,7 +376,9 @@ select, .sortmenu div .sortby .sort-select {
   display: flex;
 }
 .course-main-col .course-card .course-card-top .course-img {
+  min-width: 132px;
   width: 132px;
+  min-height: 157px;
   height: 157px;
   margin-right: 16px;
 }
@@ -386,7 +389,9 @@ select, .sortmenu div .sortby .sort-select {
 }
 @media (max-width: 350px) {
   .course-main-col .course-card .course-card-top .course-img {
+    min-width: 80px;
     width: 80px;
+    min-height: 100px;
     height: 100px;
   }
 }
@@ -482,11 +487,13 @@ select, .sortmenu div .sortby .sort-select {
   width: 100%;
 }
 .course-main-col .course-card .course-card-top .course-info .course-classes select, .course-main-col .course-card .course-card-top .course-info .course-classes .sortmenu div .sortby .sort-select, .sortmenu div .sortby .course-main-col .course-card .course-card-top .course-info .course-classes .sort-select {
+  background-color: #fff;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
   font-family: Quicksand;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.38);
 }
 @media (max-width: 350px) {
   .course-main-col .course-card .course-card-top .course-info .course-classes select, .course-main-col .course-card .course-card-top .course-info .course-classes .sortmenu div .sortby .sort-select, .sortmenu div .sortby .course-main-col .course-card .course-card-top .course-info .course-classes .sort-select {
@@ -497,6 +504,9 @@ select, .sortmenu div .sortby .sort-select {
     font-family: Quicksand;
     padding: 0px;
   }
+}
+.course-main-col .course-card .course-card-top .course-info .course-classes .disabled {
+  cursor: auto;
 }
 .course-main-col .course-card .course-card-top .course-info .course-classes .full-width {
   width: 100%;
@@ -544,6 +554,8 @@ select, .sortmenu div .sortby .sort-select {
 }
 .course-main-col .course-card .course-card-bottom .disabled {
   opacity: 0.4;
+}
+.course-main-col .course-card .course-card-bottom .disabled img {
   cursor: auto;
 }
 
@@ -808,6 +820,7 @@ input[type=text], input[type=password] {
   background: transparent;
   border: none;
   position: relative;
+  display: inline-block;
 }
 .navbar .nav-icons .nav-icon-item .nav-icon:focus {
   outline: 1px solid #DFF0D8;
@@ -988,7 +1001,7 @@ input[type=text], input[type=password] {
 }
 @media (max-width: 580px) {
   .navbar .nav-icons .announcements-icon-item .announcements .announcement-number {
-    right: -6px;
+    right: -10px;
   }
 }
 .navbar .nav-icons .announcements-icon-item .announcements .hide {
@@ -1186,11 +1199,17 @@ input[type=text], input[type=password] {
 }
 @media (max-width: 580px) {
   .navbar .nav-icons .avatar-icon-item .avatar .avatar-number {
-    right: 2px;
+    right: -5px;
   }
 }
 .navbar .nav-icons .ham-icon-item {
   padding: 19px 10px;
+  display: none;
+}
+@media (max-width: 980px) {
+  .navbar .nav-icons .ham-icon-item {
+    display: block;
+  }
 }
 @media (max-width: 580px) {
   .navbar .nav-icons .ham-icon-item {
@@ -1199,7 +1218,7 @@ input[type=text], input[type=password] {
   }
 }
 .navbar .nav-icons .ham-icon-item .ham-icon {
-  display: none;
+  cursor: pointer;
   border: none;
   background-color: transparent;
 }
