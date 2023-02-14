@@ -1,15 +1,9 @@
-@import "../components/select";
-@import "../utils/_mixin.scss";
-@import "../utils/variables";
-
 .topbar{
     height: 64px;
     max-width: 100%;
     @include flex(row,space-evenly,start);
     background: $topbarBackground;
-    //footer bottom
     margin: 24px 24px 0px;
-    //
 
     .icon-card{
         cursor: pointer;
@@ -25,18 +19,15 @@
         border:none;
         @include flex(row,center,center);
         font-size: 16px;
-
         &:focus{
             outline: auto;
         }
-
         .icon{
             width: 21px;
             height: 32px;
             object-fit: cover;
             margin-right: 8px;
         }
-
         .icon-number{
             font-size: 24px;
             font-weight: bold;
@@ -48,18 +39,15 @@
         border-bottom: 4px solid black;
     }
 }
-
 .sortmenu{
     max-width: 100%;
     height: 45px;
     @include flex(row,space-between,center);
     margin: 26px 24px 16px;
     border-bottom: 1px solid rgba(0,0,0,0.12);
-
     @include forTablet{
         margin: 26px 24px 24px; 
     }
-
     p{
         font-size: 12px;
         color: $sortMenuParagraph;
@@ -68,7 +56,6 @@
             font-size: 10px;
         }
     }
-
     div{
         @include flex(row,end,start);
         width: 253px;
@@ -76,19 +63,16 @@
         @include forPhone{
             width: fit-content;
         }
-
         .sortby{
             @include flex(row,center,center);
             margin: 0px 24px 0px 0px;
             @include forPhone{
                 margin: 0px 10px 0px 0px;
             }
-            // width: 165px;
             p{
                 width: 45px;
                 margin-right: 5px;
             }
-
             .sort-select{
                 &:focus{
                     outline: 1px solid $outlineColor
@@ -98,8 +82,7 @@
                 width: 165px;
                 color: $dashboardSelectText;
                 padding: 0px;
-                @include setFont(normal,500,16px,20px,Quicksand);
-                
+                @include setFont(normal,500,16px,20px,Quicksand); 
                 cursor: pointer;
                 @include forPhone{
                     @include setFont(normal,500,12px,20px,Quicksand);
@@ -119,13 +102,7 @@
         }
     }
 }
-
-//.course-container{
-    // display: grid;
-    // grid-template-columns: 24px 1fr 24px;
-
     .course-main-col{
-        // grid-column: 2 / span 1;
         display: flex;
         gap:24px;
         padding: 0px 24px;
@@ -136,46 +113,32 @@
         min-width: 100%;
         width: 100%;
         //
-
         .course-card{
             max-width: 476px;
             width: 476px;
             height: 246px;
-            // flex-grow: 1;
-            flex-shrink: 1;
             flex-basis: 476px;
             background-color: $courseCardBack;
             border-radius: 2px;
             padding: 24px 24px 0 24px;
             position: relative;
-
             @include forTablet{
                 flex-grow: 1;
                 max-width: 571px;
             }
-            
             @include forPhoneXl{
                 width: 377px;
-                
                 padding: 5px 5px 0px;
             }
-
             @include forPhone{
                 width: 327px;
                 height: 230px;
             }
-
             @include forPhoneXs{
                 width: 272px;
                 padding: 3px 3px 3px;
                 height: 170px;
             }
-
-            &:last-child{
-                margin-right: 0px;
-            }
-            
-        
             .expired{
                 width: 52px;
                 height: 18px;
@@ -188,7 +151,6 @@
                 left:0px;
                 text-align: center;
             }
-    
             .star{
                 position: absolute;
                 cursor: pointer;
@@ -203,10 +165,8 @@
                     height: 24px;
                 }
             }
-    
             .course-card-top{
                 display: flex;
-    
                 .course-img{
                     min-width: 132px;
                     width: 132px;
@@ -223,10 +183,8 @@
                         height: 100px;
                     }
                 }
-    
                 .course-info{
                     width: 100%;
-    
                     .course-title{
                         width: 90%;
                         color: $courseTitle;
@@ -234,25 +192,19 @@
                         @include setFont(normal,500,16px,20px,Quicksand);
                         max-height: 40px;
                         overflow: hidden;
-
                         @include forPhoneXs{
                             margin: 0px;
-                        }
-                        
+                        } 
                     }
-    
                     .course-sg,.course-unit-info,.course-student{
                         @include setFont(normal,500,12px,16px,Quicksand);
                         @include flex(row,start,center);
                         margin: 8px 0;
-
                         @include forPhoneXs{
                             @include setFont(normal,500,10px,14px,Quicksand);
                             margin: 2px 0;
                         }
-
                     }
-    
                     .course-sg{
                         color: $courseSubjectGrade;
                         .line{
@@ -260,8 +212,7 @@
                         }
                         .text-green{
                             color: $formComponentColor;
-                        }
-                        
+                        }   
                     }
                     .course-unit-info{
                         font-weight: 700;
@@ -269,7 +220,6 @@
                             color: $courseSubjectGrade;
                             display: inline-block;
                             margin: 0 8px 0 3px;
-    
                             @include forPhoneXs{
                                 margin: 0px 2px  0 2px;
                             }
@@ -306,34 +256,28 @@
                             color: #222222;
                             opacity: 0.4;
                         }
-                        
                     }
                 }
             }
-    
             .hl{
                 height: 1px;
                 width: 100%;
                 background-color: rgba(0, 0, 0, 0.12);
                 margin: 16px 0px;
-
                 @include forPhoneXs{
                     margin: 12px 0;
                 }
             }
-    
             .course-card-bottom{
                 width: 100%;
                 height: 24px;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                padding: 0 24px;
-                
+                padding: 0 24px;    
                 button{
                     width: 24px;
-                    object-fit: contain;
-                    
+                    object-fit: contain;  
                     background-color: $courseCardBack;
                     border: none;
                     img{
@@ -348,7 +292,6 @@
                         height: 20px;
                     }
                 }
-
                 .disabled{
                     opacity: 0.4;
                     img{
@@ -358,16 +301,3 @@
             }
         }
     }
-    
-
-    
-//}
-
-
-
-
-
-
-
-
-

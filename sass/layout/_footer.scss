@@ -1,9 +1,6 @@
-@import "../utils/mixin";
-@import "../utils/variables";
 footer{
-    //for footer
     margin-top: auto;
-    //
+    width: 100%;
     .footer-top{
         margin-bottom: 16px;
         p{
@@ -25,7 +22,6 @@ footer{
         width: 100%;
         background: $footerBackgroundColor;
         @include flex(row,center,center);
-
         .footer-logo{
             width: 90px;
             height: 24px;
@@ -38,6 +34,9 @@ footer{
             display: flex;
             flex-wrap: wrap;
             color: $footerTextColor;
+            @include forPhoneXl{
+                flex-direction: column;
+            }
             .footer-data{
                 margin-right: 10px;
                 font-size: 12px;

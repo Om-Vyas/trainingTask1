@@ -1,7 +1,5 @@
 //=======================Render Course cards==================
-
 //===================This is for creating card element
-
 function createCardT(course) {
   let cardHTML = `
     ${
@@ -99,15 +97,14 @@ function createCardT(course) {
   card.innerHTML = cardHTML;
   return card;
 }
-
 //=================This is for appending all the cards to it's container
-
 async function cardsT() {
   //fetch data
-  let coursedata = await fetch("/data/courseData.json")
-    .then((response) => response.json())
-    .then((data) => data);
+  let response = await fetch("/data/courseData.json");
+  return await response.json();
+}
 
+cardsT().then((coursedata) => {
   //render cards using for loops
   const container = document.querySelector(
     ".course-main-col"
@@ -115,8 +112,124 @@ async function cardsT() {
   for (let course of coursedata) {
     container.appendChild(createCardT(course));
   }
-}
-cardsT();
+});
+
+//=======================Alerts==============================
+const alertBtn = document.querySelector(
+  ".alerts-icon-item"
+) as HTMLButtonElement;
+const bellIcon = document.querySelector(
+  ".alert-image-background"
+) as HTMLDivElement;
+const alertBadge = document.querySelector(".alert-number") as HTMLSpanElement;
+const alertsContainer = document.querySelector(
+  ".alerts-container"
+) as HTMLDivElement;
+
+//For laptops
+const alertsOpen = () => {
+  if (window.innerWidth > 800) {
+    alertsContainer.classList.remove("close");
+    alertsContainer.style.animation = "menuOpen 300ms";
+    alertBadge.classList.add("hide");
+    bellIcon.classList.add("icon-active");
+  }
+};
+const alertsClose = () => {
+  if (window.innerWidth > 800) {
+    bellIcon.classList.remove("icon-active");
+    alertBadge.classList.remove("hide");
+    alertsContainer.style.animation = "menuClose 300ms";
+    setTimeout(() => {
+      alertsContainer.classList.add("close");
+    }, 280);
+  }
+};
+alertBtn.addEventListener("mouseenter", alertsOpen);
+alertBtn.addEventListener("mouseleave", alertsClose);
+
+//for mobile
+const alertToggle = () => {
+  //when alert is clicked -> if announcements are open then close it
+  // if (!announcementsContainer.classList.contains("close")) {
+  //   announcementsToggle();
+  // }
+  if (window.innerWidth < 800) {
+    if (alertsContainer.classList.contains("close")) {
+      alertsContainer.classList.remove("close");
+      bellIcon.classList.add("icon-active");
+      alertBadge.classList.add("hide");
+      alertsContainer.style.animation = "menuOpen 300ms";
+    } else if (!alertsContainer.classList.contains("close")) {
+      alertsContainer.style.animation = "menuClose 300ms";
+      bellIcon.classList.remove("icon-active");
+      alertBadge.classList.remove("hide");
+      setTimeout(() => {
+        alertsContainer.classList.add("close");
+      }, 280);
+    }
+  }
+};
+alertBtn.addEventListener("click", alertToggle);
+
+//===========================Announcements============================
+
+const announcementBtn = document.querySelector(
+  ".announcements-icon-item"
+) as HTMLButtonElement;
+const announcementIcon = document.querySelector(
+  ".announcements-image-background"
+) as HTMLDivElement;
+const announcementBadge = document.querySelector(
+  ".announcement-number"
+) as HTMLSpanElement;
+const announcementsContainer = document.querySelector(
+  ".announcements-container"
+) as HTMLDivElement;
+//For laptop
+const announcementsOpen = () => {
+  if (window.innerWidth > 800) {
+    announcementsContainer.classList.remove("close");
+    announcementsContainer.style.animation = "menuOpen 300ms";
+    announcementBadge.classList.add("hide");
+    announcementIcon.classList.add("icon-active");
+  }
+};
+const announcementsClose = () => {
+  if (window.innerWidth > 800) {
+    announcementIcon.classList.remove("icon-active");
+    announcementBadge.classList.remove("hide");
+    announcementsContainer.style.animation = "menuClose 300ms";
+    setTimeout(() => {
+      announcementsContainer.classList.add("close");
+    }, 280);
+  }
+};
+announcementBtn.addEventListener("mouseenter", announcementsOpen);
+announcementBtn.addEventListener("mouseleave", announcementsClose);
+//for mobile
+const announcementsToggle = () => {
+  //when announcements is clicked -> if alerts is open then close it
+  // if (!alertsContainer.classList.contains("close")) {
+  //   alertToggle();
+  // }
+  if (window.innerWidth < 800) {
+    if (announcementsContainer.classList.contains("close")) {
+      announcementsContainer.classList.remove("close");
+      announcementIcon.classList.add("icon-active");
+      announcementBadge.classList.add("hide");
+      announcementsContainer.style.animation = "menuOpen 300ms";
+    } else if (!announcementsContainer.classList.contains("close")) {
+      announcementsContainer.style.animation = "menuClose 300ms";
+      announcementIcon.classList.remove("icon-active");
+      announcementBadge.classList.remove("hide");
+      setTimeout(() => {
+        announcementsContainer.classList.add("close");
+      }, 280);
+    }
+  }
+};
+announcementBtn.addEventListener("click", announcementsToggle);
 
 //====================Hamburger menu=======================
 
@@ -140,6 +253,8 @@ const hamburgerToggle = () => {
           const subnav = prevNavItem.querySelector(".subnav") as HTMLDivElement;
           //close the subnav
           subnav.classList.add("close");
+          //remove upside down from button
+          document.querySelector(".upsidedown")?.classList.remove("upsidedown");
           //remove active tag from pre-active-NavItem
           prevNavItem?.classList.remove("active-navitem");
         }
@@ -219,113 +334,3 @@ const submenuToggle = (obj, val) => {
     }
   }
 };
-
-//=======================Alerts==============================
-
-const alertBtn = document.querySelector(
-  ".alerts-icon-item"
-) as HTMLButtonElement;
-const bellIcon = document.querySelector(
-  ".alert-image-background"
-) as HTMLDivElement;
-const alertBadge = document.querySelector(".alert-number") as HTMLSpanElement;
-const alertsContainer = document.querySelector(
-  ".alerts-container"
-) as HTMLDivElement;
-
-//For laptops
-const alertsOpen = () => {
-  if (window.innerWidth > 800) {
-    alertsContainer.classList.remove("close");
-    alertsContainer.style.animation = "menuOpen 300ms";
-    alertBadge.classList.add("hide");
-    bellIcon.classList.add("icon-active");
-  }
-};
-const alertsClose = () => {
-  if (window.innerWidth > 800) {
-    bellIcon.classList.remove("icon-active");
-    alertBadge.classList.remove("hide");
-    alertsContainer.style.animation = "menuClose 300ms";
-    setTimeout(() => {
-      alertsContainer.classList.add("close");
-    }, 280);
-  }
-};
-alertBtn.addEventListener("mouseenter", alertsOpen);
-alertBtn.addEventListener("mouseleave", alertsClose);
-
-//for mobile
-const alertToggle = () => {
-  if (window.innerWidth < 800) {
-    if (alertsContainer.classList.contains("close")) {
-      alertsContainer.classList.remove("close");
-      bellIcon.classList.add("icon-active");
-      alertBadge.classList.add("hide");
-      alertsContainer.style.animation = "menuOpen 300ms";
-    } else if (!alertsContainer.classList.contains("close")) {
-      alertsContainer.style.animation = "menuClose 300ms";
-      bellIcon.classList.remove("icon-active");
-      alertBadge.classList.remove("hide");
-      setTimeout(() => {
-        alertsContainer.classList.add("close");
-      }, 280);
-    }
-  }
-};
-alertBtn.addEventListener("click", alertToggle);
-
-//===========================Announcements============================
-
-const announcementBtn = document.querySelector(
-  ".announcements-icon-item"
-) as HTMLButtonElement;
-const announcementIcon = document.querySelector(
-  ".announcements-image-background"
-) as HTMLDivElement;
-const announcementBadge = document.querySelector(
-  ".announcement-number"
-) as HTMLSpanElement;
-const announcementsContainer = document.querySelector(
-  ".announcements-container"
-) as HTMLDivElement;
-//For laptop
-const announcementsOpen = () => {
-  if (window.innerWidth > 800) {
-    announcementsContainer.classList.remove("close");
-    announcementsContainer.style.animation = "menuOpen 300ms";
-    announcementBadge.classList.add("hide");
-    announcementIcon.classList.add("icon-active");
-  }
-};
-const announcementsClose = () => {
-  if (window.innerWidth > 800) {
-    announcementIcon.classList.remove("icon-active");
-    announcementBadge.classList.remove("hide");
-    announcementsContainer.style.animation = "menuClose 300ms";
-    setTimeout(() => {
-      announcementsContainer.classList.add("close");
-    }, 280);
-  }
-};
-announcementBtn.addEventListener("mouseenter", announcementsOpen);
-announcementBtn.addEventListener("mouseleave", announcementsClose);
-//for mobile
-const announcementsToggle = () => {
-  if (window.innerWidth < 800) {
-    if (announcementsContainer.classList.contains("close")) {
-      announcementsContainer.classList.remove("close");
-      announcementIcon.classList.add("icon-active");
-      announcementBadge.classList.add("hide");
-      announcementsContainer.style.animation = "menuOpen 300ms";
-    } else if (!announcementsContainer.classList.contains("close")) {
-      announcementsContainer.style.animation = "menuClose 300ms";
-      announcementIcon.classList.remove("icon-active");
-      announcementBadge.classList.remove("hide");
-      setTimeout(() => {
-        announcementsContainer.classList.add("close");
-      }, 280);
-    }
-  }
-};
-announcementBtn.addEventListener("click", announcementsToggle);

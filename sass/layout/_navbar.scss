@@ -5,29 +5,24 @@
     box-sizing: content-box;
     border-bottom: 2px solid $navbarBottomBorder;
     position: relative;
-    display: flex;
     @include flex(row,start,center);
-
     .demo-bg {
         position: absolute;
         left: 0;
         top: 0;
         width: 100%;
         height: 56px;
-        background: transparent url('../../assets/header_image.png') 0% 0% no-repeat padding-box;
+        background: transparent url('/assets/header_image.png') 0% 0% no-repeat padding-box;
         mix-blend-mode: overlay;
         opacity: 0.8;
-      }
-
+    }
     .main-logo{
         width: 134px;
         height: 36px;
         margin: 10px auto 10px 24px;
         z-index: 5;
     }
-
     //=========================Navbar================
-
     .navbar-nav{
         @include flex(row,center,center);
         @include forTablet{
@@ -110,15 +105,18 @@
         }
         .active-white{
             border-bottom: 4px solid white;
-            a{
-                color: white ;
+            .subnav-header{
+                a{
+                    color: white ;
+                }
+                @include forTablet{
+                    a{
+                        color: $verticalNavbarText;
+                    }
+                }
             }
-
             @include forTablet{
                 border: none;
-                a{
-                    color: $verticalNavbarText;
-                }
             }
         }
         .active-navitem{
@@ -130,7 +128,6 @@
     .expand{
         display: flex;
     }
-
     //===========================SUb-NAVBAR=========
     .subnav{
         display: none;
@@ -153,8 +150,6 @@
     .close{
         display: none;
     }
-    
-
     //====================NAV ICONS=======================
     .nav-icons{
         @include flex(row,center,start);
@@ -163,7 +158,6 @@
         @include forPhone{
             margin-right: 0px;
         }
-
         //===================Genral Icons CSS====================
         .nav-icon-item{
             height: 56px;
@@ -193,18 +187,22 @@
                     border-radius: 50%;
                     text-align: center;
                     position: absolute;
-                }   
-            }           
+                    z-index: 10;
+                } 
+                .hide{
+                    display: none;
+                }  
+            } 
+            .close{
+                display: none;
+            }          
         }  
-        
          //====================Alerts============================
-         .alerts-icon-item{
+        .alerts-icon-item{
             .alerts{
-                // z-index: 99;
                 .alert-image{
                     padding: 16px 0px;
                     .alert-image-background{
-                        // cursor: pointer;
                         width: 21px;
                         height: 24px;
                         mask: url("/assets/icons/alerts.svg");
@@ -219,10 +217,6 @@
                 .alert-number{
                     top: 9px;
                     right: -7px;
-                    z-index: 10;
-                }
-                .hide{
-                    display: none;
                 }
             }
             .alerts-container{
@@ -311,12 +305,8 @@
                     box-shadow: 0px 1px 6px #0000003D;
                     border-radius: 0px 0px 2px 2px;
                 }
-            }
-            .close{
-                display: none;
-            }
-         }
-        
+            } 
+        }
         //====================Announcements=====================
         .announcements-icon-item{
             .announcements{
@@ -343,9 +333,6 @@
                     @include forPhoneXl{
                         right:-10px;
                     }
-                }
-                .hide{
-                    display: none;
                 }
             }
             .announcements-container{
@@ -467,11 +454,7 @@
     
                 }
             }
-            .close{
-                display: none;
-            }
-        }
-        
+        } 
         //====================Avatar============================
         .avatar-icon-item{
             padding: 0px 12px;
@@ -504,8 +487,7 @@
                 }
             }
     
-        }
-        
+        }   
         //====================Hamburger Icon====================
         .ham-icon-item{
             padding: 19px 10px ;
@@ -536,4 +518,3 @@
         }  
     }
 }
-

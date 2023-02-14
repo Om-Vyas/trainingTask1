@@ -1,10 +1,7 @@
-@import "../utils/mixin";
-@import "../utils/variables";
 input[type="text"],input[type="password"]{
     width: 100%;
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
     @include setFont(normal,500,16px,20px,'Quicksand');
     padding-bottom: 5px;
-    
 }

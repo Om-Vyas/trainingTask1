@@ -1,4 +1,3 @@
-//=======================Render Course cards==================
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -35,6 +34,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+//=======================Render Course cards==================
 //===================This is for creating card element
 function createCardT(course) {
     var cardHTML = "\n    ".concat(course.star
@@ -62,25 +62,126 @@ function createCardT(course) {
 //=================This is for appending all the cards to it's container
 function cardsT() {
     return __awaiter(this, void 0, void 0, function () {
-        var coursedata, container, _i, coursedata_1, course;
+        var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, fetch("/data/courseData.json")
-                        .then(function (response) { return response.json(); })
-                        .then(function (data) { return data; })];
+                case 0: return [4 /*yield*/, fetch("/data/courseData.json")];
                 case 1:
-                    coursedata = _a.sent();
-                    container = document.querySelector(".course-main-col");
-                    for (_i = 0, coursedata_1 = coursedata; _i < coursedata_1.length; _i++) {
-                        course = coursedata_1[_i];
-                        container.appendChild(createCardT(course));
-                    }
-                    return [2 /*return*/];
+                    response = _a.sent();
+                    return [4 /*yield*/, response.json()];
+                case 2: return [2 /*return*/, _a.sent()];
             }
         });
     });
 }
-cardsT();
+cardsT().then(function (coursedata) {
+    //render cards using for loops
+    var container = document.querySelector(".course-main-col");
+    for (var _i = 0, coursedata_1 = coursedata; _i < coursedata_1.length; _i++) {
+        var course = coursedata_1[_i];
+        container.appendChild(createCardT(course));
+    }
+});
+//=======================Alerts==============================
+var alertBtn = document.querySelector(".alerts-icon-item");
+var bellIcon = document.querySelector(".alert-image-background");
+var alertBadge = document.querySelector(".alert-number");
+var alertsContainer = document.querySelector(".alerts-container");
+//For laptops
+var alertsOpen = function () {
+    if (window.innerWidth > 800) {
+        alertsContainer.classList.remove("close");
+        alertsContainer.style.animation = "menuOpen 300ms";
+        alertBadge.classList.add("hide");
+        bellIcon.classList.add("icon-active");
+    }
+};
+var alertsClose = function () {
+    if (window.innerWidth > 800) {
+        bellIcon.classList.remove("icon-active");
+        alertBadge.classList.remove("hide");
+        alertsContainer.style.animation = "menuClose 300ms";
+        setTimeout(function () {
+            alertsContainer.classList.add("close");
+        }, 280);
+    }
+};
+alertBtn.addEventListener("mouseenter", alertsOpen);
+alertBtn.addEventListener("mouseleave", alertsClose);
+//for mobile
+var alertToggle = function () {
+    //when alert is clicked -> if announcements are open then close it
+    // if (!announcementsContainer.classList.contains("close")) {
+    //   announcementsToggle();
+    // }
+    if (window.innerWidth < 800) {
+        if (alertsContainer.classList.contains("close")) {
+            alertsContainer.classList.remove("close");
+            bellIcon.classList.add("icon-active");
+            alertBadge.classList.add("hide");
+            alertsContainer.style.animation = "menuOpen 300ms";
+        }
+        else if (!alertsContainer.classList.contains("close")) {
+            alertsContainer.style.animation = "menuClose 300ms";
+            bellIcon.classList.remove("icon-active");
+            alertBadge.classList.remove("hide");
+            setTimeout(function () {
+                alertsContainer.classList.add("close");
+            }, 280);
+        }
+    }
+};
+alertBtn.addEventListener("click", alertToggle);
+//===========================Announcements============================
+var announcementBtn = document.querySelector(".announcements-icon-item");
+var announcementIcon = document.querySelector(".announcements-image-background");
+var announcementBadge = document.querySelector(".announcement-number");
+var announcementsContainer = document.querySelector(".announcements-container");
+//For laptop
+var announcementsOpen = function () {
+    if (window.innerWidth > 800) {
+        announcementsContainer.classList.remove("close");
+        announcementsContainer.style.animation = "menuOpen 300ms";
+        announcementBadge.classList.add("hide");
+        announcementIcon.classList.add("icon-active");
+    }
+};
+var announcementsClose = function () {
+    if (window.innerWidth > 800) {
+        announcementIcon.classList.remove("icon-active");
+        announcementBadge.classList.remove("hide");
+        announcementsContainer.style.animation = "menuClose 300ms";
+        setTimeout(function () {
+            announcementsContainer.classList.add("close");
+        }, 280);
+    }
+};
+announcementBtn.addEventListener("mouseenter", announcementsOpen);
+announcementBtn.addEventListener("mouseleave", announcementsClose);
+//for mobile
+var announcementsToggle = function () {
+    //when announcements is clicked -> if alerts is open then close it
+    // if (!alertsContainer.classList.contains("close")) {
+    //   alertToggle();
+    // }
+    if (window.innerWidth < 800) {
+        if (announcementsContainer.classList.contains("close")) {
+            announcementsContainer.classList.remove("close");
+            announcementIcon.classList.add("icon-active");
+            announcementBadge.classList.add("hide");
+            announcementsContainer.style.animation = "menuOpen 300ms";
+        }
+        else if (!announcementsContainer.classList.contains("close")) {
+            announcementsContainer.style.animation = "menuClose 300ms";
+            announcementIcon.classList.remove("icon-active");
+            announcementBadge.classList.remove("hide");
+            setTimeout(function () {
+                announcementsContainer.classList.add("close");
+            }, 280);
+        }
+    }
+};
+announcementBtn.addEventListener("click", announcementsToggle);
 //====================Hamburger menu=======================
 var btnT = document.querySelector(".ham-icon");
 var navbarT = document.querySelector(".navbar-nav");
@@ -91,6 +192,7 @@ var hamburgerToggle = function () {
             navbarT.style.animation = "menuClose 300ms";
             hamIcon.classList.remove("icon-active");
             setTimeout(function () {
+                var _a;
                 navbarT.classList.remove("expand");
                 navbarT.style.animation = "";
                 //when menu is closed -> close the previous active sub nav
@@ -99,6 +201,8 @@ var hamburgerToggle = function () {
                     var subnav = prevNavItem.querySelector(".subnav");
                     //close the subnav
                     subnav.classList.add("close");
+                    //remove upside down from button
+                    (_a = document.querySelector(".upsidedown")) === null || _a === void 0 ? void 0 : _a.classList.remove("upsidedown");
                     //remove active tag from pre-active-NavItem
                     prevNavItem === null || prevNavItem === void 0 ? void 0 : prevNavItem.classList.remove("active-navitem");
                 }
@@ -174,95 +278,3 @@ var submenuToggle = function (obj, val) {
         }
     }
 };
-//=======================Alerts==============================
-var alertBtn = document.querySelector(".alerts-icon-item");
-var bellIcon = document.querySelector(".alert-image-background");
-var alertBadge = document.querySelector(".alert-number");
-var alertsContainer = document.querySelector(".alerts-container");
-//For laptops
-var alertsOpen = function () {
-    if (window.innerWidth > 800) {
-        alertsContainer.classList.remove("close");
-        alertsContainer.style.animation = "menuOpen 300ms";
-        alertBadge.classList.add("hide");
-        bellIcon.classList.add("icon-active");
-    }
-};
-var alertsClose = function () {
-    if (window.innerWidth > 800) {
-        bellIcon.classList.remove("icon-active");
-        alertBadge.classList.remove("hide");
-        alertsContainer.style.animation = "menuClose 300ms";
-        setTimeout(function () {
-            alertsContainer.classList.add("close");
-        }, 280);
-    }
-};
-alertBtn.addEventListener("mouseenter", alertsOpen);
-alertBtn.addEventListener("mouseleave", alertsClose);
-//for mobile
-var alertToggle = function () {
-    if (window.innerWidth < 800) {
-        if (alertsContainer.classList.contains("close")) {
-            alertsContainer.classList.remove("close");
-            bellIcon.classList.add("icon-active");
-            alertBadge.classList.add("hide");
-            alertsContainer.style.animation = "menuOpen 300ms";
-        }
-        else if (!alertsContainer.classList.contains("close")) {
-            alertsContainer.style.animation = "menuClose 300ms";
-            bellIcon.classList.remove("icon-active");
-            alertBadge.classList.remove("hide");
-            setTimeout(function () {
-                alertsContainer.classList.add("close");
-            }, 280);
-        }
-    }
-};
-alertBtn.addEventListener("click", alertToggle);
-//===========================Announcements============================
-var announcementBtn = document.querySelector(".announcements-icon-item");
-var announcementIcon = document.querySelector(".announcements-image-background");
-var announcementBadge = document.querySelector(".announcement-number");
-var announcementsContainer = document.querySelector(".announcements-container");
-//For laptop
-var announcementsOpen = function () {
-    if (window.innerWidth > 800) {
-        announcementsContainer.classList.remove("close");
-        announcementsContainer.style.animation = "menuOpen 300ms";
-        announcementBadge.classList.add("hide");
-        announcementIcon.classList.add("icon-active");
-    }
-};
-var announcementsClose = function () {
-    if (window.innerWidth > 800) {
-        announcementIcon.classList.remove("icon-active");
-        announcementBadge.classList.remove("hide");
-        announcementsContainer.style.animation = "menuClose 300ms";
-        setTimeout(function () {
-            announcementsContainer.classList.add("close");
-        }, 280);
-    }
-};
-announcementBtn.addEventListener("mouseenter", announcementsOpen);
-announcementBtn.addEventListener("mouseleave", announcementsClose);
-//for mobile
-var announcementsToggle = function () {
-    if (window.innerWidth < 800) {
-        if (announcementsContainer.classList.contains("close")) {
-            announcementsContainer.classList.remove("close");
-            announcementIcon.classList.add("icon-active");
-            announcementBadge.classList.add("hide");
-            announcementsContainer.style.animation = "menuOpen 300ms";
-        }
-        else if (!announcementsContainer.classList.contains("close")) {
-            announcementsContainer.style.animation = "menuClose 300ms";
-            announcementIcon.classList.remove("icon-active");
-            announcementBadge.classList.remove("hide");
-            setTimeout(function () {
-                announcementsContainer.classList.add("close");
-            }, 280);
-        }
-    }
-};
-announcementBtn.addEventListener("click", announcementsToggle);

@@ -16,7 +16,7 @@
   },
   {
     "star": true,
-    "courseImage": "./assets/images/imageMask-2.svg",
+    "courseImage": "/assets/images/imageMask-2.svg",
     "courseTitle": "Displacement, Velocity and Speed",
     "courseSubject": "Physics",
     "courseGrade": ["Grade 6", "+3"],
@@ -28,7 +28,7 @@
   },
   {
     "star": true,
-    "courseImage": "./assets/images/imageMask-3.png",
+    "courseImage": "/assets/images/imageMask.svg",
     "courseTitle": "Introduction to Biology: Micro organisms and how they affect the other Life Systems in En...",
     "courseSubject": "Biology",
     "courseGrade": ["Grade 4", "+1"],
@@ -41,7 +41,7 @@
   {
     "star": false,
     "expired": true,
-    "courseImage": "./assets/images/imageMask-2.png",
+    "courseImage": "/assets/images/imageMask-3.svg",
     "courseTitle": "Introduction to Biology: Micro organisms and how they affect the other Life Systems in En...",
     "courseSubject": "Mathematics",
     "courseGrade": ["Grade 8", "+3"],

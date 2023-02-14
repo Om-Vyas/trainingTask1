@@ -83,7 +83,9 @@
 
         position: relative;
 
-        p{
+        a{
+            display: block;
+            width: 100%;
             font-size: 14px;
             color: $formComponentColor;
             text-align: end;
