@@ -24,7 +24,7 @@
         <!-- <img src="./assets/icons/back.svg" alt="" id="back" /> -->
       </button>
       <h1 class="form-header">Log in with Quantum</h1>
-      <form>
+      <form class="login-form">
         <div class="school-type">
           <div class="option">
             <input type="radio" name="school-type" id="district" />
@@ -54,13 +54,23 @@
         </div>
 
         <div class="name-pswd name">
-          <input type="text" placeholder="Username/Email ID*" />
+          <input name="username" type="text" placeholder="Username/Email ID*" />
           <a href="#">FORGOT USERNAME?</a>
         </div>
 
         <div class="name-pswd pswd">
-          <input class="password" type="password" placeholder="Password*" />
-          <img class="view-icon" src="./assets/icons/preview.svg" alt="" />
+          <input
+            name="userpswd"
+            class="password"
+            type="password"
+            placeholder="Password*"
+          />
+          <img
+            tabindex="0"
+            class="view-icon"
+            src="./assets/icons/preview.svg"
+            alt=""
+          />
           <a href="#">FORGOT PASSWORD?</a>
         </div>
 
@@ -95,6 +105,6 @@
         </div>
       </div>
     </footer>
-    <script src="./script/login.js"></script>
+    <script src="/typeScript/login.js"></script>
   </body>
 </html>

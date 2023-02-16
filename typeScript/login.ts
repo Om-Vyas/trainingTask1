@@ -16,3 +16,18 @@ const showHidePswdT = () => {
 };
 
 pswdIconT.addEventListener("click", showHidePswdT);
+
+//Redirect to dashboard page
+const loginForm = document.querySelector(".login-form") as HTMLFormElement;
+
+loginForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const username = loginForm.username.value.trim();
+  const userpswd = loginForm.userpswd.value.trim();
+  if (username === "admin" && userpswd === "admin") {
+    window.location.href = "/teacher-dashboard.html";
+    console.log("yes");
+  } else {
+    console.log("no");
+  }
+});

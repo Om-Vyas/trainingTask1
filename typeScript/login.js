@@ -15,3 +15,17 @@ var showHidePswdT = function () {
     }
 };
 pswdIconT.addEventListener("click", showHidePswdT);
+//Redirect to dashboard page
+var loginForm = document.querySelector(".login-form");
+loginForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var username = loginForm.username.value.trim();
+    var userpswd = loginForm.userpswd.value.trim();
+    if (username === "admin" && userpswd === "admin") {
+        window.location.href = "/teacher-dashboard.html";
+        console.log("yes");
+    }
+    else {
+        console.log("no");
+    }
+});

@@ -150,11 +150,14 @@ alertBtn.addEventListener("mouseleave", alertsClose);
 
 //for mobile
 const alertToggle = () => {
-  //when alert is clicked -> if announcements are open then close it
-  // if (!announcementsContainer.classList.contains("close")) {
-  //   announcementsToggle();
-  // }
   if (window.innerWidth < 800) {
+    //when alert is clicked -> if announcements are open then close it
+    if (!announcementsContainer.classList.contains("close")) {
+      announcementsToggle();
+    }
+    if (navbarT.classList.contains("expand")) {
+      hamburgerToggle();
+    }
     if (alertsContainer.classList.contains("close")) {
       alertsContainer.classList.remove("close");
       bellIcon.classList.add("icon-active");
@@ -209,11 +212,14 @@ announcementBtn.addEventListener("mouseenter", announcementsOpen);
 announcementBtn.addEventListener("mouseleave", announcementsClose);
 //for mobile
 const announcementsToggle = () => {
-  //when announcements is clicked -> if alerts is open then close it
-  // if (!alertsContainer.classList.contains("close")) {
-  //   alertToggle();
-  // }
   if (window.innerWidth < 800) {
+    //when announcements is clicked -> if alerts is open then close it
+    if (!alertsContainer.classList.contains("close")) {
+      alertToggle();
+    }
+    if (navbarT.classList.contains("expand")) {
+      hamburgerToggle();
+    }
     if (announcementsContainer.classList.contains("close")) {
       announcementsContainer.classList.remove("close");
       announcementIcon.classList.add("icon-active");
@@ -239,6 +245,12 @@ const hamIcon = document.querySelector(".ham-icon-image") as HTMLDivElement;
 
 const hamburgerToggle = () => {
   if (window.innerWidth < 981) {
+    if (!announcementsContainer.classList.contains("close")) {
+      announcementsToggle();
+    }
+    if (!alertsContainer.classList.contains("close")) {
+      alertToggle();
+    }
     if (document.querySelector("ul.expand")) {
       navbarT.style.animation = "menuClose 300ms";
       hamIcon.classList.remove("icon-active");
