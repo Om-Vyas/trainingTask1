@@ -26,7 +26,7 @@ loginForm.addEventListener("submit", (e) => {
   const userpswd = loginForm.userpswd.value.trim();
   if (username === "admin" && userpswd === "admin") {
     window.location.href = "/teacher-dashboard.html";
-    console.log("yes");
+    console.log("y");
   } else {
     console.log("no");
   }
